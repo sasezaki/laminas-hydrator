@@ -15,16 +15,6 @@ parameters:
 			path: src/HydratorPluginManagerFactory.php
 
 		-
-			message: "#^Interface Laminas\\\\Hydrator\\\\Iterator\\\\HydratingIteratorInterface extends generic interface Iterator but does not specify its types\\: TKey, TValue$#"
-			count: 1
-			path: src/Iterator/HydratingIteratorInterface.php
-
-		-
-			message: "#^Method Laminas\\\\Hydrator\\\\Iterator\\\\HydratingIteratorIterator\\:\\:__construct\\(\\) has parameter \\$data with no value type specified in iterable type Iterator\\.$#"
-			count: 1
-			path: src/Iterator/HydratingIteratorIterator.php
-
-		-
 			message: "#^Parameter \\#1 \\$property of method Laminas\\\\Hydrator\\\\Filter\\\\FilterInterface\\:\\:filter\\(\\) expects string, int\\|string given\\.$#"
 			count: 1
 			path: src/ObjectPropertyHydrator.php

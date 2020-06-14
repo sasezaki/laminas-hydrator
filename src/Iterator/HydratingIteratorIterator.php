@@ -19,6 +19,11 @@ use function class_exists;
 use function is_object;
 use function sprintf;
 
+/**
+ * @template TKey
+ * @template TValue
+ * @template-implements HydratingIteratorInterface<TKey, TValue>
+ */
 class HydratingIteratorIterator extends IteratorIterator implements HydratingIteratorInterface
 {
     /**
@@ -28,13 +33,15 @@ class HydratingIteratorIterator extends IteratorIterator implements HydratingIte
 
     /**
      * @var object
+     * @psalm-var TValue
      */
     protected $prototype;
 
     /**
      * @param HydratorInterface $hydrator
-     * @param Iterator $data
+     * @param Iterator<TKey,mixed> $data
      * @param string|object $prototype Object or class name to use for prototype.
+     * @psalm-param class-string<TValue>|TValue $prototype
      */
     public function __construct(HydratorInterface $hydrator, Iterator $data, $prototype)
     {
@@ -45,6 +52,7 @@ class HydratingIteratorIterator extends IteratorIterator implements HydratingIte
 
     /**
      * @inheritdoc
+     * @psalm-param class-string<TValue>|TValue $prototype
      *
      * @throws InvalidArgumentException if $prototype is a string, but refers to
      *     a non-existent class.
@@ -75,6 +83,7 @@ class HydratingIteratorIterator extends IteratorIterator implements HydratingIte
 
     /**
      * @return object Returns hydrated clone of $prototype
+     * @psalm-return TValue
      */
     public function current()
     {

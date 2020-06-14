@@ -13,11 +13,16 @@ namespace Laminas\Hydrator\Iterator;
 use ArrayIterator;
 use Laminas\Hydrator\HydratorInterface;
 
+/**
+ * @template TValue
+ * @template-extends HydratingIteratorIterator<mixed, TValue>
+ */
 class HydratingArrayIterator extends HydratingIteratorIterator
 {
     /**
      * @param mixed[]       $data Data being used to hydrate the $prototype
      * @param string|object $prototype Object, or class name to use for prototype.
+     * @psalm-param class-string<TValue>|TValue $prototype
      */
     public function __construct(HydratorInterface $hydrator, array $data, $prototype)
     {

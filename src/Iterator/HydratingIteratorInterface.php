@@ -13,6 +13,11 @@ namespace Laminas\Hydrator\Iterator;
 use Iterator;
 use Laminas\Hydrator\HydratorInterface;
 
+/**
+ * @template TKey
+ * @template TValue
+ * @template-extends \Iterator<TKey, TValue>
+ */
 interface HydratingIteratorInterface extends Iterator
 {
     /**
@@ -22,6 +27,7 @@ interface HydratingIteratorInterface extends Iterator
      * iteration will clone the object.
      *
      * @param string|object $prototype
+     * @psalm-param class-string<TValue>|TValue $prototype
      */
     public function setPrototype($prototype) : void;
 

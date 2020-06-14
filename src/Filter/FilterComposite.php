@@ -31,20 +31,20 @@ class FilterComposite implements FilterInterface
     public const CONDITION_AND = 2;
 
     /**
-     * @var ArrayObject<string, callable|FilterInterface>
+     * @var ArrayObject<string|int, callable|FilterInterface>
      */
     protected $andFilter;
 
     /**
-     * @var ArrayObject<string, callable|FilterInterface>
+     * @var ArrayObject<string|int, callable|FilterInterface>
      */
     protected $orFilter;
 
     /**
      * We can pass a list of OR/AND filters through construct
      *
-     * @param array<string, callable|FilterInterface> $orFilters
-     * @param array<string, callable|FilterInterface> $andFilters
+     * @param array<string|int, callable|FilterInterface> $orFilters
+     * @param array<string|int, callable|FilterInterface> $andFilters
      * @throws InvalidArgumentException
      */
     public function __construct(array $orFilters = [], array $andFilters = [])

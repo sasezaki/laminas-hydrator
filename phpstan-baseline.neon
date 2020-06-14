@@ -1,0 +1,127 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Method Laminas\\\\Hydrator\\\\AbstractHydrator\\:\\:hydrateValue\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/AbstractHydrator.php
+
+		-
+			message: "#^Property Laminas\\\\Hydrator\\\\Filter\\\\FilterComposite\\:\\:\\$andFilter with generic class ArrayObject does not specify its types\\: TKey, TValue$#"
+			count: 1
+			path: src/Filter/FilterComposite.php
+
+		-
+			message: "#^Property Laminas\\\\Hydrator\\\\Filter\\\\FilterComposite\\:\\:\\$orFilter with generic class ArrayObject does not specify its types\\: TKey, TValue$#"
+			count: 1
+			path: src/Filter/FilterComposite.php
+
+		-
+			message: "#^Instanceof between mixed and string\\|null results in an error\\.$#"
+			count: 1
+			path: src/HydratorPluginManager.php
+
+		-
+			message: "#^Method Laminas\\\\Hydrator\\\\HydratorPluginManagerFactory\\:\\:__invoke\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/HydratorPluginManagerFactory.php
+
+		-
+			message: "#^Interface Laminas\\\\Hydrator\\\\Iterator\\\\HydratingIteratorInterface extends generic interface Iterator but does not specify its types\\: TKey, TValue$#"
+			count: 1
+			path: src/Iterator/HydratingIteratorInterface.php
+
+		-
+			message: "#^Method Laminas\\\\Hydrator\\\\Iterator\\\\HydratingIteratorIterator\\:\\:__construct\\(\\) has parameter \\$data with no value type specified in iterable type Iterator\\.$#"
+			count: 1
+			path: src/Iterator/HydratingIteratorIterator.php
+
+		-
+			message: "#^Parameter \\#1 \\$property of method Laminas\\\\Hydrator\\\\Filter\\\\FilterInterface\\:\\:filter\\(\\) expects string, int\\|string given\\.$#"
+			count: 1
+			path: src/ObjectPropertyHydrator.php
+
+		-
+			message: "#^Parameter \\#1 \\$name of method Laminas\\\\Hydrator\\\\AbstractHydrator\\:\\:extractName\\(\\) expects string, int\\|string given\\.$#"
+			count: 1
+			path: src/ObjectPropertyHydrator.php
+
+		-
+			message: "#^Result of && is always false\\.$#"
+			count: 3
+			path: src/Strategy/BooleanStrategy.php
+
+		-
+			message: "#^Else branch is unreachable because ternary operator condition is always true\\.$#"
+			count: 4
+			path: src/Strategy/BooleanStrategy.php
+
+		-
+			message: "#^Method Laminas\\\\Hydrator\\\\Strategy\\\\BooleanStrategy\\:\\:hydrate\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Strategy/BooleanStrategy.php
+
+		-
+			message: "#^Method Laminas\\\\Hydrator\\\\Strategy\\\\ClosureStrategy\\:\\:hydrate\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Strategy/ClosureStrategy.php
+
+		-
+			message: "#^Else branch is unreachable because ternary operator condition is always true\\.$#"
+			count: 2
+			path: src/Strategy/CollectionStrategy.php
+
+		-
+			message: "#^Method Laminas\\\\Hydrator\\\\Strategy\\\\CollectionStrategy\\:\\:hydrate\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Strategy/CollectionStrategy.php
+
+		-
+			message: "#^Parameter \\#1 \\$argument of class ReflectionClass constructor expects class\\-string\\<T of object\\>\\|T of object, string given\\.$#"
+			count: 1
+			path: src/Strategy/CollectionStrategy.php
+
+		-
+			message: "#^Method Laminas\\\\Hydrator\\\\Strategy\\\\DateTimeFormatterStrategy\\:\\:hydrate\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Strategy/DateTimeFormatterStrategy.php
+
+		-
+			message: "#^Method Laminas\\\\Hydrator\\\\Strategy\\\\DefaultStrategy\\:\\:hydrate\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Strategy/DefaultStrategy.php
+
+		-
+			message: "#^Method Laminas\\\\Hydrator\\\\Strategy\\\\ExplodeStrategy\\:\\:hydrate\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Strategy/ExplodeStrategy.php
+
+		-
+			message: "#^Result of \\|\\| is always true\\.$#"
+			count: 1
+			path: src/Strategy/ExplodeStrategy.php
+
+		-
+			message: "#^Else branch is unreachable because ternary operator condition is always true\\.$#"
+			count: 2
+			path: src/Strategy/ExplodeStrategy.php
+
+		-
+			message: "#^Method Laminas\\\\Hydrator\\\\Strategy\\\\ExplodeStrategy\\:\\:hydrate\\(\\) should return array\\<string\\> but returns array\\<int, string\\>\\|false\\.$#"
+			count: 2
+			path: src/Strategy/ExplodeStrategy.php
+
+		-
+			message: "#^Method Laminas\\\\Hydrator\\\\Strategy\\\\SerializableStrategy\\:\\:hydrate\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Strategy/SerializableStrategy.php
+
+		-
+			message: "#^Method Laminas\\\\Hydrator\\\\Strategy\\\\StrategyChain\\:\\:hydrate\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Strategy/StrategyChain.php
+
+		-
+			message: "#^Method Laminas\\\\Hydrator\\\\Strategy\\\\StrategyInterface\\:\\:hydrate\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Strategy/StrategyInterface.php
+

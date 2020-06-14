@@ -50,16 +50,6 @@ parameters:
 			path: src/Strategy/CollectionStrategy.php
 
 		-
-			message: "#^Method Laminas\\\\Hydrator\\\\Strategy\\\\CollectionStrategy\\:\\:hydrate\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Strategy/CollectionStrategy.php
-
-		-
-			message: "#^Parameter \\#1 \\$argument of class ReflectionClass constructor expects class\\-string\\<T of object\\>\\|T of object, string given\\.$#"
-			count: 1
-			path: src/Strategy/CollectionStrategy.php
-
-		-
 			message: "#^Method Laminas\\\\Hydrator\\\\Strategy\\\\DateTimeFormatterStrategy\\:\\:hydrate\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Strategy/DateTimeFormatterStrategy.php

@@ -22,6 +22,9 @@ use function is_array;
 use function is_object;
 use function sprintf;
 
+/**
+ * @template TClass
+ */
 class CollectionStrategy implements StrategyInterface
 {
     /**
@@ -31,10 +34,12 @@ class CollectionStrategy implements StrategyInterface
 
     /**
      * @var string
+     * @psalm-var class-string<TClass>
      */
     private $objectClassName;
 
     /**
+     * @psalm-param class-string<TClass> $objectClassName
      * @throws Exception\InvalidArgumentException
      */
     public function __construct(HydratorInterface $objectHydrator, string $objectClassName)
@@ -82,9 +87,10 @@ class CollectionStrategy implements StrategyInterface
     /**
      * Converts the given value so that it can be hydrated by the hydrator.
      *
-     * @param  mixed[] $value The original value.
-     * @throws Exception\InvalidArgumentException
+     * @param mixed[] $value The original value.
+     * @param null|mixed[] $data
      * @return object[] Returns the value that should be hydrated.
+     * @throws Exception\InvalidArgumentException
      */
     public function hydrate($value, ?array $data = null)
     {

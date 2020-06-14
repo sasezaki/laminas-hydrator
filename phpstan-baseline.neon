@@ -4,17 +4,6 @@ parameters:
 			message: "#^Method Laminas\\\\Hydrator\\\\AbstractHydrator\\:\\:hydrateValue\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/AbstractHydrator.php
-
-		-
-			message: "#^Property Laminas\\\\Hydrator\\\\Filter\\\\FilterComposite\\:\\:\\$andFilter with generic class ArrayObject does not specify its types\\: TKey, TValue$#"
-			count: 1
-			path: src/Filter/FilterComposite.php
-
-		-
-			message: "#^Property Laminas\\\\Hydrator\\\\Filter\\\\FilterComposite\\:\\:\\$orFilter with generic class ArrayObject does not specify its types\\: TKey, TValue$#"
-			count: 1
-			path: src/Filter/FilterComposite.php
-
 		-
 			message: "#^Instanceof between mixed and string\\|null results in an error\\.$#"
 			count: 1

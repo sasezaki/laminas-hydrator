@@ -6,6 +6,9 @@ namespace Laminas\Hydrator;
 
 use function sprintf;
 
+/**
+ * @psalm-import-type HydratorFilterType from Filter\FilterInterface
+ */
 abstract class AbstractHydrator implements
     HydratorInterface,
     Strategy\StrategyEnabledInterface,
@@ -189,6 +192,9 @@ abstract class AbstractHydrator implements
      *
      * @param string $name Index in the composite
      * @param callable|Filter\FilterInterface $filter
+     *
+     * @psalm-param HydratorFilterType $filter
+     * @psalm-param Filter\FilterComposite::CONDITION_* $condition
      */
     public function addFilter(string $name, $filter, int $condition = Filter\FilterComposite::CONDITION_OR): void
     {

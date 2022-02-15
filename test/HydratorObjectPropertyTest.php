@@ -38,7 +38,7 @@ class HydratorObjectPropertyTest extends TestCase
         $this->assertSame($instance->object, $result['object']);
 
         $this->hydrator->removeFilter('values');
-        $this->hydrator->addFilter('complex', function ($property) {
+        $this->hydrator->addFilter('complex', function ($property) : bool {
             switch ($property) {
                 case 'array':
                 case 'object':

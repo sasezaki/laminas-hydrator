@@ -13,6 +13,9 @@ use function count;
 use function is_callable;
 use function sprintf;
 
+/**
+ * @psalm-import-type HydratorFilterType from FilterInterface
+ */
 final class FilterComposite implements FilterInterface
 {
     /**
@@ -37,6 +40,9 @@ final class FilterComposite implements FilterInterface
      * @param callable[]|FilterInterface[] $orFilters
      * @param callable[]|FilterInterface[] $andFilters
      * @throws InvalidArgumentException
+     *
+     * @psalm-param HydratorFilter[] $orFilters
+     * @psalm-param HydratorFilter[] $andFilters
      */
     public function __construct(array $orFilters = [], array $andFilters = [])
     {
@@ -67,6 +73,9 @@ final class FilterComposite implements FilterInterface
      * @param  int                      $condition Can be either
      *     FilterComposite::CONDITION_OR or FilterComposite::CONDITION_AND
      * @throws InvalidArgumentException
+     *
+     * @psalm-param HydratorFilterType $filter
+     * @psalm-param self::CONDITION_* $condition
      */
     public function addFilter(string $name, $filter, int $condition = self::CONDITION_OR): void
     {
@@ -77,6 +86,7 @@ final class FilterComposite implements FilterInterface
             return;
         }
 
+        /** @psalm-suppress RedundantConditionGivenDocblockType */
         if ($condition === self::CONDITION_AND) {
             $this->andFilter[$name] = $filter;
             return;
@@ -151,11 +161,12 @@ final class FilterComposite implements FilterInterface
 
     /**
      * @param callable|FilterInterface $filter
+     *
+     * @psalm-param HydratorFilterType $filter
      */
     private function executeFilter($filter, string $property, ?object $instance = null): bool
     {
         if (is_callable($filter)) {
-            /** @psalm-var callable(string, ?object):bool $filter */
             return $filter($property, $instance);
         }
 

@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Laminas\Hydrator\Filter;
 
+/**
+ * @psalm-import-type HydratorFilterType from FilterInterface
+ */
 interface FilterEnabledInterface extends FilterProviderInterface
 {
     /**
@@ -26,6 +29,9 @@ interface FilterEnabledInterface extends FilterProviderInterface
      *
      * @param string $name Index in the composite
      * @param callable|FilterInterface $filter
+     *
+     * @psalm-param HydratorFilterType $filter
+     * @psalm-param FilterComposite::CONDITION_* $condition
      */
     public function addFilter(string $name, $filter, int $condition = FilterComposite::CONDITION_OR): void;
 

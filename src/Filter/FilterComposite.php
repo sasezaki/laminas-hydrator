@@ -45,8 +45,8 @@ final class FilterComposite implements FilterInterface
      */
     public function __construct(array $orFilters = [], array $andFilters = [])
     {
-        array_walk($orFilters, Closure::fromCallable([$this, 'validateFilter']));
-        array_walk($andFilters, Closure::fromCallable([$this, 'validateFilter']));
+        $this->validateFilters($orFilters);
+        $this->validateFilters($andFilters);
 
         $this->orFilter  = new ArrayObject($orFilters);
         $this->andFilter = new ArrayObject($andFilters);
@@ -175,7 +175,6 @@ final class FilterComposite implements FilterInterface
      *     FilterInterface instances.
      * @throws InvalidArgumentException If $filter is neither a
      *     callable nor FilterInterface.
-     * @psalm-param HydratorFilterType $filter
      */
     private function validateFilter($filter, string $name): void
     {
@@ -186,5 +185,15 @@ final class FilterComposite implements FilterInterface
                 FilterInterface::class
             ));
         }
+    }
+
+    /**
+     * @param callable[]|FilterInterface[] $filters
+     * @throws InvalidArgumentException
+     * @psalm-param HydratorFilterType[] $filters
+     */
+    private function validateFilters(array $filters): void
+    {
+        array_walk($filters, Closure::fromCallable([$this, 'validateFilter']));
     }
 }

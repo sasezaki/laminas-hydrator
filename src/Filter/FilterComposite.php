@@ -13,6 +13,9 @@ use function count;
 use function is_callable;
 use function sprintf;
 
+/**
+ * @psalm-import-type HydratorFilterType from FilterInterface
+ */
 final class FilterComposite implements FilterInterface
 {
     /**
@@ -25,10 +28,10 @@ final class FilterComposite implements FilterInterface
      */
     public const CONDITION_AND = 2;
 
-    /** @var ArrayObject */
+    /** @var ArrayObject<array-key, HydratorFilterType> */
     protected $andFilter;
 
-    /** @var ArrayObject */
+    /** @var ArrayObject<array-key, HydratorFilterType> */
     protected $orFilter;
 
     /**
@@ -37,11 +40,13 @@ final class FilterComposite implements FilterInterface
      * @param callable[]|FilterInterface[] $orFilters
      * @param callable[]|FilterInterface[] $andFilters
      * @throws InvalidArgumentException
+     * @psalm-param HydratorFilterType[] $orFilters
+     * @psalm-param HydratorFilterType[] $andFilters
      */
     public function __construct(array $orFilters = [], array $andFilters = [])
     {
-        array_walk($orFilters, Closure::fromCallable([$this, 'validateFilter']));
-        array_walk($andFilters, Closure::fromCallable([$this, 'validateFilter']));
+        $this->validateFilters($orFilters);
+        $this->validateFilters($andFilters);
 
         $this->orFilter  = new ArrayObject($orFilters);
         $this->andFilter = new ArrayObject($andFilters);
@@ -67,6 +72,8 @@ final class FilterComposite implements FilterInterface
      * @param  int                      $condition Can be either
      *     FilterComposite::CONDITION_OR or FilterComposite::CONDITION_AND
      * @throws InvalidArgumentException
+     * @psalm-param HydratorFilterType $filter
+     * @psalm-param self::CONDITION_* $condition
      */
     public function addFilter(string $name, $filter, int $condition = self::CONDITION_OR): void
     {
@@ -77,6 +84,7 @@ final class FilterComposite implements FilterInterface
             return;
         }
 
+        /** @psalm-suppress RedundantConditionGivenDocblockType */
         if ($condition === self::CONDITION_AND) {
             $this->andFilter[$name] = $filter;
             return;
@@ -151,11 +159,11 @@ final class FilterComposite implements FilterInterface
 
     /**
      * @param callable|FilterInterface $filter
+     * @psalm-param HydratorFilterType $filter
      */
     private function executeFilter($filter, string $property, ?object $instance = null): bool
     {
         if (is_callable($filter)) {
-            /** @psalm-var callable(string, ?object):bool $filter */
             return $filter($property, $instance);
         }
 
@@ -177,5 +185,15 @@ final class FilterComposite implements FilterInterface
                 FilterInterface::class
             ));
         }
+    }
+
+    /**
+     * @param callable[]|FilterInterface[] $filters
+     * @throws InvalidArgumentException
+     * @psalm-param HydratorFilterType[] $filters
+     */
+    private function validateFilters(array $filters): void
+    {
+        array_walk($filters, Closure::fromCallable([$this, 'validateFilter']));
     }
 }

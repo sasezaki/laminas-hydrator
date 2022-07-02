@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Laminas\Hydrator\Filter;
 
 /**
- * @psalm-type HydratorFilterCallableType = callable(string, ?object=null) : bool
+ * @psalm-type HydratorFilterCallableType = callable(string, ?object=) : bool
  * @psalm-type HydratorFilterType = HydratorFilterCallableType|FilterInterface
  */
 interface FilterInterface

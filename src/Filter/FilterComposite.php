@@ -28,10 +28,10 @@ final class FilterComposite implements FilterInterface
      */
     public const CONDITION_AND = 2;
 
-    /** @var ArrayObject */
+    /** @var ArrayObject<array-key, HydratorFilterType> */
     protected $andFilter;
 
-    /** @var ArrayObject */
+    /** @var ArrayObject<array-key, HydratorFilterType> */
     protected $orFilter;
 
     /**
@@ -41,8 +41,8 @@ final class FilterComposite implements FilterInterface
      * @param callable[]|FilterInterface[] $andFilters
      * @throws InvalidArgumentException
      *
-     * @psalm-param HydratorFilter[] $orFilters
-     * @psalm-param HydratorFilter[] $andFilters
+     * @psalm-param HydratorFilterType[] $orFilters
+     * @psalm-param HydratorFilterType[] $andFilters
      */
     public function __construct(array $orFilters = [], array $andFilters = [])
     {
@@ -178,6 +178,8 @@ final class FilterComposite implements FilterInterface
      *     FilterInterface instances.
      * @throws InvalidArgumentException If $filter is neither a
      *     callable nor FilterInterface.
+     *
+     * @psalm-param HydratorFilterType $filter
      */
     private function validateFilter($filter, string $name): void
     {

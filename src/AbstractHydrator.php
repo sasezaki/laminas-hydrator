@@ -192,7 +192,6 @@ abstract class AbstractHydrator implements
      *
      * @param string $name Index in the composite
      * @param callable|Filter\FilterInterface $filter
-     *
      * @psalm-param HydratorFilterType $filter
      * @psalm-param Filter\FilterComposite::CONDITION_* $condition
      */

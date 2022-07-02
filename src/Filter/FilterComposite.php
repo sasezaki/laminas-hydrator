@@ -40,7 +40,6 @@ final class FilterComposite implements FilterInterface
      * @param callable[]|FilterInterface[] $orFilters
      * @param callable[]|FilterInterface[] $andFilters
      * @throws InvalidArgumentException
-     *
      * @psalm-param HydratorFilterType[] $orFilters
      * @psalm-param HydratorFilterType[] $andFilters
      */
@@ -73,7 +72,6 @@ final class FilterComposite implements FilterInterface
      * @param  int                      $condition Can be either
      *     FilterComposite::CONDITION_OR or FilterComposite::CONDITION_AND
      * @throws InvalidArgumentException
-     *
      * @psalm-param HydratorFilterType $filter
      * @psalm-param self::CONDITION_* $condition
      */
@@ -161,7 +159,6 @@ final class FilterComposite implements FilterInterface
 
     /**
      * @param callable|FilterInterface $filter
-     *
      * @psalm-param HydratorFilterType $filter
      */
     private function executeFilter($filter, string $property, ?object $instance = null): bool
@@ -178,7 +175,6 @@ final class FilterComposite implements FilterInterface
      *     FilterInterface instances.
      * @throws InvalidArgumentException If $filter is neither a
      *     callable nor FilterInterface.
-     *
      * @psalm-param HydratorFilterType $filter
      */
     private function validateFilter($filter, string $name): void

@@ -29,7 +29,6 @@ interface FilterEnabledInterface extends FilterProviderInterface
      *
      * @param string $name Index in the composite
      * @param callable|FilterInterface $filter
-     *
      * @psalm-param HydratorFilterType $filter
      * @psalm-param FilterComposite::CONDITION_* $condition
      */

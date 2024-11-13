@@ -40,9 +40,6 @@ class AggregateObject
         return $this->arrayData;
     }
 
-    /**
-     * @param array $data
-     */
     public function exchangeArray(array $data): void
     {
         $this->arrayData = $data;

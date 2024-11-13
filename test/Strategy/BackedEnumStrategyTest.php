@@ -11,20 +11,9 @@ use LaminasTest\Hydrator\Strategy\TestAsset\TestUnitEnum;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
-use const PHP_VERSION_ID;
-
 #[CoversClass(BackedEnumStrategy::class)]
 class BackedEnumStrategyTest extends TestCase
 {
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        if (PHP_VERSION_ID < 80100) {
-            self::markTestSkipped("PHP 8.1+ required");
-        }
-    }
-
     public function testExtractInvalidValueThrowsException(): void
     {
         $strategy = new BackedEnumStrategy(TestBackedEnum::class);

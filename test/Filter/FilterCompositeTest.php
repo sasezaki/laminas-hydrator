@@ -107,7 +107,6 @@ class FilterCompositeTest extends TestCase
     }
 
     /**
-     * @param array $values
      * @return list<FilterInterface>
      */
     private static function buildFilters(array $values): array

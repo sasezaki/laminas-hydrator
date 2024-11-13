@@ -40,7 +40,6 @@ class HydratorStrategyEntityA
     /**
      * Add the getArrayCopy method so we can test the ArraySerializable hydrator:
      *
-     * @return array
      * @psalm-return array<string, mixed>
      */
     public function getArrayCopy(): array

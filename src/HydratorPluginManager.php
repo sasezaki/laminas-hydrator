@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace Laminas\Hydrator;
 
-use Laminas\ServiceManager\AbstractPluginManager;
+use Laminas\ServiceManager\AbstractSingleInstancePluginManager;
 use Laminas\ServiceManager\Exception\InvalidServiceException;
 use Laminas\ServiceManager\Factory\InvokableFactory;
+use Laminas\ServiceManager\ServiceManager;
 
 use function gettype;
 use function is_object;
@@ -17,16 +18,18 @@ use function sprintf;
  *
  * Enforces that adapters retrieved are instances of HydratorInterface
  *
- * @extends AbstractPluginManager<HydratorInterface>
+ * @psalm-import-type FactoriesConfiguration from ServiceManager
+ * @extends AbstractSingleInstancePluginManager<HydratorInterface>
  */
-class HydratorPluginManager extends AbstractPluginManager implements HydratorPluginManagerInterface
+class HydratorPluginManager extends AbstractSingleInstancePluginManager implements HydratorPluginManagerInterface
 {
     /**
      * Default aliases
      *
+     * @var string[]
      * @inheritDoc
      */
-    protected $aliases = [
+    protected array $aliases = [
         ArraySerializable::class    => ArraySerializableHydrator::class,
         ClassMethods::class         => ClassMethodsHydrator::class,
         ObjectProperty::class       => ObjectPropertyHydrator::class,
@@ -73,9 +76,10 @@ class HydratorPluginManager extends AbstractPluginManager implements HydratorPlu
     /**
      * Default factory-based adapters
      *
+     * @var FactoriesConfiguration
      * @inheritDoc
      */
-    protected $factories = [
+    protected array $factories = [
         ArraySerializableHydrator::class => InvokableFactory::class,
         ClassMethodsHydrator::class      => InvokableFactory::class,
         DelegatingHydrator::class        => DelegatingHydratorFactory::class,
@@ -85,35 +89,30 @@ class HydratorPluginManager extends AbstractPluginManager implements HydratorPlu
 
     /**
      * Whether or not to share by default (v3)
-     *
-     * @var bool
      */
-    protected $sharedByDefault = false;
+    protected bool $sharedByDefault = false;
 
     /**
      * Whether or not to share by default (v2)
-     *
-     * @var bool
      */
-    protected $shareByDefault = false;
+    protected bool $shareByDefault = false;
 
     /**
      * {inheritDoc}
      *
-     * @var class-string<HydratorInterface>|null
+     * @var class-string<HydratorInterface>
      */
-    protected $instanceOf = HydratorInterface::class;
+    protected string $instanceOf = HydratorInterface::class;
 
     /**
      * Validate the plugin is of the expected type.
      *
      * Checks that the filter loaded is a valid hydrator.
      *
-     * @param mixed $instance
      * @throws InvalidServiceException
      * @psalm-assert HydratorInterface $instance
      */
-    public function validate($instance)
+    public function validate(mixed $instance): void
     {
         if ($instance instanceof $this->instanceOf) {
             // we're okay

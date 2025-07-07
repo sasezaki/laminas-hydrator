@@ -21,7 +21,7 @@ use function sprintf;
  * @psalm-import-type FactoriesConfiguration from ServiceManager
  * @extends AbstractSingleInstancePluginManager<HydratorInterface>
  */
-class HydratorPluginManager extends AbstractSingleInstancePluginManager implements HydratorPluginManagerInterface
+final class HydratorPluginManager extends AbstractSingleInstancePluginManager implements HydratorPluginManagerInterface
 {
     /**
      * Default aliases

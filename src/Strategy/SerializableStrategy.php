@@ -4,16 +4,12 @@ declare(strict_types=1);
 
 namespace Laminas\Hydrator\Strategy;
 
-use Laminas\Hydrator\Exception\InvalidArgumentException;
 use Laminas\Serializer\Adapter\AdapterInterface as SerializerAdapter;
 
 final class SerializableStrategy implements StrategyInterface
 {
-    protected SerializerAdapter $serializer;
-
-    public function __construct(SerializerAdapter $serializer)
+    public function __construct(private readonly SerializerAdapter $serializer)
     {
-        $this->setSerializer($serializer);
     }
 
     /**
@@ -23,8 +19,7 @@ final class SerializableStrategy implements StrategyInterface
      */
     public function extract($value, ?object $object = null)
     {
-        $serializer = $this->getSerializer();
-        return $serializer->serialize($value);
+        return $this->serializer->serialize($value);
     }
 
     /**
@@ -34,25 +29,6 @@ final class SerializableStrategy implements StrategyInterface
      */
     public function hydrate($value, ?array $data = null)
     {
-        $serializer = $this->getSerializer();
-        return $serializer->unserialize($value);
-    }
-
-    /**
-     * Set serializer
-     *
-     * @throws InvalidArgumentException For invalid $serializer values.
-     */
-    public function setSerializer(SerializerAdapter $serializer): void
-    {
-        $this->serializer = $serializer;
-    }
-
-    /**
-     * Get serializer
-     */
-    public function getSerializer(): SerializerAdapter
-    {
-        return $this->serializer;
+        return $this->serializer->unserialize($value);
     }
 }

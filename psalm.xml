@@ -20,6 +20,14 @@
         </ignoreFiles>
     </projectFiles>
 
+    <issueHandlers>
+        <InternalClass>
+            <errorLevel type="suppress">
+                <file name="test/HydratorPluginManagerFactoryTest.php" />
+            </errorLevel>
+        </InternalClass>
+    </issueHandlers>
+
     <plugins>
         <pluginClass class="Psalm\PhpUnitPlugin\Plugin"/>
     </plugins>

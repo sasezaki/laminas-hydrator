@@ -7,7 +7,7 @@ namespace Laminas\Hydrator\Strategy;
 use Laminas\Hydrator\Exception\InvalidArgumentException;
 use Laminas\Serializer\Adapter\AdapterInterface as SerializerAdapter;
 
-class SerializableStrategy implements StrategyInterface
+final class SerializableStrategy implements StrategyInterface
 {
     protected SerializerAdapter $serializer;
 

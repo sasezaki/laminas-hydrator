@@ -12,7 +12,7 @@ use Laminas\Hydrator\HydratorInterface;
 /**
  * Aggregate hydrator that composes multiple hydrators via events
  */
-class AggregateHydrator implements HydratorInterface, EventManagerAwareInterface
+final class AggregateHydrator implements HydratorInterface, EventManagerAwareInterface
 {
     public const DEFAULT_PRIORITY = 1;
 

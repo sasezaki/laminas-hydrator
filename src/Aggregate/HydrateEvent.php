@@ -13,9 +13,8 @@ use Laminas\EventManager\Event;
  * @template T of object
  * @template TTarget of object
  * @extends Event<TTarget, array<empty, empty>>
- * @final
  */
-class HydrateEvent extends Event
+final class HydrateEvent extends Event
 {
     public const EVENT_HYDRATE = 'hydrate';
 

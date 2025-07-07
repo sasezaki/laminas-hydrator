@@ -9,7 +9,7 @@ use DateTimeImmutable;
 use DateTimeInterface;
 use Laminas\Hydrator\Strategy\DateTimeFormatterStrategy;
 
-class DateTimeImmutableFormatterStrategy implements StrategyInterface
+final class DateTimeImmutableFormatterStrategy implements StrategyInterface
 {
     public function __construct(private DateTimeFormatterStrategy $dateTimeStrategy)
     {

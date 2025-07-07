@@ -53,12 +53,6 @@ final class StandaloneHydratorPluginManager implements HydratorPluginManagerInte
         Reflection::class           => ReflectionHydrator::class,
         'reflectionhydrator'        => ReflectionHydrator::class,
         'reflection'                => ReflectionHydrator::class,
-
-        // Legacy Zend Framework aliases
-        'Zend\Hydrator\ArraySerializable' => ArraySerializableHydrator::class,
-        'Zend\Hydrator\ClassMethods'      => ClassMethodsHydrator::class,
-        'Zend\Hydrator\ObjectProperty'    => ObjectPropertyHydrator::class,
-        'Zend\Hydrator\Reflection'        => ReflectionHydrator::class,
     ];
 
     /** @var array<string, callable> */

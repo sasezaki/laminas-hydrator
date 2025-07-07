@@ -93,7 +93,6 @@
     </MixedInferredReturnType>
     <MixedReturnStatement>
       <code><![CDATA[$container->get('HydratorManager')]]></code>
-      <code><![CDATA[$container->get('Zend\Hydrator\HydratorPluginManager')]]></code>
       <code><![CDATA[$container->get(HydratorPluginManager::class)]]></code>
     </MixedReturnStatement>
   </file>

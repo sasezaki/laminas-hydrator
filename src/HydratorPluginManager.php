@@ -64,17 +64,6 @@ final class HydratorPluginManager extends AbstractSingleInstancePluginManager im
             'reflectionhydrator'        => ReflectionHydrator::class,
             'reflectionHydrator'        => ReflectionHydrator::class,
             'ReflectionHydrator'        => ReflectionHydrator::class,
-
-            // Legacy Zend Framework aliases
-            'Zend\Hydrator\ArraySerializableHydrator' => ArraySerializableHydrator::class,
-            'Zend\Hydrator\ClassMethodsHydrator'      => ClassMethodsHydrator::class,
-            'Zend\Hydrator\DelegatingHydrator'        => DelegatingHydrator::class,
-            'Zend\Hydrator\ObjectPropertyHydrator'    => ObjectPropertyHydrator::class,
-            'Zend\Hydrator\ReflectionHydrator'        => ReflectionHydrator::class,
-            'Zend\Hydrator\ArraySerializable'         => ArraySerializableHydrator::class,
-            'Zend\Hydrator\ClassMethods'              => ClassMethodsHydrator::class,
-            'Zend\Hydrator\ObjectProperty'            => ObjectPropertyHydrator::class,
-            'Zend\Hydrator\Reflection'                => ReflectionHydrator::class,
         ],
     ];
 

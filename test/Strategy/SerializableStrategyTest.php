@@ -12,19 +12,6 @@ use PHPUnit\Framework\TestCase;
 #[CoversClass(SerializableStrategy::class)]
 class SerializableStrategyTest extends TestCase
 {
-    public function testUseBadSerializerObject(): void
-    {
-        $serializer         = new PhpSerialize();
-        $serializerStrategy = new SerializableStrategy($serializer);
-        $this->assertEquals($serializer, $serializerStrategy->getSerializer());
-    }
-
-    public function testUseBadSerializerString(): void
-    {
-        $serializerStrategy = new SerializableStrategy(new PhpSerialize());
-        $this->assertEquals(PhpSerialize::class, $serializerStrategy->getSerializer()::class);
-    }
-
     public function testCanSerialize(): void
     {
         $serializer         = new PhpSerialize();

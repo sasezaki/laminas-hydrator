@@ -41,10 +41,6 @@ class StandaloneHydratorPluginManagerTest extends TestCase
         yield 'ArraySerializableHydrator'       => [Hydrator\ArraySerializableHydrator::class];
         yield 'ClassMethods'                    => [Hydrator\ClassMethodsHydrator::class];
         yield 'ClassMethodsHydrator'            => [Hydrator\ClassMethodsHydrator::class];
-        yield Hydrator\ArraySerializable::class => [Hydrator\ArraySerializableHydrator::class];
-        yield Hydrator\ClassMethods::class      => [Hydrator\ClassMethodsHydrator::class];
-        yield Hydrator\ObjectProperty::class    => [Hydrator\ObjectPropertyHydrator::class];
-        yield Hydrator\Reflection::class        => [Hydrator\ReflectionHydrator::class];
         yield 'ObjectPropertyHydrator'          => [Hydrator\ObjectPropertyHydrator::class];
         yield 'ObjectProperty'                  => [Hydrator\ObjectPropertyHydrator::class];
         yield 'ReflectionHydrator'              => [Hydrator\ReflectionHydrator::class];

@@ -34,10 +34,6 @@ final class HydratorPluginManager extends AbstractSingleInstancePluginManager im
             ReflectionHydrator::class        => InvokableFactory::class,
         ],
         'aliases'   => [
-            ArraySerializable::class    => ArraySerializableHydrator::class,
-            ClassMethods::class         => ClassMethodsHydrator::class,
-            ObjectProperty::class       => ObjectPropertyHydrator::class,
-            Reflection::class           => ReflectionHydrator::class,
             'arrayserializable'         => ArraySerializableHydrator::class,
             'arraySerializable'         => ArraySerializableHydrator::class,
             'ArraySerializable'         => ArraySerializableHydrator::class,

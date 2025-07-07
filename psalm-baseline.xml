@@ -8,11 +8,6 @@
       <code><![CDATA[$eventManager]]></code>
     </MissingConstructor>
   </file>
-  <file src="src/ArraySerializable.php">
-    <DeprecatedClass>
-      <code><![CDATA[ArraySerializable::class]]></code>
-    </DeprecatedClass>
-  </file>
   <file src="src/ArraySerializableHydrator.php">
     <MixedArgument>
       <code><![CDATA[$original]]></code>
@@ -43,11 +38,6 @@
       <code><![CDATA[$data]]></code>
       <code><![CDATA[$data]]></code>
     </MixedReturnStatement>
-  </file>
-  <file src="src/ClassMethods.php">
-    <DeprecatedClass>
-      <code><![CDATA[ClassMethods::class]]></code>
-    </DeprecatedClass>
   </file>
   <file src="src/ClassMethodsHydrator.php">
     <DocblockTypeContradiction>
@@ -131,14 +121,6 @@
       <code><![CDATA[HydratorAwareInterface]]></code>
     </UnusedClass>
   </file>
-  <file src="src/HydratorPluginManager.php">
-    <DeprecatedClass>
-      <code><![CDATA[ArraySerializable::class]]></code>
-      <code><![CDATA[ClassMethods::class]]></code>
-      <code><![CDATA[ObjectProperty::class]]></code>
-      <code><![CDATA[Reflection::class]]></code>
-    </DeprecatedClass>
-  </file>
   <file src="src/HydratorProviderInterface.php">
     <PossiblyUnusedMethod>
       <code><![CDATA[getHydratorConfig]]></code>
@@ -217,11 +199,6 @@
       <code><![CDATA[$value[0]]]></code>
     </MixedArrayAccess>
   </file>
-  <file src="src/ObjectProperty.php">
-    <DeprecatedClass>
-      <code><![CDATA[ObjectProperty::class]]></code>
-    </DeprecatedClass>
-  </file>
   <file src="src/ObjectPropertyHydrator.php">
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$name]]></code>
@@ -235,11 +212,6 @@
       <code><![CDATA[$properties = &self::$skippedPropertiesCache[$object::class]]]></code>
     </UnsupportedReferenceUsage>
   </file>
-  <file src="src/Reflection.php">
-    <DeprecatedClass>
-      <code><![CDATA[Reflection::class]]></code>
-    </DeprecatedClass>
-  </file>
   <file src="src/ReflectionHydrator.php">
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$key]]></code>
@@ -251,12 +223,6 @@
     </MixedAssignment>
   </file>
   <file src="src/StandaloneHydratorPluginManager.php">
-    <DeprecatedClass>
-      <code><![CDATA[ArraySerializable::class]]></code>
-      <code><![CDATA[ClassMethods::class]]></code>
-      <code><![CDATA[ObjectProperty::class]]></code>
-      <code><![CDATA[Reflection::class]]></code>
-    </DeprecatedClass>
     <InvalidStringClass>
       <code><![CDATA[new $class()]]></code>
     </InvalidStringClass>
@@ -427,12 +393,6 @@
       <code><![CDATA[arrayDataProvider]]></code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/ArraySerializableTest.php">
-    <DeprecatedClass>
-      <code><![CDATA[ArraySerializable::class]]></code>
-      <code><![CDATA[new ArraySerializable()]]></code>
-    </DeprecatedClass>
-  </file>
   <file src="test/ClassMethodsHydratorTest.php">
     <InvalidArgument>
       <code><![CDATA[$options]]></code>
@@ -440,12 +400,6 @@
       <code><![CDATA['non-object']]></code>
       <code><![CDATA['non-object']]></code>
     </InvalidArgument>
-  </file>
-  <file src="test/ClassMethodsTest.php">
-    <DeprecatedClass>
-      <code><![CDATA[ClassMethods::class]]></code>
-      <code><![CDATA[new ClassMethods()]]></code>
-    </DeprecatedClass>
   </file>
   <file src="test/Filter/FilterCompositeTest.php">
     <MixedArgument>
@@ -649,43 +603,13 @@
       <code><![CDATA['thisIsNotAnObject']]></code>
     </InvalidArgument>
   </file>
-  <file src="test/ObjectPropertyTest.php">
-    <DeprecatedClass>
-      <code><![CDATA[ObjectProperty::class]]></code>
-      <code><![CDATA[new ObjectProperty()]]></code>
-    </DeprecatedClass>
-  </file>
   <file src="test/ReflectionHydratorTest.php">
     <InvalidArgument>
       <code><![CDATA[$argument]]></code>
       <code><![CDATA[$argument]]></code>
     </InvalidArgument>
   </file>
-  <file src="test/ReflectionTest.php">
-    <DeprecatedClass>
-      <code><![CDATA[Reflection::class]]></code>
-      <code><![CDATA[new Reflection()]]></code>
-    </DeprecatedClass>
-  </file>
-  <file src="test/StandaloneHydratorPluginManagerFactoryTest.php">
-    <DeprecatedClass>
-      <code><![CDATA[ArraySerializable::class]]></code>
-      <code><![CDATA[ArraySerializable::class]]></code>
-      <code><![CDATA[ClassMethods::class]]></code>
-      <code><![CDATA[ClassMethods::class]]></code>
-      <code><![CDATA[ObjectProperty::class]]></code>
-      <code><![CDATA[ObjectProperty::class]]></code>
-      <code><![CDATA[Reflection::class]]></code>
-      <code><![CDATA[Reflection::class]]></code>
-    </DeprecatedClass>
-  </file>
   <file src="test/StandaloneHydratorPluginManagerTest.php">
-    <DeprecatedClass>
-      <code><![CDATA[Hydrator\ArraySerializable::class]]></code>
-      <code><![CDATA[Hydrator\ClassMethods::class]]></code>
-      <code><![CDATA[Hydrator\ObjectProperty::class]]></code>
-      <code><![CDATA[Hydrator\Reflection::class]]></code>
-    </DeprecatedClass>
     <MixedArgument>
       <code><![CDATA[$factories]]></code>
     </MixedArgument>

@@ -84,11 +84,6 @@ final class HydratorPluginManager extends AbstractSingleInstancePluginManager im
     protected bool $sharedByDefault = false;
 
     /**
-     * Whether or not to share by default (v2)
-     */
-    protected bool $shareByDefault = false;
-
-    /**
      * {inheritDoc}
      *
      * @var class-string<HydratorInterface>

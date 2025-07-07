@@ -139,9 +139,6 @@
       <code><![CDATA[ObjectProperty::class]]></code>
       <code><![CDATA[Reflection::class]]></code>
     </DeprecatedClass>
-    <PossiblyUnusedProperty>
-      <code><![CDATA[$shareByDefault]]></code>
-    </PossiblyUnusedProperty>
   </file>
   <file src="src/HydratorProviderInterface.php">
     <PossiblyUnusedMethod>

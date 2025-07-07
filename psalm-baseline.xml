@@ -143,11 +143,6 @@
       <code><![CDATA[$shareByDefault]]></code>
     </PossiblyUnusedProperty>
   </file>
-  <file src="src/HydratorPluginManagerFactory.php">
-    <UnusedParam>
-      <code><![CDATA[$name]]></code>
-    </UnusedParam>
-  </file>
   <file src="src/HydratorProviderInterface.php">
     <PossiblyUnusedMethod>
       <code><![CDATA[getHydratorConfig]]></code>

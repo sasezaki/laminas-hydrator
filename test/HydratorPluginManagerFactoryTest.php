@@ -10,35 +10,17 @@ use Laminas\Hydrator\HydratorPluginManagerFactory;
 use Laminas\Hydrator\ReflectionHydrator;
 use LaminasTest\Hydrator\TestAsset\InMemoryContainer;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\Depends;
 use PHPUnit\Framework\TestCase;
-use Psr\Container\ContainerInterface;
 
 #[CoversClass(HydratorPluginManagerFactory::class)]
 class HydratorPluginManagerFactoryTest extends TestCase
 {
     public function testFactoryReturnsPluginManager(): void
     {
-        $container = $this->createMock(ContainerInterface::class);
         $factory   = new HydratorPluginManagerFactory();
+        $hydrators = $factory(new InMemoryContainer());
 
-        $hydrators = $factory($container, HydratorPluginManagerFactory::class);
         $this->assertInstanceOf(HydratorPluginManager::class, $hydrators);
-    }
-
-    #[Depends('testFactoryReturnsPluginManager')]
-    public function testFactoryConfiguresPluginManagerUnderContainerInterop(): void
-    {
-        $container = $this->createMock(ContainerInterface::class);
-        $hydrator  = $this->createMock(HydratorInterface::class);
-
-        $factory   = new HydratorPluginManagerFactory();
-        $hydrators = $factory($container, HydratorPluginManagerFactory::class, [
-            'services' => [
-                'test' => $hydrator,
-            ],
-        ]);
-        $this->assertSame($hydrator, $hydrators->get('test'));
     }
 
     public function testConfiguresHydratorServicesWhenFound(): void
@@ -59,7 +41,7 @@ class HydratorPluginManagerFactoryTest extends TestCase
         $container->set('config', $config);
 
         $factory   = new HydratorPluginManagerFactory();
-        $hydrators = $factory($container, 'HydratorManager');
+        $hydrators = $factory($container);
 
         $this->assertInstanceOf(HydratorPluginManager::class, $hydrators);
         $this->assertTrue($hydrators->has('test'));
@@ -72,7 +54,7 @@ class HydratorPluginManagerFactoryTest extends TestCase
     {
         $container = new InMemoryContainer();
         $factory   = new HydratorPluginManagerFactory();
-        $hydrators = $factory($container, 'HydratorManager');
+        $hydrators = $factory($container);
 
         $this->assertInstanceOf(HydratorPluginManager::class, $hydrators);
         $this->assertFalse($hydrators->has('test'));
@@ -83,7 +65,7 @@ class HydratorPluginManagerFactoryTest extends TestCase
     {
         $container = new InMemoryContainer();
         $factory   = new HydratorPluginManagerFactory();
-        $hydrators = $factory($container, 'HydratorManager');
+        $hydrators = $factory($container);
 
         $this->assertInstanceOf(HydratorPluginManager::class, $hydrators);
     }
@@ -94,7 +76,7 @@ class HydratorPluginManagerFactoryTest extends TestCase
         $container->set('config', ['foo' => 'bar']);
 
         $factory   = new HydratorPluginManagerFactory();
-        $hydrators = $factory($container, 'HydratorManager');
+        $hydrators = $factory($container);
 
         $this->assertInstanceOf(HydratorPluginManager::class, $hydrators);
         $this->assertFalse($hydrators->has('foo'));

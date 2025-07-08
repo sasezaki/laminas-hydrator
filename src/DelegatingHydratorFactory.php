@@ -32,10 +32,6 @@ class DelegatingHydratorFactory
             return $container->get(HydratorPluginManager::class);
         }
 
-        if ($container->has('Zend\Hydrator\HydratorPluginManager')) {
-            return $container->get('Zend\Hydrator\HydratorPluginManager');
-        }
-
         // As registered by laminas-mvc
         if ($container->has('HydratorManager')) {
             return $container->get('HydratorManager');

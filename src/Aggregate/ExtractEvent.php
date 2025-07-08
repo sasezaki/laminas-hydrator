@@ -14,9 +14,8 @@ use function array_merge;
  *
  * @template TTarget of object
  * @extends Event<TTarget, array<empty, empty>>
- * @final
  */
-class ExtractEvent extends Event
+final class ExtractEvent extends Event
 {
     public const EVENT_EXTRACT = 'extract';
 

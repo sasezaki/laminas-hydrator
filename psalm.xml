@@ -15,10 +15,16 @@
         <ignoreFiles>
             <directory name="test/TestAsset"/>
             <directory name="vendor"/>
-            <!-- can be removed once PHP8.0 support dropped -->
-            <directory name="test/Strategy/TestAsset"/>
         </ignoreFiles>
     </projectFiles>
+
+    <issueHandlers>
+        <InternalClass>
+            <errorLevel type="suppress">
+                <file name="test/HydratorPluginManagerFactoryTest.php" />
+            </errorLevel>
+        </InternalClass>
+    </issueHandlers>
 
     <plugins>
         <pluginClass class="Psalm\PhpUnitPlugin\Plugin"/>

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Laminas\Hydrator\Strategy;
 
-class ClosureStrategy implements StrategyInterface
+final class ClosureStrategy implements StrategyInterface
 {
     /**
      * Function, used in extract method, default:

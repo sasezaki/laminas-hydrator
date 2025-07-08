@@ -40,10 +40,6 @@ class ConfigProvider
         return [
             'aliases'   => [
                 'HydratorManager' => $hydratorManagerTarget,
-
-                // Legacy Zend Framework aliases
-                'Zend\Hydrator\HydratorPluginManager'           => HydratorPluginManager::class,
-                'Zend\Hydrator\StandaloneHydratorPluginManager' => StandaloneHydratorPluginManager::class,
             ],
             'factories' => [
                 HydratorPluginManager::class           => HydratorPluginManagerFactory::class,

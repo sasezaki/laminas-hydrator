@@ -15,7 +15,7 @@ use function is_array;
 use function is_object;
 use function sprintf;
 
-class CollectionStrategy implements StrategyInterface
+final class CollectionStrategy implements StrategyInterface
 {
     private string $objectClassName;
 

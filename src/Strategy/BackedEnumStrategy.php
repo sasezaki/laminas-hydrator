@@ -19,7 +19,7 @@ use function sprintf;
 final class BackedEnumStrategy implements StrategyInterface
 {
     /** @var class-string<T> */
-    private string $enumClass;
+    private readonly string $enumClass;
 
     /**
      * @param class-string<T> $enumClass

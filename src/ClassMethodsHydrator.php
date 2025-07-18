@@ -54,7 +54,7 @@ class ClassMethodsHydrator extends AbstractHydrator implements HydratorOptionsIn
      */
     private $extractionMethodsCache = [];
 
-    private FilterInterface $optionalParametersFilter;
+    private readonly FilterInterface $optionalParametersFilter;
 
     /**
      * Define if extract values will use camel case or name with underscore

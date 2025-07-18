@@ -16,13 +16,13 @@ use function sprintf;
 
 final class HydratorStrategy implements StrategyInterface
 {
-    private string $objectClassName;
+    private readonly string $objectClassName;
 
     /**
      * @throws Exception\InvalidArgumentException
      */
     public function __construct(
-        private HydratorInterface $objectHydrator,
+        private readonly HydratorInterface $objectHydrator,
         string $objectClassName
     ) {
         if (! class_exists($objectClassName)) {

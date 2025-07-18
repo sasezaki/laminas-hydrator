@@ -17,12 +17,12 @@ use function sprintf;
 
 final class CollectionStrategy implements StrategyInterface
 {
-    private string $objectClassName;
+    private readonly string $objectClassName;
 
     /**
      * @throws Exception\InvalidArgumentException
      */
-    public function __construct(private HydratorInterface $objectHydrator, string $objectClassName)
+    public function __construct(private readonly HydratorInterface $objectHydrator, string $objectClassName)
     {
         if (! class_exists($objectClassName)) {
             throw new Exception\InvalidArgumentException(sprintf(

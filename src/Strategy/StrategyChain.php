@@ -16,14 +16,14 @@ final class StrategyChain implements StrategyInterface
      *
      * @var StrategyInterface[]
      */
-    private array $extractionStrategies;
+    private readonly array $extractionStrategies;
 
     /**
      * Strategy chain for hydration
      *
      * @var StrategyInterface[]
      */
-    private array $hydrationStrategies;
+    private readonly array $hydrationStrategies;
 
     /**
      * @param StrategyInterface[] $extractionStrategies

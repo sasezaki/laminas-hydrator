@@ -24,7 +24,7 @@ final class DateTimeFormatterStrategy implements StrategyInterface
      * during hydration).  These include `!` at the beginning of the string and
      * `|` at the end.
      */
-    private string $extractionFormat;
+    private readonly string $extractionFormat;
 
     /**
      * @param bool $dateTimeFallback try to parse with DateTime when createFromFormat fails
@@ -34,12 +34,12 @@ final class DateTimeFormatterStrategy implements StrategyInterface
         /**
          * Format to use during hydration.
          */
-        private string $format = DateTime::RFC3339,
-        private ?DateTimeZone $timezone = null,
+        private readonly string $format = DateTime::RFC3339,
+        private readonly ?DateTimeZone $timezone = null,
         /**
          * Whether or not to allow hydration of values that do not follow the format exactly.
          */
-        private bool $dateTimeFallback = false
+        private readonly bool $dateTimeFallback = false
     ) {
         $extractionFormat = preg_replace('/(?<![\\\\])[+|!\*]/', '', $this->format);
         if (null === $extractionFormat) {

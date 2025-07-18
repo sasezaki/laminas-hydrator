@@ -36,7 +36,7 @@ final class ScalarTypeStrategy implements StrategyInterface
         return new self(self::TYPE_BOOLEAN);
     }
 
-    private function __construct(private string $type)
+    private function __construct(private readonly string $type)
     {
     }
 

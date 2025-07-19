@@ -37,7 +37,7 @@ class HydratorListenerTest extends TestCase
                 $this->logicalOr(HydrateEvent::EVENT_HYDRATE, ExtractEvent::EVENT_EXTRACT),
                 $this->logicalAnd(
                     $this->callback('is_callable'),
-                    $this->logicalOr([$this->listener, 'onHydrate'], [$this->listener, 'onExtract'])
+                    $this->logicalOr($this->listener->onHydrate(...), $this->listener->onExtract(...))
                 )
             );
 

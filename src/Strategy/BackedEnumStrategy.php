@@ -18,15 +18,11 @@ use function sprintf;
  */
 final class BackedEnumStrategy implements StrategyInterface
 {
-    /** @var class-string<T> */
-    private readonly string $enumClass;
-
     /**
      * @param class-string<T> $enumClass
      */
-    public function __construct(string $enumClass)
+    public function __construct(private readonly string $enumClass)
     {
-        $this->enumClass = $enumClass;
     }
 
     /**

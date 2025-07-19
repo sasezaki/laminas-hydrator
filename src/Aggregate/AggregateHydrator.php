@@ -53,7 +53,7 @@ final class AggregateHydrator implements HydratorInterface, EventManagerAwareInt
      */
     public function setEventManager(EventManagerInterface $eventManager): void
     {
-        $eventManager->setIdentifiers([self::class, static::class]);
+        $eventManager->setIdentifiers([self::class, self::class]);
         $this->eventManager = $eventManager;
     }
 

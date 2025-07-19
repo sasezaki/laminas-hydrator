@@ -8,8 +8,10 @@ use Laminas\Hydrator\Strategy\StrategyInterface;
 
 final class NullableStrategy implements StrategyInterface
 {
-    public function __construct(private readonly StrategyInterface $strategy, private readonly bool $treatEmptyAsNull = false)
-    {
+    public function __construct(
+        private readonly StrategyInterface $strategy,
+        private readonly bool $treatEmptyAsNull = false
+    ) {
     }
 
     /**

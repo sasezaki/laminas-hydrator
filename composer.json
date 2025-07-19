@@ -73,6 +73,8 @@
         "rector": "rector -n -vv",
         "rector:fix": "rector -vv",
         "static-analysis": "psalm --shepherd --stats",
+        "static-analysis:b": "psalm --update-baseline",
+        "static-analysis:clear": "psalm --clear-cache",
         "test": "phpunit --colors=always",
         "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"
     },

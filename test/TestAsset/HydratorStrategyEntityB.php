@@ -6,20 +6,12 @@ namespace LaminasTest\Hydrator\TestAsset;
 
 class HydratorStrategyEntityB
 {
-    /** @var mixed */
-    private $field1;
-
-    /** @var mixed */
-    private $field2;
-
     /**
      * @param mixed $field1
      * @param mixed $field2
      */
-    public function __construct($field1, $field2)
+    public function __construct(private $field1, private $field2)
     {
-        $this->field1 = $field1;
-        $this->field2 = $field2;
     }
 
     /** @return mixed */

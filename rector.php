@@ -10,6 +10,9 @@ $config = RectorConfig::configure()
     ->withPaths([
         __DIR__ . '/src',
         __DIR__ . '/test',
+    ])
+    ->withSkip([
+        \Rector\Php80\Rector\Ternary\GetDebugTypeRector::class,
     ]);
 
 return $config;

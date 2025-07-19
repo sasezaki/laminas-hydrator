@@ -158,10 +158,6 @@
       <code><![CDATA[$value]]></code>
       <code><![CDATA[$value]]></code>
     </MissingClosureParamType>
-    <MixedArgument>
-      <code><![CDATA[$value]]></code>
-      <code><![CDATA[$value]]></code>
-    </MixedArgument>
   </file>
   <file src="src/NamingStrategy/UnderscoreNamingStrategy/StringSupportTrait.php">
     <DocblockTypeContradiction>
@@ -182,13 +178,6 @@
       <code><![CDATA[$matches]]></code>
       <code><![CDATA[$value]]></code>
     </MissingClosureParamType>
-    <MixedArgument>
-      <code><![CDATA[$matches[2]]]></code>
-      <code><![CDATA[$matches[2]]]></code>
-      <code><![CDATA[$matches[2]]]></code>
-      <code><![CDATA[$value]]></code>
-      <code><![CDATA[$value[0]]]></code>
-    </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$pcreInfo->replacement]]></code>
     </MixedArgumentTypeCoercion>

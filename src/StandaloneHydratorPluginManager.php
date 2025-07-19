@@ -97,10 +97,6 @@ final class StandaloneHydratorPluginManager implements HydratorPluginManagerInte
             return $name;
         }
 
-        if (isset($this->aliases[$name])) {
-            return $this->aliases[$name];
-        }
-
-        return $this->aliases[strtolower($name)] ?? null;
+        return $this->aliases[$name] ?? $this->aliases[strtolower($name)] ?? null;
     }
 }

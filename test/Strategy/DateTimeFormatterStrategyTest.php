@@ -83,12 +83,8 @@ class DateTimeFormatterStrategyTest extends TestCase
         $strategy->extract($dateImmutableMock);
     }
 
-    /**
-     * @param string $format
-     * @param string $expectedValue
-     */
     #[DataProvider('formatsWithSpecialCharactersProvider')]
-    public function testAcceptsCreateFromFormatSpecialCharacters($format, $expectedValue): void
+    public function testAcceptsCreateFromFormatSpecialCharacters(string $format, string $expectedValue): void
     {
         $strategy = new DateTimeFormatterStrategy($format);
         $hydrated = $strategy->hydrate($expectedValue);

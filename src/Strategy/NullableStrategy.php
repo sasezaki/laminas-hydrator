@@ -19,7 +19,7 @@ final class NullableStrategy implements StrategyInterface
      *
      * {@inheritDoc}
      */
-    public function extract($value, ?object $object = null)
+    public function extract(mixed $value, ?object $object = null): mixed
     {
         if ($value === null) {
             return null;
@@ -37,7 +37,7 @@ final class NullableStrategy implements StrategyInterface
      *
      * {@inheritDoc}
      */
-    public function hydrate($value, ?array $data = null)
+    public function hydrate(mixed $value, ?array $data = null): mixed
     {
         if ($value === null) {
             return null;

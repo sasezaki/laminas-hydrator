@@ -46,11 +46,11 @@ final class ExplodeStrategy implements StrategyInterface
      *
      * Split a string by delimiter
      *
-     * @param string|null $value
+     * @param mixed $value
      * @return string[]
      * @throws Exception\InvalidArgumentException
      */
-    public function hydrate($value, ?array $data = null)
+    public function hydrate(mixed $value, ?array $data = null): mixed
     {
         if (null === $value) {
             return [];
@@ -80,7 +80,7 @@ final class ExplodeStrategy implements StrategyInterface
      * @return string|null
      * @throws Exception\InvalidArgumentException For non-array $value values.
      */
-    public function extract($value, ?object $object = null)
+    public function extract(mixed $value, ?object $object = null): ?string
     {
         if (! is_array($value)) {
             throw new Exception\InvalidArgumentException(sprintf(

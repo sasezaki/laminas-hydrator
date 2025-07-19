@@ -28,7 +28,7 @@ final class BackedEnumStrategy implements StrategyInterface
     /**
      * @inheritDoc
      */
-    public function extract($value, ?object $object = null)
+    public function extract(mixed $value, ?object $object = null): int|string
     {
         if (! $value instanceof $this->enumClass) {
             throw new InvalidArgumentException(sprintf(
@@ -42,10 +42,9 @@ final class BackedEnumStrategy implements StrategyInterface
     }
 
     /**
-     * @param mixed $value
      * @return T
      */
-    public function hydrate($value, ?array $data)
+    public function hydrate(mixed $value, ?array $data = null): BackedEnum
     {
         if ($value instanceof $this->enumClass) {
             return $value;

@@ -44,7 +44,7 @@ class ClassMethodsHydrator extends AbstractHydrator implements HydratorOptionsIn
      *
      * @var string[]|bool[]
      */
-    private $hydrationMethodsCache = [];
+    private array $hydrationMethodsCache = [];
 
     /**
      * A map of extraction methods to property name to be used during extraction, indexed
@@ -52,7 +52,7 @@ class ClassMethodsHydrator extends AbstractHydrator implements HydratorOptionsIn
      *
      * @var null[]|string[][]
      */
-    private $extractionMethodsCache = [];
+    private array $extractionMethodsCache = [];
 
     private readonly FilterInterface $optionalParametersFilter;
 
@@ -221,7 +221,7 @@ class ClassMethodsHydrator extends AbstractHydrator implements HydratorOptionsIn
      *
      * {@inheritDoc}
      */
-    public function hydrate(array $data, object $object)
+    public function hydrate(array $data, object $object): object
     {
         $objectClass = $object::class;
 
@@ -248,7 +248,7 @@ class ClassMethodsHydrator extends AbstractHydrator implements HydratorOptionsIn
     /**
      * {@inheritDoc}
      */
-    public function addFilter(string $name, $filter, int $condition = Filter\FilterComposite::CONDITION_OR): void
+    public function addFilter(string $name, mixed $filter, int $condition = Filter\FilterComposite::CONDITION_OR): void
     {
         $this->resetCaches();
         parent::addFilter($name, $filter, $condition);

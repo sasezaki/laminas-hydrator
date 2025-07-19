@@ -260,7 +260,7 @@ class CollectionStrategyTest extends TestCase
     /**
      * @return HydratorInterface&MockObject
      */
-    private function createHydratorMock()
+    private function createHydratorMock(): MockObject
     {
         return $this->createMock(HydratorInterface::class);
     }

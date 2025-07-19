@@ -21,8 +21,7 @@ class ObjectProperty
     /** @var string */
     public $quo;
 
-    /** @var string */
-    protected $quin;
+    protected string $quin;
 
     public function __construct()
     {

@@ -41,7 +41,7 @@ final class AggregateHydrator implements HydratorInterface, EventManagerAwareInt
     /**
      * {@inheritDoc}
      */
-    public function hydrate(array $data, object $object)
+    public function hydrate(array $data, object $object): object
     {
         $event = new HydrateEvent($this, $object, $data);
         $this->getEventManager()->triggerEvent($event);

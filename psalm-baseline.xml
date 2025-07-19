@@ -226,14 +226,10 @@
   </file>
   <file src="src/Strategy/BooleanStrategy.php">
     <DocblockTypeContradiction>
-      <code><![CDATA[! is_int($falseValue) && ! is_string($falseValue)]]></code>
-      <code><![CDATA[! is_int($trueValue) && ! is_string($trueValue)]]></code>
       <code><![CDATA[! is_string($value) && ! is_int($value)]]></code>
       <code><![CDATA[is_bool($value)]]></code>
     </DocblockTypeContradiction>
     <MixedArgument>
-      <code><![CDATA[is_object($falseValue) ? $falseValue::class : gettype($falseValue)]]></code>
-      <code><![CDATA[is_object($trueValue) ? $trueValue::class : gettype($trueValue)]]></code>
       <code><![CDATA[is_object($value) ? $value::class : gettype($value)]]></code>
       <code><![CDATA[is_object($value) ? $value::class : gettype($value)]]></code>
     </MixedArgument>
@@ -242,14 +238,10 @@
       <code><![CDATA[$value]]></code>
     </MoreSpecificImplementedParamType>
     <RedundantCondition>
-      <code><![CDATA[gettype($falseValue)]]></code>
-      <code><![CDATA[gettype($trueValue)]]></code>
       <code><![CDATA[gettype($value)]]></code>
       <code><![CDATA[gettype($value)]]></code>
     </RedundantCondition>
     <TypeDoesNotContainType>
-      <code><![CDATA[is_object($falseValue)]]></code>
-      <code><![CDATA[is_object($trueValue)]]></code>
       <code><![CDATA[is_object($value)]]></code>
       <code><![CDATA[is_object($value)]]></code>
     </TypeDoesNotContainType>
@@ -298,31 +290,17 @@
   <file src="src/Strategy/ExplodeStrategy.php">
     <DocblockTypeContradiction>
       <code><![CDATA[is_array($value)]]></code>
-      <code><![CDATA[is_string($value)]]></code>
     </DocblockTypeContradiction>
     <MixedArgument>
-      <code><![CDATA[is_object($value) ? $value::class : gettype($value)]]></code>
       <code><![CDATA[is_object($value) ? $value::class : gettype($value)]]></code>
     </MixedArgument>
     <MoreSpecificImplementedParamType>
       <code><![CDATA[$value]]></code>
-      <code><![CDATA[$value]]></code>
     </MoreSpecificImplementedParamType>
-    <RedundantCast>
-      <code><![CDATA[(string) $value]]></code>
-      <code><![CDATA[(string) $value]]></code>
-    </RedundantCast>
     <RedundantCondition>
       <code><![CDATA[gettype($value)]]></code>
-      <code><![CDATA[gettype($value)]]></code>
-      <code><![CDATA[is_numeric($value)]]></code>
-      <code><![CDATA[is_string($value) || is_numeric($value)]]></code>
     </RedundantCondition>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[is_string($value)]]></code>
-    </RedundantConditionGivenDocblockType>
     <TypeDoesNotContainType>
-      <code><![CDATA[is_object($value)]]></code>
       <code><![CDATA[is_object($value)]]></code>
     </TypeDoesNotContainType>
   </file>
@@ -617,8 +595,6 @@
   <file src="test/Strategy/BooleanStrategyTest.php">
     <InvalidArgument>
       <code><![CDATA[5]]></code>
-      <code><![CDATA[false]]></code>
-      <code><![CDATA[true]]></code>
     </InvalidArgument>
   </file>
   <file src="test/Strategy/CollectionStrategyTest.php">
@@ -699,7 +675,6 @@
   </file>
   <file src="test/Strategy/SerializableStrategyTest.php">
     <MixedAssignment>
-      <code><![CDATA[$serialized]]></code>
       <code><![CDATA[$serialized]]></code>
     </MixedAssignment>
   </file>

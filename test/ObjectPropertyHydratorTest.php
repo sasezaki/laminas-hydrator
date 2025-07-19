@@ -17,8 +17,7 @@ class ObjectPropertyHydratorTest extends TestCase
 {
     use HydratorTestTrait;
 
-    /** @var ObjectPropertyHydrator */
-    private $hydrator;
+    private ObjectPropertyHydrator $hydrator;
 
     /**
      * {@inheritDoc}

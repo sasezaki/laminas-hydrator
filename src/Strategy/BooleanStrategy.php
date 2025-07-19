@@ -18,43 +18,18 @@ use function sprintf;
  */
 final class BooleanStrategy implements StrategyInterface
 {
-    private readonly int|string $trueValue;
-
-    private readonly int|string $falseValue;
-
-    /**
-     * @param int|string $trueValue
-     * @param int|string $falseValue
-     * @throws InvalidArgumentException
-     */
-    public function __construct($trueValue, $falseValue)
+    public function __construct(private readonly int|string $trueValue, private readonly int|string $falseValue)
     {
-        if (! is_int($trueValue) && ! is_string($trueValue)) {
-            throw new InvalidArgumentException(sprintf(
-                'Unable to instantiate BooleanStrategy. Expected int or string as $trueValue. %s was given',
-                is_object($trueValue) ? $trueValue::class : gettype($trueValue)
-            ));
-        }
-
-        if (! is_int($falseValue) && ! is_string($falseValue)) {
-            throw new InvalidArgumentException(sprintf(
-                'Unable to instantiate BooleanStrategy. Expected int or string as $falseValue. %s was given',
-                is_object($falseValue) ? $falseValue::class : gettype($falseValue)
-            ));
-        }
-
-        $this->trueValue  = $trueValue;
-        $this->falseValue = $falseValue;
     }
 
     /**
      * Converts the given value so that it can be extracted by the hydrator.
      *
-     * @param  bool $value The original value.
+     * @param bool $value The original value.
      * @throws InvalidArgumentException
      * @return int|string Returns the value that should be extracted.
      */
-    public function extract($value, ?object $object = null)
+    public function extract(mixed $value, ?object $object = null): int|string
     {
         if (! is_bool($value)) {
             throw new InvalidArgumentException(sprintf(
@@ -73,7 +48,7 @@ final class BooleanStrategy implements StrategyInterface
      * @throws InvalidArgumentException
      * @return bool Returns the value that should be hydrated.
      */
-    public function hydrate($value, ?array $data = null)
+    public function hydrate(mixed $value, ?array $data = null): bool
     {
         if (is_bool($value)) {
             return $value;

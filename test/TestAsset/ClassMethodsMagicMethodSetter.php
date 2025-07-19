@@ -15,9 +15,8 @@ class ClassMethodsMagicMethodSetter
 
     /**
      * @param string $method
-     * @param array $args
      */
-    public function __call($method, $args)
+    public function __call($method, array $args)
     {
         if (strlen($method) > 3 && strtolower(substr($method, 3)) === 'foo') {
             $this->foo = $args[0];

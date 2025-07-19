@@ -190,7 +190,7 @@ abstract class AbstractHydrator implements
      * @param string $name Index in the composite
      * @param callable|Filter\FilterInterface $filter
      */
-    public function addFilter(string $name, $filter, int $condition = Filter\FilterComposite::CONDITION_OR): void
+    public function addFilter(string $name, mixed $filter, int $condition = Filter\FilterComposite::CONDITION_OR): void
     {
         $this->getCompositeFilter()->addFilter($name, $filter, $condition);
     }

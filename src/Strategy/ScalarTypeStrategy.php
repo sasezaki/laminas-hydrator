@@ -40,21 +40,12 @@ final class ScalarTypeStrategy implements StrategyInterface
     {
     }
 
-    /**
-     * @param mixed $value
-     * @return mixed
-     */
-    public function extract($value, ?object $object = null)
+    public function extract(mixed $value, ?object $object = null): mixed
     {
         return $value;
     }
 
-    /**
-     * @param mixed $value
-     * @param array|null $data
-     * @psalm-return null|scalar
-     */
-    public function hydrate($value, ?array $data)
+    public function hydrate(mixed $value, ?array $data = null): null|int|float|string|bool
     {
         if ($value === null) {
             return null;

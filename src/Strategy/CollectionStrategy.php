@@ -40,7 +40,7 @@ final class CollectionStrategy implements StrategyInterface
      * @throws Exception\InvalidArgumentException
      * @return mixed Returns the value that should be extracted.
      */
-    public function extract($value, ?object $object = null)
+    public function extract(mixed $value, ?object $object = null): array
     {
         if (! is_array($value)) {
             throw new Exception\InvalidArgumentException(sprintf(
@@ -69,7 +69,7 @@ final class CollectionStrategy implements StrategyInterface
      * @throws Exception\InvalidArgumentException
      * @return object[] Returns the value that should be hydrated.
      */
-    public function hydrate($value, ?array $data = null)
+    public function hydrate($value, ?array $data = null): array
     {
         if (! is_array($value)) {
             throw new Exception\InvalidArgumentException(sprintf(

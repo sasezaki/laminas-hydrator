@@ -11,6 +11,9 @@ $config = RectorConfig::configure()
         __DIR__ . '/src',
         __DIR__ . '/test',
     ])
+    ->withPreparedSets(
+        typeDeclarations: true,
+    )
     ->withSkip([
         \Rector\Php80\Rector\Ternary\GetDebugTypeRector::class,
     ]);

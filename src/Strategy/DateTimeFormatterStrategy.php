@@ -62,7 +62,7 @@ final class DateTimeFormatterStrategy implements StrategyInterface
      *     will be returned unmodified; otherwise, it will be extracted to a
      *     string.
      */
-    public function extract($value, ?object $object = null)
+    public function extract(mixed $value, ?object $object = null): mixed
     {
         if ($value instanceof DateTimeInterface) {
             return $value->format($this->extractionFormat);
@@ -81,7 +81,7 @@ final class DateTimeFormatterStrategy implements StrategyInterface
      * @throws Exception\InvalidArgumentException If $value is not null, not a
      *     string, nor a DateTimeInterface.
      */
-    public function hydrate($value, ?array $data = null)
+    public function hydrate(mixed $value, ?array $data = null): mixed
     {
         if ($value === '' || $value === null || $value instanceof DateTimeInterface) {
             return $value;

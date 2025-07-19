@@ -46,7 +46,7 @@ class HydratingIteratorIterator extends IteratorIterator implements HydratingIte
      * @throws InvalidArgumentException If $prototype is a string, but refers to
      *     a non-existent class.
      */
-    public function setPrototype($prototype): void
+    public function setPrototype(string|object $prototype): void
     {
         if (is_object($prototype)) {
             $this->prototype = $prototype;

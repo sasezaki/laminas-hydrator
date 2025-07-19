@@ -74,7 +74,7 @@ final class CamelCaseToUnderscoreFilter
             ? static fn($value): string =>
                 // ignore unicode characters w/ strtolower
                 mb_strtolower((string) $value, 'UTF-8')
-            : static fn($value) =>
+            : static fn($value): ?string =>
                 preg_replace_callback(
                     '#([A-Z])#',
                     static fn($matches): string => strtolower($matches[1]),

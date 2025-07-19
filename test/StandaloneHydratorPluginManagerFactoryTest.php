@@ -26,7 +26,7 @@ class StandaloneHydratorPluginManagerFactoryTest extends TestCase
 
     private StandaloneHydratorPluginManagerFactory $factory;
     /** @var ContainerInterface&MockObject */
-    private ContainerInterface|MockObject $container;
+    private MockObject $container;
 
     protected function setUp(): void
     {

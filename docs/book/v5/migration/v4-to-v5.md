@@ -10,7 +10,7 @@ Use **decorators** to extend behavior without modifying original classes or crea
 
 ### Hydrator Plugin Manager
 
-#### Removal of legacy Zend aliases
+#### Removal of Legacy Zend Aliases
 
 All aliases that referenced the equivalent, legacy "Zend" hydrators have been removed. This means that an exception will be thrown if you attempt to retrieve a hydrator using one of these aliases such as `Zend\Hydrator\ArraySerializableHydrator::class`.
 
@@ -30,12 +30,12 @@ The following exceptions have been removed:
 - Internal getter and setter methods have been removed.
 - If you're relying on these, update your code to use serialization logic externally or via injected services.
 
-### Changes to Individual Hydrators
+## Removed Classes
 
 The following deprecated classes (since version 3.0.0) have been removed in version 5.  
 Please update your codebase to use the corresponding `*Hydrator` classes:
 
-| Removed Class                              | Replacement Class                                  |
+| Removed Class                             | Replacement Class                                  |
 |-------------------------------------------|----------------------------------------------------|
 | `Laminas\Hydrator\ArraySerializable`      | `Laminas\Hydrator\ArraySerializableHydrator`       |
 | `Laminas\Hydrator\ClassMethods`           | `Laminas\Hydrator\ClassMethodsHydrator`            |

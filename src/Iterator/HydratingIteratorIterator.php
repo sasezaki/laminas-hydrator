@@ -24,8 +24,7 @@ use function sprintf;
  */
 class HydratingIteratorIterator extends IteratorIterator implements HydratingIteratorInterface
 {
-    /** @var HydratorInterface */
-    protected $hydrator;
+    protected HydratorInterface $hydrator;
 
     /** @var TPrototype */
     protected $prototype;

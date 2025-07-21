@@ -21,20 +21,18 @@ class HydratorObjectPropertyTest extends TestCase
     public function testMultipleInvocationsWithDifferentFiltersFindsAllProperties(): void
     {
         $instance = new class {
-            /** @var int */
-            public $id;
+            public int $id;
             /** @var int[] */
-            public $array;
+            public array $array;
             /** @var object{id:int} */
-            public $object;
+            public object $object;
 
             public function __construct()
             {
                 $this->id     = 4;
                 $this->array  = [4, 3, 5, 6];
                 $this->object = new class {
-                    /** @var int */
-                    public $id = 4;
+                    public int $id = 4;
                 };
             }
         };

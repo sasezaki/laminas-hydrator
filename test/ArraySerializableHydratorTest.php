@@ -21,8 +21,7 @@ class ArraySerializableHydratorTest extends TestCase
 {
     use HydratorTestTrait;
 
-    /** @var ArraySerializableHydrator */
-    protected $hydrator;
+    protected ArraySerializableHydrator $hydrator;
 
     /**
      * {@inheritDoc}

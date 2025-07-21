@@ -8,23 +8,16 @@ use function array_key_exists;
 
 class SimpleEntity
 {
-    /** @var mixed */
-    public $value;
+    public mixed $value;
 
-    /**
-     * @param  mixed $value
-     */
-    public function setValue($value): void
+    public function setValue(mixed $value): void
     {
         $this->value = $value;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getValue()
+    public function getValue(): mixed
     {
-        return $this->value;
+        return $this->value ?? null;
     }
 
     /**

@@ -25,18 +25,14 @@ class ClassMethodsHydrator extends AbstractHydrator implements HydratorOptionsIn
 {
     /**
      * Flag defining whether array keys are underscore-separated (true) or camel case (false)
-     *
-     * @var bool
      */
-    protected $underscoreSeparatedKeys = true;
+    protected bool $underscoreSeparatedKeys = true;
 
     /**
      * Flag defining whether to check the setter method with method_exists to prevent the
      * hydrator from calling __call during hydration
-     *
-     * @var bool
      */
-    protected $methodExistsCheck = false;
+    protected bool $methodExistsCheck = false;
 
     /**
      * Holds the names of the methods used for hydration, indexed by class::property name,

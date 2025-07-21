@@ -9,11 +9,7 @@ use AllowDynamicProperties;
 #[AllowDynamicProperties]
 class HydratorClosureStrategyEntity
 {
-    /**
-     * @param mixed $field1
-     * @param mixed $field2
-     */
-    public function __construct(public $field1 = null, public $field2 = null)
+    public function __construct(public mixed $field1 = null, public mixed $field2 = null)
     {
     }
 }

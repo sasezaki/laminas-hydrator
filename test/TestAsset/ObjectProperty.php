@@ -9,17 +9,13 @@ use AllowDynamicProperties;
 #[AllowDynamicProperties]
 class ObjectProperty
 {
-    /** @var string */
-    public $foo;
+    public string $foo;
 
-    /** @var string */
-    public $bar;
+    public string $bar;
 
-    /** @var string */
-    public $blubb;
+    public string $blubb;
 
-    /** @var string */
-    public $quo;
+    public string $quo;
 
     protected string $quin;
 

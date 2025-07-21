@@ -33,23 +33,17 @@ use function strlen;
 
 class HydratorTest extends TestCase
 {
-    /** @var ClassMethodsCamelCase */
-    protected $classMethodsCamelCase;
+    protected ClassMethodsCamelCase $classMethodsCamelCase;
 
-    /** @var ClassMethodsTitleCase */
-    protected $classMethodsTitleCase;
+    protected ClassMethodsTitleCase $classMethodsTitleCase;
 
-    /** @var ClassMethodsCamelCaseMissing */
-    protected $classMethodsCamelCaseMissing;
+    protected ClassMethodsCamelCaseMissing $classMethodsCamelCaseMissing;
 
-    /** @var ClassMethodsUnderscore */
-    protected $classMethodsUnderscore;
+    protected ClassMethodsUnderscore $classMethodsUnderscore;
 
-    /** @var ClassMethodsInvalidParameter */
-    protected $classMethodsInvalidParameter;
+    protected ClassMethodsInvalidParameter $classMethodsInvalidParameter;
 
-    /** @var ReflectionAsset */
-    protected $reflection;
+    protected ReflectionAsset $reflection;
 
     protected function setUp(): void
     {

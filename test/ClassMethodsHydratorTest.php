@@ -19,8 +19,7 @@ class ClassMethodsHydratorTest extends TestCase
 {
     use HydratorTestTrait;
 
-    /** @var ClassMethodsHydrator */
-    protected $hydrator;
+    protected ClassMethodsHydrator $hydrator;
 
     /**
      * {@inheritDoc}

@@ -229,22 +229,10 @@
       <code><![CDATA[! is_string($value) && ! is_int($value)]]></code>
       <code><![CDATA[is_bool($value)]]></code>
     </DocblockTypeContradiction>
-    <MixedArgument>
-      <code><![CDATA[is_object($value) ? $value::class : gettype($value)]]></code>
-      <code><![CDATA[is_object($value) ? $value::class : gettype($value)]]></code>
-    </MixedArgument>
     <MoreSpecificImplementedParamType>
       <code><![CDATA[$value]]></code>
       <code><![CDATA[$value]]></code>
     </MoreSpecificImplementedParamType>
-    <RedundantCondition>
-      <code><![CDATA[gettype($value)]]></code>
-      <code><![CDATA[gettype($value)]]></code>
-    </RedundantCondition>
-    <TypeDoesNotContainType>
-      <code><![CDATA[is_object($value)]]></code>
-      <code><![CDATA[is_object($value)]]></code>
-    </TypeDoesNotContainType>
   </file>
   <file src="src/Strategy/ClosureStrategy.php">
     <RiskyTruthyFalsyComparison>
@@ -263,21 +251,11 @@
     <MixedArgument>
       <code><![CDATA[$data]]></code>
       <code><![CDATA[$object]]></code>
-      <code><![CDATA[is_object($value) ? $value::class : gettype($value)]]></code>
-      <code><![CDATA[is_object($value) ? $value::class : gettype($value)]]></code>
     </MixedArgument>
     <MoreSpecificImplementedParamType>
       <code><![CDATA[$value]]></code>
       <code><![CDATA[$value]]></code>
     </MoreSpecificImplementedParamType>
-    <RedundantCondition>
-      <code><![CDATA[gettype($value)]]></code>
-      <code><![CDATA[gettype($value)]]></code>
-    </RedundantCondition>
-    <TypeDoesNotContainType>
-      <code><![CDATA[is_object($value)]]></code>
-      <code><![CDATA[is_object($value)]]></code>
-    </TypeDoesNotContainType>
   </file>
   <file src="src/Strategy/DateTimeImmutableFormatterStrategy.php">
     <MixedAssignment>
@@ -291,26 +269,14 @@
     <DocblockTypeContradiction>
       <code><![CDATA[is_array($value)]]></code>
     </DocblockTypeContradiction>
-    <MixedArgument>
-      <code><![CDATA[is_object($value) ? $value::class : gettype($value)]]></code>
-    </MixedArgument>
     <MoreSpecificImplementedParamType>
       <code><![CDATA[$value]]></code>
     </MoreSpecificImplementedParamType>
-    <RedundantCondition>
-      <code><![CDATA[gettype($value)]]></code>
-    </RedundantCondition>
-    <TypeDoesNotContainType>
-      <code><![CDATA[is_object($value)]]></code>
-    </TypeDoesNotContainType>
   </file>
   <file src="src/Strategy/HydratorStrategy.php">
     <ArgumentTypeCoercion>
       <code><![CDATA[$this->objectClassName]]></code>
     </ArgumentTypeCoercion>
-    <DocblockTypeContradiction>
-      <code><![CDATA[gettype($value)]]></code>
-    </DocblockTypeContradiction>
     <MixedInferredReturnType>
       <code><![CDATA[object|string|null]]></code>
     </MixedInferredReturnType>
@@ -320,9 +286,6 @@
     <MoreSpecificImplementedParamType>
       <code><![CDATA[$value]]></code>
     </MoreSpecificImplementedParamType>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[is_object($value)]]></code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/Strategy/SerializableStrategy.php">
     <MixedArgument>

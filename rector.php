@@ -13,9 +13,6 @@ $config = RectorConfig::configure()
     ])
     ->withPreparedSets(
         typeDeclarations: true,
-    )
-    ->withSkip([
-        \Rector\Php80\Rector\Ternary\GetDebugTypeRector::class,
-    ]);
+    );
 
 return $config;

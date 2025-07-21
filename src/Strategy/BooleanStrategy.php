@@ -6,10 +6,9 @@ namespace Laminas\Hydrator\Strategy;
 
 use Laminas\Hydrator\Exception\InvalidArgumentException;
 
-use function gettype;
+use function get_debug_type;
 use function is_bool;
 use function is_int;
-use function is_object;
 use function is_string;
 use function sprintf;
 
@@ -34,7 +33,7 @@ final class BooleanStrategy implements StrategyInterface
         if (! is_bool($value)) {
             throw new InvalidArgumentException(sprintf(
                 'Unable to extract. Expected bool. %s was given.',
-                is_object($value) ? $value::class : gettype($value)
+                get_debug_type($value)
             ));
         }
 
@@ -57,7 +56,7 @@ final class BooleanStrategy implements StrategyInterface
         if (! is_string($value) && ! is_int($value)) {
             throw new InvalidArgumentException(sprintf(
                 'Unable to hydrate. Expected bool, string or int. %s was given.',
-                is_object($value) ? $value::class : gettype($value)
+                get_debug_type($value)
             ));
         }
 

@@ -5,11 +5,10 @@ declare(strict_types=1);
 namespace Laminas\Hydrator\Strategy;
 
 use function explode;
-use function gettype;
+use function get_debug_type;
 use function implode;
 use function is_array;
 use function is_numeric;
-use function is_object;
 use function is_string;
 use function sprintf;
 
@@ -60,7 +59,7 @@ final class ExplodeStrategy implements StrategyInterface
             throw new Exception\InvalidArgumentException(sprintf(
                 '%s expects argument 1 to be string, %s provided instead',
                 __METHOD__,
-                is_object($value) ? $value::class : gettype($value)
+                get_debug_type($value)
             ));
         }
 
@@ -86,7 +85,7 @@ final class ExplodeStrategy implements StrategyInterface
             throw new Exception\InvalidArgumentException(sprintf(
                 '%s expects argument 1 to be array, %s provided instead',
                 __METHOD__,
-                is_object($value) ? $value::class : gettype($value)
+                get_debug_type($value)
             ));
         }
 

@@ -248,8 +248,11 @@ class ClassMethodsHydrator extends AbstractHydrator implements HydratorOptionsIn
     /**
      * {@inheritDoc}
      */
-    public function addFilter(string $name, mixed $filter, int $condition = Filter\FilterComposite::CONDITION_OR): void
-    {
+    public function addFilter(
+        string $name,
+        callable|FilterInterface $filter,
+        int $condition = Filter\FilterComposite::CONDITION_OR
+    ): void {
         $this->resetCaches();
         parent::addFilter($name, $filter, $condition);
     }

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Laminas\Hydrator;
 
+use Laminas\Hydrator\Filter\FilterInterface;
+
 use function sprintf;
 
 abstract class AbstractHydrator implements
@@ -166,7 +168,7 @@ abstract class AbstractHydrator implements
     /**
      * Get the filter instance
      */
-    public function getFilter(): Filter\FilterInterface
+    public function getFilter(): FilterInterface
     {
         return $this->getCompositeFilter();
     }
@@ -188,10 +190,13 @@ abstract class AbstractHydrator implements
      * </code>
      *
      * @param string $name Index in the composite
-     * @param callable|Filter\FilterInterface $filter
+     * @param callable(mixed): mixed|FilterInterface $filter
      */
-    public function addFilter(string $name, mixed $filter, int $condition = Filter\FilterComposite::CONDITION_OR): void
-    {
+    public function addFilter(
+        string $name,
+        callable|FilterInterface $filter,
+        int $condition = Filter\FilterComposite::CONDITION_OR
+    ): void {
         $this->getCompositeFilter()->addFilter($name, $filter, $condition);
     }
 

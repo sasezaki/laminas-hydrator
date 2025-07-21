@@ -422,11 +422,6 @@
       <code><![CDATA[$entity->field3]]></code>
     </UndefinedPropertyFetch>
   </file>
-  <file src="test/HydratorObjectPropertyTest.php">
-    <MissingClosureParamType>
-      <code><![CDATA[$property]]></code>
-    </MissingClosureParamType>
-  </file>
   <file src="test/HydratorStrategyTest.php">
     <MixedArgument>
       <code><![CDATA[$attributes['entities']]]></code>
@@ -459,11 +454,6 @@
     </UndefinedInterfaceMethod>
   </file>
   <file src="test/HydratorTest.php">
-    <MissingClosureParamType>
-      <code><![CDATA[$property]]></code>
-      <code><![CDATA[$property]]></code>
-      <code><![CDATA[$property]]></code>
-    </MissingClosureParamType>
     <MixedArgument>
       <code><![CDATA[$property]]></code>
       <code><![CDATA[$property]]></code>

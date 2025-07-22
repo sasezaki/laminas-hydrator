@@ -151,18 +151,6 @@
       <code><![CDATA[$value]]></code>
     </MissingClosureParamType>
   </file>
-  <file src="src/NamingStrategy/UnderscoreNamingStrategy/StringSupportTrait.php">
-    <DocblockTypeContradiction>
-      <code><![CDATA[$this->mbStringSupport === null]]></code>
-      <code><![CDATA[$this->pcreUnicodeSupport === null]]></code>
-    </DocblockTypeContradiction>
-    <MissingConstructor>
-      <code><![CDATA[$mbStringSupport]]></code>
-      <code><![CDATA[$mbStringSupport]]></code>
-      <code><![CDATA[$pcreUnicodeSupport]]></code>
-      <code><![CDATA[$pcreUnicodeSupport]]></code>
-    </MissingConstructor>
-  </file>
   <file src="src/NamingStrategy/UnderscoreNamingStrategy/UnderscoreToCamelCaseFilter.php">
     <MissingClosureParamType>
       <code><![CDATA[$matches]]></code>

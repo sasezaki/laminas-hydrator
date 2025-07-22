@@ -25,7 +25,7 @@ interface FilterEnabledInterface extends FilterProviderInterface
      * </code>
      *
      * @param string $name Index in the composite
-     * @param callable(mixed): mixed|FilterInterface $filter
+     * @param (callable(string, ?object):bool)|FilterInterface $filter
      */
     public function addFilter(
         string $name,

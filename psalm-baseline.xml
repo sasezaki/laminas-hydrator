@@ -430,10 +430,6 @@
     </UndefinedInterfaceMethod>
   </file>
   <file src="test/HydratorTest.php">
-    <MixedArgument>
-      <code><![CDATA[$property]]></code>
-      <code><![CDATA[$property]]></code>
-    </MixedArgument>
     <PossiblyUnusedMethod>
       <code><![CDATA[filterProvider]]></code>
     </PossiblyUnusedMethod>

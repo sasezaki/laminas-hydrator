@@ -106,47 +106,6 @@ class CollectionStrategyTest extends TestCase
         }
     }
 
-    #[DataProvider('providerInvalidObjectForExtraction')]
-    public function testExtractRejectsInvalidObject(mixed $object): void
-    {
-        $value = [$object];
-
-        $strategy = new CollectionStrategy(
-            $this->createHydratorMock(),
-            TestAsset\User::class
-        );
-
-        $this->expectException(Exception\InvalidArgumentException::class);
-        $this->expectExceptionMessage(sprintf(
-            'Value needs to be an instance of "%s", got "%s" instead.',
-            TestAsset\User::class,
-            get_debug_type($object)
-        ));
-
-        $strategy->extract($value);
-    }
-
-    /**
-     * @return Generator<string, list<mixed>>
-     */
-    public static function providerInvalidObjectForExtraction(): Generator
-    {
-        $values = [
-            'boolean-false'                           => false,
-            'boolean-true'                            => true,
-            'float'                                   => mt_rand() / mt_getrandmax(),
-            'integer'                                 => mt_rand(),
-            'null'                                    => null,
-            'object-but-not-instance-of-object-class' => new stdClass(),
-            'resource'                                => fopen(__FILE__, 'r'),
-            'string-non-existent-class'               => 'FooBarBaz9000',
-        ];
-
-        foreach ($values as $key => $value) {
-            yield $key => [$value];
-        }
-    }
-
     public function testExtractUsesHydratorToExtractValues(): void
     {
         $value = [

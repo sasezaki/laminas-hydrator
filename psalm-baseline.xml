@@ -221,16 +221,12 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Strategy/CollectionStrategy.php">
-    <ArgumentTypeCoercion>
-      <code><![CDATA[$this->objectClassName]]></code>
-    </ArgumentTypeCoercion>
     <DocblockTypeContradiction>
       <code><![CDATA[is_array($value)]]></code>
       <code><![CDATA[is_array($value)]]></code>
     </DocblockTypeContradiction>
     <MixedArgument>
       <code><![CDATA[$data]]></code>
-      <code><![CDATA[$object]]></code>
     </MixedArgument>
     <MoreSpecificImplementedParamType>
       <code><![CDATA[$value]]></code>
@@ -545,7 +541,6 @@
     </MixedMethodCall>
     <PossiblyUnusedMethod>
       <code><![CDATA[providerInvalidObjectClassName]]></code>
-      <code><![CDATA[providerInvalidObjectForExtraction]]></code>
       <code><![CDATA[providerInvalidValueForExtraction]]></code>
       <code><![CDATA[providerInvalidValueForHydration]]></code>
     </PossiblyUnusedMethod>

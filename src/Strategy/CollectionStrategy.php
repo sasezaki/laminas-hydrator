@@ -14,28 +14,31 @@ use function get_debug_type;
 use function is_array;
 use function sprintf;
 
+/**
+ * @template T of object
+ */
 final class CollectionStrategy implements StrategyInterface
 {
-    private readonly string $objectClassName;
-
     /**
+     * @param class-string<T> $objectClassName
      * @throws Exception\InvalidArgumentException
      */
-    public function __construct(private readonly HydratorInterface $objectHydrator, string $objectClassName)
-    {
-        if (! class_exists($objectClassName)) {
+    public function __construct(
+        private readonly HydratorInterface $objectHydrator,
+        private readonly string $objectClassName
+    ) {
+        if (! class_exists($this->objectClassName)) {
             throw new Exception\InvalidArgumentException(sprintf(
                 'Object class name needs to be the name of an existing class, got "%s" instead.',
-                $objectClassName
+                $this->objectClassName
             ));
         }
-        $this->objectClassName = $objectClassName;
     }
 
     /**
      * Converts the given value so that it can be extracted by the hydrator.
      *
-     * @param  mixed[] $value The original value.
+     * @param  object[] $value The original value.
      * @throws Exception\InvalidArgumentException
      * @return mixed Returns the value that should be extracted.
      */

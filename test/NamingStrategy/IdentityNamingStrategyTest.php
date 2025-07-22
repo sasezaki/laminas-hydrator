@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace LaminasTest\Hydrator\NamingStrategy;
 
+use Iterator;
 use Laminas\Hydrator\NamingStrategy\IdentityNamingStrategy;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -31,13 +32,11 @@ class IdentityNamingStrategyTest extends TestCase
     /**
      * Data provider
      *
-     * @return string[][]
+     * @return Iterator<(int | string), array<string>>
      */
-    public static function getTestedNames(): array
+    public static function getTestedNames(): Iterator
     {
-        return [
-            'foo' => ['foo'],
-            'bar' => ['bar'],
-        ];
+        yield 'foo' => ['foo'];
+        yield 'bar' => ['bar'];
     }
 }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace LaminasTest\Hydrator\NamingStrategy\UnderscoreNamingStrategy;
 
+use Iterator;
 use Laminas\Hydrator\NamingStrategy\UnderscoreNamingStrategy\CamelCaseToUnderscoreFilter;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -26,8 +27,8 @@ class CamelCaseToUnderscoreFilterTest extends TestCase
 
         $filtered = $filter->filter($string);
 
-        $this->assertNotEquals($string, $filtered);
-        $this->assertEquals($expected, $filtered);
+        $this->assertNotSame($string, $filtered);
+        $this->assertSame($expected, $filtered);
     }
 
     #[DataProvider('unicodeProvider')]
@@ -41,8 +42,8 @@ class CamelCaseToUnderscoreFilterTest extends TestCase
 
         $filtered = $filter->filter($string);
 
-        $this->assertNotEquals($string, $filtered);
-        $this->assertEquals($expected, $filtered);
+        $this->assertNotSame($string, $filtered);
+        $this->assertSame($expected, $filtered);
     }
 
     #[DataProvider('unicodeProviderWithoutMbStrings')]
@@ -56,109 +57,103 @@ class CamelCaseToUnderscoreFilterTest extends TestCase
 
         $filtered = $filter->filter($string);
 
-        $this->assertNotEquals($string, $filtered);
-        $this->assertEquals($expected, $filtered);
+        $this->assertNotSame($string, $filtered);
+        $this->assertSame($expected, $filtered);
     }
 
     /**
-     * @return string[][]
-     * @psalm-return array<string, array{0: string, 1: string}>
+     * @return Iterator<(int | string), array<string>>
+     * @psalm-return Iterator<string, array{0: string, 1: string}>
      */
-    public static function nonUnicodeProvider(): array
+    public static function nonUnicodeProvider(): Iterator
     {
-        return [
-            'upcased first letter'                        => [
-                'Camel',
-                'camel',
-            ],
-            'multiple words'                              => [
-                'underscoresMe',
-                'underscores_me',
-            ],
-            'alphanumeric'                                => [
-                'one2Three',
-                'one2_three',
-            ],
-            'multiple uppercased letters and underscores' => [
-                'TheseAre_SOME_CamelCASEDWords',
-                'these_are_some_camel_cased_words',
-            ],
-            'alphanumeric multiple up cases'              => [
-                'one2THR23ree',
-                'one2_thr23ree',
-            ],
-            'lowercased alphanumeric'                     => [
-                'bfd7b82e9cfceaa82704d1c1Foo',
-                'bfd7b82e9cfceaa82704d1c1_foo',
-            ],
+        yield 'upcased first letter' => [
+            'Camel',
+            'camel',
+        ];
+        yield 'multiple words' => [
+            'underscoresMe',
+            'underscores_me',
+        ];
+        yield 'alphanumeric' => [
+            'one2Three',
+            'one2_three',
+        ];
+        yield 'multiple uppercased letters and underscores' => [
+            'TheseAre_SOME_CamelCASEDWords',
+            'these_are_some_camel_cased_words',
+        ];
+        yield 'alphanumeric multiple up cases' => [
+            'one2THR23ree',
+            'one2_thr23ree',
+        ];
+        yield 'lowercased alphanumeric' => [
+            'bfd7b82e9cfceaa82704d1c1Foo',
+            'bfd7b82e9cfceaa82704d1c1_foo',
         ];
     }
 
     /**
-     * @return string[][]
-     * @psalm-return array<string, array{0: string, 1: string}>
+     * @return Iterator<(int | string), array<string>>
+     * @psalm-return Iterator<string, array{0: string, 1: string}>
      */
-    public static function unicodeProvider(): array
+    public static function unicodeProvider(): Iterator
     {
-        return [
-            'upcased first letter'                        => [
-                'Camel',
-                'camel',
-            ],
-            'multiple words'                              => [
-                'underscoresMe',
-                'underscores_me',
-            ],
-            'alphanumeric'                                => [
-                'one2Three',
-                'one2_three',
-            ],
-            'multiple uppercased letters and underscores' => [
-                'TheseAre_SOME_CamelCASEDWords',
-                'these_are_some_camel_cased_words',
-            ],
-            'alphanumeric multiple up cases'              => [
-                'one2THR23ree',
-                'one2_thr23ree',
-            ],
-            'unicode'                                     => [
-                'testŠuma',
-                'test_šuma',
-            ],
+        yield 'upcased first letter' => [
+            'Camel',
+            'camel',
+        ];
+        yield 'multiple words' => [
+            'underscoresMe',
+            'underscores_me',
+        ];
+        yield 'alphanumeric' => [
+            'one2Three',
+            'one2_three',
+        ];
+        yield 'multiple uppercased letters and underscores' => [
+            'TheseAre_SOME_CamelCASEDWords',
+            'these_are_some_camel_cased_words',
+        ];
+        yield 'alphanumeric multiple up cases' => [
+            'one2THR23ree',
+            'one2_thr23ree',
+        ];
+        yield 'unicode' => [
+            'testŠuma',
+            'test_šuma',
         ];
     }
 
     /**
-     * @return string[][]
-     * @psalm-return array<string, array{0: string, 1: string}>
+     * @return Iterator<(int | string), array<string>>
+     * @psalm-return Iterator<string, array{0: string, 1: string}>
      */
-    public static function unicodeProviderWithoutMbStrings(): array
+    public static function unicodeProviderWithoutMbStrings(): Iterator
     {
-        return [
-            'upcased first letter'                        => [
-                'Camel',
-                'camel',
-            ],
-            'multiple words'                              => [
-                'underscoresMe',
-                'underscores_me',
-            ],
-            'alphanumeric'                                => [
-                'one2Three',
-                'one2_three',
-            ],
-            'multiple uppercased letters and underscores' => [
-                'TheseAre_SOME_CamelCASEDWords',
-                'these_are_some_camel_cased_words',
-            ],
-            'alphanumeric multiple up cases'              => [
-                'one2THR23ree',
-                'one2_thr23ree',
-            ],
-            'unicode uppercase character'                 => [
-                'testŠuma',
-                'test_Šuma',
-            ],
+        yield 'upcased first letter' => [
+            'Camel',
+            'camel',
+        ];
+        yield 'multiple words' => [
+            'underscoresMe',
+            'underscores_me',
+        ];
+        yield 'alphanumeric' => [
+            'one2Three',
+            'one2_three',
+        ];
+        yield 'multiple uppercased letters and underscores' => [
+            'TheseAre_SOME_CamelCASEDWords',
+            'these_are_some_camel_cased_words',
+        ];
+        yield 'alphanumeric multiple up cases' => [
+            'one2THR23ree',
+            'one2_thr23ree',
+        ];
+        yield 'unicode uppercase character' => [
+            'testŠuma',
+            'test_Šuma',
         ];
     }
 }

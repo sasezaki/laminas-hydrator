@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace LaminasTest\Hydrator\Filter;
 
+use Iterator;
 use Laminas\Hydrator\Filter\MethodMatchFilter;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -13,26 +14,24 @@ use PHPUnit\Framework\TestCase;
 class MethodMatchFilterTest extends TestCase
 {
     /**
-     * @return (bool|string)[][]
-     * @psalm-return list<array{0: string, 1: bool}>
+     * @return Iterator<(int | string), array<(bool | string)>>
+     * @psalm-return Iterator<array{0: string, 1: bool}>
      */
-    public static function providerFilter(): array
+    public static function providerFilter(): Iterator
     {
-        return [
-            ['foo', true],
-            ['bar', false],
-            ['class::foo', true],
-            ['class::bar', false],
-        ];
+        yield ['foo', true];
+        yield ['bar', false];
+        yield ['class::foo', true];
+        yield ['class::bar', false];
     }
 
     #[DataProvider('providerFilter')]
     public function testFilter(string $methodName, bool $expected): void
     {
         $testedInstance = new MethodMatchFilter('foo', false);
-        self::assertEquals($expected, $testedInstance->filter($methodName));
+        $this->assertSame($expected, $testedInstance->filter($methodName));
 
         $testedInstance = new MethodMatchFilter('foo', true);
-        self::assertEquals(! $expected, $testedInstance->filter($methodName));
+        $this->assertSame(! $expected, $testedInstance->filter($methodName));
     }
 }

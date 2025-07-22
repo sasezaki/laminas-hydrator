@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace LaminasTest\Hydrator\Strategy;
 
+use Iterator;
 use Laminas\Hydrator\Strategy\Exception\InvalidArgumentException;
 use Laminas\Hydrator\Strategy\ExplodeStrategy;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -26,9 +27,9 @@ class ExplodeStrategyTest extends TestCase
         $strategy = new ExplodeStrategy($delimiter);
 
         if (is_numeric($expected)) {
-            self::assertEquals($expected, $strategy->extract($extractValue));
+            $this->assertEquals($expected, $strategy->extract($extractValue));
         } else {
-            self::assertSame($expected, $strategy->extract($extractValue));
+            $this->assertSame($expected, $strategy->extract($extractValue));
         }
     }
 
@@ -46,7 +47,7 @@ class ExplodeStrategyTest extends TestCase
     {
         $strategy = new ExplodeStrategy();
 
-        self::assertSame([], $strategy->hydrate(null));
+        $this->assertSame([], $strategy->hydrate(null));
     }
 
     public function testGetExceptionWithEmptyDelimiter(): void
@@ -60,10 +61,10 @@ class ExplodeStrategyTest extends TestCase
     public function testHydrateWithExplodeLimit(): void
     {
         $strategy = new ExplodeStrategy('-', 2);
-        self::assertSame(['foo', 'bar-baz-bat'], $strategy->hydrate('foo-bar-baz-bat'));
+        $this->assertSame(['foo', 'bar-baz-bat'], $strategy->hydrate('foo-bar-baz-bat'));
 
         $strategy = new ExplodeStrategy('-', 3);
-        self::assertSame(['foo', 'bar', 'baz-bat'], $strategy->hydrate('foo-bar-baz-bat'));
+        $this->assertSame(['foo', 'bar', 'baz-bat'], $strategy->hydrate('foo-bar-baz-bat'));
     }
 
     public function testHydrateWithInvalidScalarType(): void
@@ -114,29 +115,27 @@ class ExplodeStrategyTest extends TestCase
     {
         $strategy = new ExplodeStrategy($delimiter);
 
-        self::assertSame($expected, $strategy->hydrate($value));
+        $this->assertSame($expected, $strategy->hydrate($value));
     }
 
     /**
-     * @return array<string, array{0: mixed, 1: non-empty-string, 2: list<string>}>
+     * @return Iterator<string, array{mixed, non-empty-string, list<string>}>
      */
-    public static function getValidHydratedValues(): array
+    public static function getValidHydratedValues(): Iterator
     {
-        // @codingStandardsIgnoreStart
-        return [
-            'null-comma'                              => [null, ',', []],
-            'empty-comma'                             => ['', ',', ['']],
-            'string without delimiter-comma'          => ['foo', ',', ['foo']],
-            'string with delimiter-comma'             => ['foo,bar', ',', ['foo', 'bar']],
-            'string with delimiter-period'            => ['foo.bar', '.', ['foo', 'bar']],
-            'string with mismatched delimiter-comma'  => ['foo.bar', ',', ['foo.bar']],
-            'integer-comma'                           => [123, ',', ['123']],
-            'integer-numeric delimiter'               => [123, '2', ['1', '3']],
-            'integer with mismatched delimiter-comma' => [123.456, ',', ['123.456']],
-            'float-period'                            => [123.456, '.', ['123', '456']],
-            'string containing null-comma'            => ['foo,bar,dev,null', ',', ['foo', 'bar', 'dev', 'null']],
-            'string containing null-semicolon'        => ['foo;bar;dev;null', ';', ['foo', 'bar', 'dev', 'null']],
-        ];
         // @codingStandardsIgnoreEnd
+        // @codingStandardsIgnoreStart
+        yield 'null-comma' => [null, ',', []];
+        yield 'empty-comma' => ['', ',', ['']];
+        yield 'string without delimiter-comma' => ['foo', ',', ['foo']];
+        yield 'string with delimiter-comma' => ['foo,bar', ',', ['foo', 'bar']];
+        yield 'string with delimiter-period' => ['foo.bar', '.', ['foo', 'bar']];
+        yield 'string with mismatched delimiter-comma' => ['foo.bar', ',', ['foo.bar']];
+        yield 'integer-comma' => [123, ',', ['123']];
+        yield 'integer-numeric delimiter' => [123, '2', ['1', '3']];
+        yield 'integer with mismatched delimiter-comma' => [123.456, ',', ['123.456']];
+        yield 'float-period' => [123.456, '.', ['123', '456']];
+        yield 'string containing null-comma' => ['foo,bar,dev,null', ',', ['foo', 'bar', 'dev', 'null']];
+        yield 'string containing null-semicolon' => ['foo;bar;dev;null', ';', ['foo', 'bar', 'dev', 'null']];
     }
 }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace LaminasTest\Hydrator\Strategy;
 
 use DateTimeImmutable;
+use Iterator;
 use Laminas\Hydrator\Strategy\DateTimeFormatterStrategy;
 use Laminas\Hydrator\Strategy\DateTimeImmutableFormatterStrategy;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -25,47 +26,36 @@ class DateTimeImmutableFormatterStrategyTest extends TestCase
 
     public function testExtraction(): void
     {
-        self::assertEquals(
-            '2020-05-25',
-            $this->strategy->extract(new DateTimeImmutable('2020-05-25'))
-        );
+        $this->assertEquals('2020-05-25', $this->strategy->extract(new DateTimeImmutable('2020-05-25')));
     }
 
     public function testHydrationWithDateTimeImmutableObjectShouldReturnSame(): void
     {
         $dateTime = new DateTimeImmutable('2020-05-25');
-        self::assertEquals($dateTime, $this->strategy->hydrate($dateTime));
+        $this->assertEquals($dateTime, $this->strategy->hydrate($dateTime));
     }
 
     public function testHydrationShouldReturnImmutableDateTimeObject(): void
     {
-        self::assertInstanceOf(
-            DateTimeImmutable::class,
-            $this->strategy->hydrate('2020-05-25')
-        );
+        $this->assertInstanceOf(DateTimeImmutable::class, $this->strategy->hydrate('2020-05-25'));
     }
 
     public function testHydrationShouldReturnDateTimeObjectWithSameValue(): void
     {
-        self::assertSame(
-            '2020-05-25',
-            $this->strategy->hydrate('2020-05-25')->format('Y-m-d')
-        );
+        $this->assertSame('2020-05-25', $this->strategy->hydrate('2020-05-25')->format('Y-m-d'));
     }
 
     #[DataProvider('dataProviderForInvalidDateValues')]
     public function testHydrationShouldReturnInvalidDateValuesAsIs(string|null $value): void
     {
-        self::assertSame($value, $this->strategy->hydrate($value));
+        $this->assertSame($value, $this->strategy->hydrate($value));
     }
 
-    /** @return array<string, array{0: null|string}> */
-    public static function dataProviderForInvalidDateValues(): array
+    /** @return Iterator<string, array{(string | null)}> */
+    public static function dataProviderForInvalidDateValues(): Iterator
     {
-        return [
-            'null'         => [null],
-            'empty-string' => [''],
-            'foo'          => ['foo'],
-        ];
+        yield 'null' => [null];
+        yield 'empty-string' => [''];
+        yield 'foo' => ['foo'];
     }
 }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace LaminasTest\Hydrator;
 
 use ArrayObject;
+use Generator;
 use Laminas\Hydrator\ArraySerializableHydrator;
 use LaminasTest\Hydrator\TestAsset\ArraySerializable as ArraySerializableAsset;
 use LaminasTest\Hydrator\TestAsset\ArraySerializableNoGetArrayCopy;
@@ -124,19 +125,17 @@ class ArraySerializableHydratorTest extends TestCase
     }
 
     /**
-     * @return string[][][]
-     * @psalm-return array<string, array{0: string[], 1: string[], 2: string[]}>
+     * @return Generator<(int | string), array<array<string>>>
+     * @psalm-return Generator<string, array{0: string[], 1: string[], 2: string[]}>
      */
-    public static function arrayDataProvider(): array
+    public static function arrayDataProvider(): Generator
     {
-        // @codingStandardsIgnoreStart
-        return [
-            //               [ existing data,  submitted data,                   expected ]
-            'empty'       => [['what-exists'], [],                               []],
-            'replacement' => [['what-exists'], ['laminas-hydrator', 'laminas-stdlib'], ['laminas-hydrator', 'laminas-stdlib']],
-            'partial'     => [['what-exists'], ['what-exists', 'laminas-hydrator'], ['what-exists', 'laminas-hydrator']],
-        ];
         // @codingStandardsIgnoreEnd
+        // @codingStandardsIgnoreStart
+        //               [ existing data,  submitted data,                   expected ]
+        yield 'empty' => [['what-exists'], [],                               []];
+        yield 'replacement' => [['what-exists'], ['laminas-hydrator', 'laminas-stdlib'], ['laminas-hydrator', 'laminas-stdlib']];
+        yield 'partial' => [['what-exists'], ['what-exists', 'laminas-hydrator'], ['what-exists', 'laminas-hydrator']];
     }
 
     /**

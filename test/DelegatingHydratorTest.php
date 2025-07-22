@@ -17,8 +17,7 @@ class DelegatingHydratorTest extends TestCase
 {
     protected DelegatingHydrator $hydrator;
 
-    /** @psalm-var ContainerInterface&MockObject */
-    protected MockObject $hydrators;
+    protected ContainerInterface&MockObject $hydrators;
 
     protected ArrayObject $object;
 

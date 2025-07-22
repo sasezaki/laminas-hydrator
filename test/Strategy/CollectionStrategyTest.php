@@ -215,10 +215,7 @@ class CollectionStrategyTest extends TestCase
         self::assertEquals($expected, $strategy->hydrate($value));
     }
 
-    /**
-     * @return HydratorInterface&MockObject
-     */
-    private function createHydratorMock(): MockObject
+    private function createHydratorMock(): HydratorInterface&MockObject
     {
         return $this->createMock(HydratorInterface::class);
     }

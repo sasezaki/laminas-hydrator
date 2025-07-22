@@ -18,7 +18,7 @@ final class AggregateHydrator implements HydratorInterface, EventManagerAwareInt
 {
     public const DEFAULT_PRIORITY = 1;
 
-    protected ?EventManagerInterface $eventManager = null;
+    private ?EventManagerInterface $eventManager = null;
 
     /**
      * Attaches the provided hydrator to the list of hydrators to be used while hydrating/extracting data

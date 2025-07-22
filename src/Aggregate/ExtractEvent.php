@@ -25,10 +25,10 @@ final class ExtractEvent extends Event
     protected $name = self::EVENT_EXTRACT;
 
     /** @var mixed[] Data being extracted from the $extractionObject */
-    protected array $extractedData = [];
+    private array $extractedData = [];
 
     /** @psalm-param TTarget $target */
-    public function __construct(object $target, protected object $extractionObject)
+    public function __construct(object $target, private object $extractionObject)
     {
         parent::__construct(self::EVENT_EXTRACT, $target, []);
     }

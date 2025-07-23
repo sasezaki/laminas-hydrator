@@ -17,7 +17,7 @@ class BackedEnumStrategyTest extends TestCase
     public function testExtractInvalidValueThrowsException(): void
     {
         $strategy = new BackedEnumStrategy(TestBackedEnum::class);
-        $this->expectException(InvalidArgumentException::class);
+        self::expectException(InvalidArgumentException::class);
         $strategy->extract(TestUnitEnum::One);
     }
 
@@ -25,7 +25,7 @@ class BackedEnumStrategyTest extends TestCase
     {
         $strategy = new BackedEnumStrategy(TestBackedEnum::class);
         $actual   = $strategy->extract(TestBackedEnum::One);
-        $this->assertSame('one', $actual);
+        self::assertSame('one', $actual);
     }
 
     public function testHydrateEnumReturnsEnum(): void
@@ -33,22 +33,22 @@ class BackedEnumStrategyTest extends TestCase
         $expected = TestBackedEnum::Two;
         $strategy = new BackedEnumStrategy(TestBackedEnum::class);
         $actual   = $strategy->hydrate($expected, null);
-        $this->assertSame(TestBackedEnum::Two, $actual);
+        self::assertSame(TestBackedEnum::Two, $actual);
     }
 
     public function testHydrateNonScalarThrowsException(): void
     {
         $strategy = new BackedEnumStrategy(TestBackedEnum::class);
-        $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage("Value must be string or int; array provided");
+        self::expectException(InvalidArgumentException::class);
+        self::expectExceptionMessage("Value must be string or int; array provided");
         $strategy->hydrate([], null);
     }
 
     public function testHydrateNonCaseThrowsException(): void
     {
         $strategy = new BackedEnumStrategy(TestBackedEnum::class);
-        $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage("Value 'three' is not a valid scalar value for " . TestBackedEnum::class);
+        self::expectException(InvalidArgumentException::class);
+        self::expectExceptionMessage("Value 'three' is not a valid scalar value for " . TestBackedEnum::class);
         $strategy->hydrate('three', null);
     }
 
@@ -56,6 +56,6 @@ class BackedEnumStrategyTest extends TestCase
     {
         $strategy = new BackedEnumStrategy(TestBackedEnum::class);
         $actual   = $strategy->hydrate('two', null);
-        $this->assertSame(TestBackedEnum::Two, $actual);
+        self::assertSame(TestBackedEnum::Two, $actual);
     }
 }

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace LaminasTest\Hydrator\Filter;
 
 use InvalidArgumentException;
-use Iterator;
 use Laminas\Hydrator\Filter\OptionalParametersFilter;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -54,18 +53,20 @@ class OptionalParametersFilterTest extends TestCase
     /**
      * Provides a list of methods to be checked against the filter
      *
-     * @psalm-return Iterator<array-key, array{
+     * @psalm-return array<array-key, array{
      *     0: string,
      *     1: bool
      * }>
      */
-    public static function methodProvider(): Iterator
+    public static function methodProvider(): array
     {
-        yield [self::class . '::methodWithoutParameters', true];
-        yield [self::class . '::methodWithSingleMandatoryParameter', false];
-        yield [self::class . '::methodWithSingleOptionalParameter', true];
-        yield [self::class . '::methodWithMultipleMandatoryParameters', false];
-        yield [self::class . '::methodWithMultipleOptionalParameters', true];
+        return [
+            [self::class . '::methodWithoutParameters', true],
+            [self::class . '::methodWithSingleMandatoryParameter', false],
+            [self::class . '::methodWithSingleOptionalParameter', true],
+            [self::class . '::methodWithMultipleMandatoryParameters', false],
+            [self::class . '::methodWithMultipleOptionalParameters', true],
+        ];
     }
 
     /**

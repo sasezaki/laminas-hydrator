@@ -15,13 +15,13 @@ class UnderscoreNamingStrategyTest extends TestCase
     public function testNameHydratesToCamelCase(): void
     {
         $strategy = new UnderscoreNamingStrategy();
-        $this->assertSame('fooBarBaz', $strategy->hydrate('foo_bar_baz'));
+        $this->assertEquals('fooBarBaz', $strategy->hydrate('foo_bar_baz'));
     }
 
     public function testNameExtractsToUnderscore(): void
     {
         $strategy = new UnderscoreNamingStrategy();
-        $this->assertSame('foo_bar_baz', $strategy->extract('fooBarBaz'));
+        $this->assertEquals('foo_bar_baz', $strategy->extract('fooBarBaz'));
     }
 
     #[Group('6422')]
@@ -30,6 +30,6 @@ class UnderscoreNamingStrategyTest extends TestCase
     {
         $strategy = new UnderscoreNamingStrategy();
 
-        $this->assertSame('fooBarBaz', $strategy->hydrate('Foo_Bar_Baz'));
+        $this->assertEquals('fooBarBaz', $strategy->hydrate('Foo_Bar_Baz'));
     }
 }

@@ -13,18 +13,18 @@ class HydratorAwareTraitTest extends TestCase
     public function testSetHydrator(): void
     {
         $object = new HydratorAwareTraitImplementor();
-        $this->assertNotInstanceOf(HydratorInterface::class, $object->getHydrator());
+        self::assertNull($object->getHydrator());
         $hydrator = $this->createMock(HydratorInterface::class);
         $object->setHydrator($hydrator);
-        $this->assertSame($hydrator, $object->getHydrator());
+        self::assertSame($hydrator, $object->getHydrator());
     }
 
     public function testGetHydrator(): void
     {
         $object = new HydratorAwareTraitImplementor();
-        $this->assertNotInstanceOf(HydratorInterface::class, $object->getHydrator());
+        self::assertNull($object->getHydrator());
         $hydrator = $this->createMock(HydratorInterface::class);
         $object->setHydrator($hydrator);
-        $this->assertSame($hydrator, $object->getHydrator());
+        self::assertSame($hydrator, $object->getHydrator());
     }
 }

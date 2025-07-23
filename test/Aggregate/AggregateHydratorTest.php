@@ -33,12 +33,12 @@ class AggregateHydratorTest extends TestCase
         $attached = $this->createMock(HydratorInterface::class);
 
         $this->eventManager
-            ->expects($this->exactly(2))
+            ->expects(self::exactly(2))
             ->method('attach')
             ->with(
                 self::callback(function (mixed $event): bool {
-                    $this->assertIsString($event);
-                    $this->assertContains($event, [
+                    self::assertIsString($event);
+                    self::assertContains($event, [
                         HydrateEvent::EVENT_HYDRATE,
                         ExtractEvent::EVENT_EXTRACT,
                     ]);
@@ -46,12 +46,12 @@ class AggregateHydratorTest extends TestCase
                     return true;
                 }),
                 self::callback(function (mixed $listener): bool {
-                    $this->assertIsCallable($listener);
+                    self::assertIsCallable($listener);
 
                     return true;
                 }),
                 self::callback(function (mixed $priority): bool {
-                    $this->assertSame(123, $priority);
+                    self::assertSame(123, $priority);
 
                     return true;
                 }),

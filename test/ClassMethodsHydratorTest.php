@@ -87,7 +87,7 @@ class ClassMethodsHydratorTest extends TestCase
         ]);
         $this->hydrator->setOptions($options);
 
-        $this->assertFalse($this->hydrator->getUnderscoreSeparatedKeys());
+        $this->assertSame(false, $this->hydrator->getUnderscoreSeparatedKeys());
     }
 
     /**
@@ -115,7 +115,7 @@ class ClassMethodsHydratorTest extends TestCase
         $data = $this->hydrator->extract(
             new TestAsset\ClassWithoutAnyMethod()
         );
-        $this->assertSame([], $data);
+        self::assertSame([], $data);
     }
 
     public function testCanExtractFromAnonymousClassMethods(): void

@@ -577,9 +577,6 @@
     <MissingClosureParamType>
       <code><![CDATA[$data]]></code>
     </MissingClosureParamType>
-    <MissingClosureReturnType>
-      <code><![CDATA[static function ($data) {]]></code>
-    </MissingClosureReturnType>
     <MixedArgument>
       <code><![CDATA[$data]]></code>
       <code><![CDATA[$object]]></code>

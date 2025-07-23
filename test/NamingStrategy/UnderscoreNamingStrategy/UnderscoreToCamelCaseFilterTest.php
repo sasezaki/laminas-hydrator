@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace LaminasTest\Hydrator\NamingStrategy\UnderscoreNamingStrategy;
 
-use Iterator;
 use Laminas\Hydrator\NamingStrategy\UnderscoreNamingStrategy\UnderscoreToCamelCaseFilter;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -27,31 +26,33 @@ class UnderscoreToCamelCaseFilterTest extends TestCase
 
         $filtered = $filter->filter($string);
 
-        $this->assertNotSame($string, $filtered);
-        $this->assertSame($expected, $filtered);
+        $this->assertNotEquals($string, $filtered);
+        $this->assertEquals($expected, $filtered);
     }
 
     /**
-     * @return Iterator<(int | string), array<string>>
-     * @psalm-return Iterator<string, array{0: string, 1: string}>
+     * @return string[][]
+     * @psalm-return array<string, array{0: string, 1: string}>
      */
-    public static function nonUnicodeProvider(): Iterator
+    public static function nonUnicodeProvider(): array
     {
-        yield 'one word' => [
-            'Studly',
-            'studly',
-        ];
-        yield 'multiple words' => [
-            'studly_cases_me',
-            'studlyCasesMe',
-        ];
-        yield 'alphanumeric in single word' => [
-            'one_2_three',
-            'one2Three',
-        ];
-        yield 'alphanumeric in separate words' => [
-            'one2_three',
-            'one2Three',
+        return [
+            'one word'                       => [
+                'Studly',
+                'studly',
+            ],
+            'multiple words'                 => [
+                'studly_cases_me',
+                'studlyCasesMe',
+            ],
+            'alphanumeric in single word'    => [
+                'one_2_three',
+                'one2Three',
+            ],
+            'alphanumeric in separate words' => [
+                'one2_three',
+                'one2Three',
+            ],
         ];
     }
 
@@ -65,39 +66,41 @@ class UnderscoreToCamelCaseFilterTest extends TestCase
         $filter   = new UnderscoreToCamelCaseFilter();
         $filtered = $filter->filter($string);
 
-        $this->assertNotSame($string, $filtered);
-        $this->assertSame($expected, $filtered);
+        $this->assertNotEquals($string, $filtered);
+        $this->assertEquals($expected, $filtered);
     }
 
     /**
-     * @return Iterator<(int | string), array<string>>
-     * @psalm-return Iterator<string, array{0: string, 1: string}>
+     * @return string[][]
+     * @psalm-return array<string, array{0: string, 1: string}>
      */
-    public static function unicodeProvider(): Iterator
+    public static function unicodeProvider(): array
     {
-        yield 'uppercase first letter' => [
-            'Camel',
-            'camel',
-        ];
-        yield 'multiple words' => [
-            'studly_cases_me',
-            'studlyCasesMe',
-        ];
-        yield 'alphanumeric in single word' => [
-            'one_2_three',
-            'one2Three',
-        ];
-        yield 'alphanumeric in separate words' => [
-            'one2_three',
-            'one2Three',
-        ];
-        yield 'unicode character' => [
-            'test_Šuma',
-            'testŠuma',
-        ];
-        yield 'unicode character [Laminas-10517]' => [
-            'test_šuma',
-            'testŠuma',
+        return [
+            'uppercase first letter'            => [
+                'Camel',
+                'camel',
+            ],
+            'multiple words'                    => [
+                'studly_cases_me',
+                'studlyCasesMe',
+            ],
+            'alphanumeric in single word'       => [
+                'one_2_three',
+                'one2Three',
+            ],
+            'alphanumeric in separate words'    => [
+                'one2_three',
+                'one2Three',
+            ],
+            'unicode character'                 => [
+                'test_Šuma',
+                'testŠuma',
+            ],
+            'unicode character [Laminas-10517]' => [
+                'test_šuma',
+                'testŠuma',
+            ],
         ];
     }
 
@@ -113,34 +116,36 @@ class UnderscoreToCamelCaseFilterTest extends TestCase
         $property->setValue($filter, false);
 
         $filtered = $filter->filter($string);
-        $this->assertSame($expected, $filtered);
+        $this->assertEquals($expected, $filtered);
     }
 
     /**
-     * @return Iterator<(int | string), array<string>>
-     * @psalm-return Iterator<string, array{0: string, 1: string}>
+     * @return string[][]
+     * @psalm-return array<string, array{0: string, 1: string}>
      */
-    public static function unicodeWithoutMbStringsProvider(): Iterator
+    public static function unicodeWithoutMbStringsProvider(): array
     {
-        yield 'multiple words' => [
-            'studly_cases_me',
-            'studlyCasesMe',
-        ];
-        yield 'alphanumeric in single word' => [
-            'one_2_three',
-            'one2Three',
-        ];
-        yield 'alphanumeric in separate words' => [
-            'one2_three',
-            'one2Three',
-        ];
-        yield 'uppercase unicode character' => [
-            'test_Šuma',
-            'testŠuma',
-        ];
-        yield 'lowercase unicode character' => [
-            'test_šuma',
-            'test_šuma',
+        return [
+            'multiple words'                 => [
+                'studly_cases_me',
+                'studlyCasesMe',
+            ],
+            'alphanumeric in single word'    => [
+                'one_2_three',
+                'one2Three',
+            ],
+            'alphanumeric in separate words' => [
+                'one2_three',
+                'one2Three',
+            ],
+            'uppercase unicode character'    => [
+                'test_Šuma',
+                'testŠuma',
+            ],
+            'lowercase unicode character'    => [
+                'test_šuma',
+                'test_šuma',
+            ],
         ];
     }
 }

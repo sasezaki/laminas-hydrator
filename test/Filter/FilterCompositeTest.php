@@ -32,53 +32,58 @@ class FilterCompositeTest extends TestCase
         }
     }
 
-    /** @return Generator<int, list{array, array}> */
-    public static function validFiltersProvider(): Generator
+    /** @return list<array{0: array, 1: array}> */
+    public static function validFiltersProvider(): array
     {
-        yield [
-            ['foo' => new HasFilter()],
-            ['bar' => new GetFilter()],
-        ];
-        yield [
+        return [
             [
-                'foo1' => new HasFilter(),
-                'foo2' => new IsFilter(),
+                ['foo' => new HasFilter()],
+                ['bar' => new GetFilter()],
             ],
             [
-                'bar1' => new GetFilter(),
-                'bar2' => new NumberOfParameterFilter(),
+                [
+                    'foo1' => new HasFilter(),
+                    'foo2' => new IsFilter(),
+                ],
+                [
+                    'bar1' => new GetFilter(),
+                    'bar2' => new NumberOfParameterFilter(),
+                ],
             ],
         ];
     }
 
-    /** @return Generator<int, list{array, array, string}> */
-    public static function invalidFiltersProvider(): Generator
+    /** @return list<array{0: array, 1: array, 2: string}> */
+    public static function invalidFiltersProvider(): array
     {
         $callback = static fn(): bool => true;
-        yield [
-            ['foo' => 'bar'],
-            [],
-            'foo',
-        ];
-        yield [
-            [],
-            ['bar' => 'foo'],
-            'bar',
-        ];
-        yield [
-            ['foo' => ''],
-            ['bar' => ''],
-            'foo',
-        ];
-        yield [
-            ['foo' => $callback],
-            ['bar' => ''],
-            'bar',
-        ];
-        yield [
-            ['foo' => ''],
-            ['bar' => $callback],
-            'foo',
+
+        return [
+            [
+                ['foo' => 'bar'],
+                [],
+                'foo',
+            ],
+            [
+                [],
+                ['bar' => 'foo'],
+                'bar',
+            ],
+            [
+                ['foo' => ''],
+                ['bar' => ''],
+                'foo',
+            ],
+            [
+                ['foo' => $callback],
+                ['bar' => ''],
+                'bar',
+            ],
+            [
+                ['foo' => ''],
+                ['bar' => $callback],
+                'foo',
+            ],
         ];
     }
 
@@ -98,7 +103,7 @@ class FilterCompositeTest extends TestCase
     public function testNoFilters(): void
     {
         $filter = new FilterComposite();
-        $this->assertTrue($filter->filter('any_value'));
+        self::assertTrue($filter->filter('any_value'));
     }
 
     /**
@@ -209,6 +214,6 @@ class FilterCompositeTest extends TestCase
     public function testCompositionFiltering(array $orFilters, array $andFilters, bool $expected): void
     {
         $filter = new FilterComposite($orFilters, $andFilters);
-        $this->assertSame($expected, $filter->filter('any_value'));
+        self::assertSame($expected, $filter->filter('any_value'));
     }
 }

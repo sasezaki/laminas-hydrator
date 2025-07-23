@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace LaminasTest\Hydrator\Strategy;
 
 use Generator;
-use Iterator;
 use Laminas\Hydrator\Exception;
 use Laminas\Hydrator\HydratorInterface;
 use Laminas\Hydrator\ReflectionHydrator;
@@ -50,20 +49,22 @@ class CollectionStrategyTest extends TestCase
         );
     }
 
-    /** @return Iterator<string, array{mixed, class-string<Throwable>, string}> */
-    public static function providerInvalidObjectClassName(): Iterator
+    /** @return array<string, array{0:mixed, 1: class-string<Throwable>, 2: string}> */
+    public static function providerInvalidObjectClassName(): array
     {
-        // @codingStandardsIgnoreEnd
         // @codingStandardsIgnoreStart
-        yield 'array' => [[], TypeError::class, 'type string'];
-        yield 'boolean-false' => [false, TypeError::class, 'type string'];
-        yield 'boolean-true' => [true, TypeError::class, 'type string'];
-        yield 'float' => [mt_rand() / mt_getrandmax(), TypeError::class, 'type string'];
-        yield 'integer' => [mt_rand(), TypeError::class, 'type string'];
-        yield 'null' => [null, TypeError::class, 'type string'];
-        yield 'object' => [new stdClass(), TypeError::class, 'type string'];
-        yield 'resource' => [fopen(__FILE__, 'r'), TypeError::class, 'type string'];
-        yield 'string-non-existent-class' => ['FooBarBaz9000', Exception\InvalidArgumentException::class, 'class name needs to be the name of an existing class'];
+        return [
+            'array'                     => [[], TypeError::class, 'type string'],
+            'boolean-false'             => [false, TypeError::class, 'type string'],
+            'boolean-true'              => [true, TypeError::class, 'type string'],
+            'float'                     => [mt_rand() / mt_getrandmax(), TypeError::class, 'type string'],
+            'integer'                   => [mt_rand(), TypeError::class, 'type string'],
+            'null'                      => [null, TypeError::class, 'type string'],
+            'object'                    => [new stdClass(), TypeError::class, 'type string'],
+            'resource'                  => [fopen(__FILE__, 'r'), TypeError::class, 'type string'],
+            'string-non-existent-class' => ['FooBarBaz9000', Exception\InvalidArgumentException::class, 'class name needs to be the name of an existing class'],
+        ];
+        // @codingStandardsIgnoreEnd
     }
 
     #[DataProvider('providerInvalidValueForExtraction')]
@@ -124,7 +125,7 @@ class CollectionStrategyTest extends TestCase
         $hydrator = $this->createHydratorMock();
 
         $hydrator
-            ->expects($this->exactly(count($value)))
+            ->expects(self::exactly(count($value)))
             ->method('extract')
             ->willReturnCallback($extraction);
 
@@ -135,7 +136,7 @@ class CollectionStrategyTest extends TestCase
 
         $expected = array_map($extraction, $value);
 
-        $this->assertSame($expected, $strategy->extract($value));
+        self::assertSame($expected, $strategy->extract($value));
     }
 
     #[DataProvider('providerInvalidValueForHydration')]
@@ -200,7 +201,7 @@ class CollectionStrategyTest extends TestCase
         $hydrator = $this->createHydratorMock();
 
         $hydrator
-            ->expects($this->exactly(count($value)))
+            ->expects(self::exactly(count($value)))
             ->method('hydrate')
             ->willReturnCallback($hydration);
 
@@ -211,7 +212,7 @@ class CollectionStrategyTest extends TestCase
 
         $expected = array_map($hydration, $value);
 
-        $this->assertEquals($expected, $strategy->hydrate($value));
+        self::assertEquals($expected, $strategy->hydrate($value));
     }
 
     private function createHydratorMock(): HydratorInterface&MockObject

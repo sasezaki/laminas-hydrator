@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace LaminasTest\Hydrator;
 
-use Iterator;
 use Laminas\Hydrator\ClassMethodsHydrator;
 use Laminas\Hydrator\HydratorInterface;
 use Laminas\Hydrator\Strategy\StrategyInterface;
@@ -126,15 +125,17 @@ class HydratorStrategyTest extends TestCase
     }
 
     /**
-     * @psalm-return Iterator<array-key, array{
+     * @psalm-return array<array-key, array{
      *     0: bool,
      *     1: string
      * }>
      */
-    public static function underscoreHandlingDataProvider(): Iterator
+    public static function underscoreHandlingDataProvider(): array
     {
-        yield [true, 'foo_bar'];
-        yield [false, 'fooBar'];
+        return [
+            [true, 'foo_bar'],
+            [false, 'fooBar'],
+        ];
     }
 
     public function testContextAwarenessExtract(): void

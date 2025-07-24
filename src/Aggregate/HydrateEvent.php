@@ -28,7 +28,7 @@ final class HydrateEvent extends Event
      * @psalm-param TTarget $target
      * @psalm-param T $hydratedObject
      */
-    public function __construct(object $target, protected object $hydratedObject, protected array $hydrationData)
+    public function __construct(object $target, private object $hydratedObject, private array $hydrationData)
     {
         parent::__construct(self::EVENT_HYDRATE, $target, []);
     }

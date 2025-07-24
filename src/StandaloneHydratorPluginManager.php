@@ -37,7 +37,7 @@ final class StandaloneHydratorPluginManager implements HydratorPluginManagerInte
      * did not have the Hydrator suffix, it also maps the class name without
      * the suffix.
      *
-     * @var array<string, string>
+     * @var array<string, class-string>
      */
     private array $aliases = [
         'arrayserializable'         => ArraySerializableHydrator::class,
@@ -83,7 +83,7 @@ final class StandaloneHydratorPluginManager implements HydratorPluginManagerInte
     /**
      * {@inheritDoc}
      */
-    public function has($id)
+    public function has($id): bool
     {
         return null !== $this->resolveName($id);
     }
@@ -97,10 +97,6 @@ final class StandaloneHydratorPluginManager implements HydratorPluginManagerInte
             return $name;
         }
 
-        if (isset($this->aliases[$name])) {
-            return $this->aliases[$name];
-        }
-
-        return $this->aliases[strtolower($name)] ?? null;
+        return $this->aliases[$name] ?? $this->aliases[strtolower($name)] ?? null;
     }
 }

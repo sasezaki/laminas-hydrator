@@ -15,17 +15,11 @@ use Psr\Container\ContainerInterface;
 #[CoversClass(DelegatingHydrator::class)]
 class DelegatingHydratorTest extends TestCase
 {
-    /** @var DelegatingHydrator */
-    protected $hydrator;
+    protected DelegatingHydrator $hydrator;
 
-    /**
-     * @var ContainerInterface|MockObject
-     * @psalm-var ContainerInterface&MockObject
-     */
-    protected $hydrators;
+    protected ContainerInterface&MockObject $hydrators;
 
-    /** @var ArrayObject */
-    protected $object;
+    protected ArrayObject $object;
 
     /**
      * {@inheritDoc}

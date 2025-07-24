@@ -25,8 +25,7 @@ class StandaloneHydratorPluginManagerFactoryTest extends TestCase
     private const MESSAGE_DEFAULT_SERVICES = 'Missing the service %s';
 
     private StandaloneHydratorPluginManagerFactory $factory;
-    /** @var ContainerInterface&MockObject */
-    private ContainerInterface|MockObject $container;
+    private ContainerInterface&MockObject $container;
 
     protected function setUp(): void
     {

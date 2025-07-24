@@ -15,7 +15,7 @@ class DelegatingHydrator implements HydratorInterface
     /**
      * {@inheritdoc}
      */
-    public function hydrate(array $data, object $object)
+    public function hydrate(array $data, object $object): object
     {
         return $this->getHydrator($object)->hydrate($data, $object);
     }

@@ -76,7 +76,6 @@ class ExplodeStrategyTest extends TestCase
             . ' array provided instead'
         );
 
-        /** @psalm-suppress InvalidArgument */
         $strategy->hydrate([]);
     }
 
@@ -90,7 +89,6 @@ class ExplodeStrategyTest extends TestCase
             . ' stdClass provided instead'
         );
 
-        /** @psalm-suppress InvalidArgument */
         $strategy->hydrate(new stdClass());
     }
 
@@ -116,7 +114,6 @@ class ExplodeStrategyTest extends TestCase
     {
         $strategy = new ExplodeStrategy($delimiter);
 
-        /** @psalm-suppress MixedArgument */
         self::assertSame($expected, $strategy->hydrate($value));
     }
 

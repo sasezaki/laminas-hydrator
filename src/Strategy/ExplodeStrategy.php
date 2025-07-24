@@ -5,11 +5,10 @@ declare(strict_types=1);
 namespace Laminas\Hydrator\Strategy;
 
 use function explode;
-use function gettype;
+use function get_debug_type;
 use function implode;
 use function is_array;
 use function is_numeric;
-use function is_object;
 use function is_string;
 use function sprintf;
 
@@ -24,7 +23,7 @@ final class ExplodeStrategy implements StrategyInterface
      * @param non-empty-string $delimiter String that the values will be split upon
      * @param int|null $explodeLimit Explode limit
      */
-    public function __construct(string $delimiter = ',', private ?int $explodeLimit = null)
+    public function __construct(string $delimiter = ',', private readonly ?int $explodeLimit = null)
     {
         $this->setValueDelimiter($delimiter);
     }
@@ -46,11 +45,11 @@ final class ExplodeStrategy implements StrategyInterface
      *
      * Split a string by delimiter
      *
-     * @param string|null $value
+     * @param mixed $value
      * @return string[]
      * @throws Exception\InvalidArgumentException
      */
-    public function hydrate($value, ?array $data = null)
+    public function hydrate(mixed $value, ?array $data = null): mixed
     {
         if (null === $value) {
             return [];
@@ -60,7 +59,7 @@ final class ExplodeStrategy implements StrategyInterface
             throw new Exception\InvalidArgumentException(sprintf(
                 '%s expects argument 1 to be string, %s provided instead',
                 __METHOD__,
-                is_object($value) ? $value::class : gettype($value)
+                get_debug_type($value)
             ));
         }
 
@@ -80,13 +79,13 @@ final class ExplodeStrategy implements StrategyInterface
      * @return string|null
      * @throws Exception\InvalidArgumentException For non-array $value values.
      */
-    public function extract($value, ?object $object = null)
+    public function extract(mixed $value, ?object $object = null): ?string
     {
         if (! is_array($value)) {
             throw new Exception\InvalidArgumentException(sprintf(
                 '%s expects argument 1 to be array, %s provided instead',
                 __METHOD__,
-                is_object($value) ? $value::class : gettype($value)
+                get_debug_type($value)
             ));
         }
 

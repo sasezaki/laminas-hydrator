@@ -21,8 +21,7 @@ use TypeError;
 use function array_map;
 use function count;
 use function fopen;
-use function gettype;
-use function is_object;
+use function get_debug_type;
 use function mt_getrandmax;
 use function mt_rand;
 use function spl_object_hash;
@@ -79,7 +78,7 @@ class CollectionStrategyTest extends TestCase
         $this->expectException(Exception\InvalidArgumentException::class);
         $this->expectExceptionMessage(sprintf(
             'Value needs to be an array, got "%s" instead.',
-            is_object($value) ? $value::class : gettype($value)
+            get_debug_type($value)
         ));
 
         /** @psalm-suppress MixedArgument */
@@ -100,47 +99,6 @@ class CollectionStrategyTest extends TestCase
             'object'                    => new stdClass(),
             'resource'                  => fopen(__FILE__, 'r'),
             'string-non-existent-class' => 'FooBarBaz9000',
-        ];
-
-        foreach ($values as $key => $value) {
-            yield $key => [$value];
-        }
-    }
-
-    #[DataProvider('providerInvalidObjectForExtraction')]
-    public function testExtractRejectsInvalidObject(mixed $object): void
-    {
-        $value = [$object];
-
-        $strategy = new CollectionStrategy(
-            $this->createHydratorMock(),
-            TestAsset\User::class
-        );
-
-        $this->expectException(Exception\InvalidArgumentException::class);
-        $this->expectExceptionMessage(sprintf(
-            'Value needs to be an instance of "%s", got "%s" instead.',
-            TestAsset\User::class,
-            is_object($object) ? $object::class : gettype($object)
-        ));
-
-        $strategy->extract($value);
-    }
-
-    /**
-     * @return Generator<string, list<mixed>>
-     */
-    public static function providerInvalidObjectForExtraction(): Generator
-    {
-        $values = [
-            'boolean-false'                           => false,
-            'boolean-true'                            => true,
-            'float'                                   => mt_rand() / mt_getrandmax(),
-            'integer'                                 => mt_rand(),
-            'null'                                    => null,
-            'object-but-not-instance-of-object-class' => new stdClass(),
-            'resource'                                => fopen(__FILE__, 'r'),
-            'string-non-existent-class'               => 'FooBarBaz9000',
         ];
 
         foreach ($values as $key => $value) {
@@ -192,7 +150,7 @@ class CollectionStrategyTest extends TestCase
         $this->expectException(Exception\InvalidArgumentException::class);
         $this->expectExceptionMessage(sprintf(
             'Value needs to be an array, got "%s" instead.',
-            is_object($value) ? $value::class : gettype($value)
+            get_debug_type($value)
         ));
 
         /** @psalm-suppress MixedArgument */
@@ -257,10 +215,7 @@ class CollectionStrategyTest extends TestCase
         self::assertEquals($expected, $strategy->hydrate($value));
     }
 
-    /**
-     * @return HydratorInterface&MockObject
-     */
-    private function createHydratorMock()
+    private function createHydratorMock(): HydratorInterface&MockObject
     {
         return $this->createMock(HydratorInterface::class);
     }

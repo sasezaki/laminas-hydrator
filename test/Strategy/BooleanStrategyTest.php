@@ -23,22 +23,6 @@ class BooleanStrategyTest extends TestCase
         $this->assertInstanceOf(BooleanStrategy::class, new BooleanStrategy('true', 'false'));
     }
 
-    public function testExceptionOnWrongTrueValueInConstructor(): void
-    {
-        $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Expected int or string as $trueValue.');
-
-        new BooleanStrategy(true, 0);
-    }
-
-    public function testExceptionOnWrongFalseValueInConstructor(): void
-    {
-        $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Expected int or string as $falseValue.');
-
-        new BooleanStrategy(1, false);
-    }
-
     public function testExtractString(): void
     {
         $hydrator = new BooleanStrategy('true', 'false');

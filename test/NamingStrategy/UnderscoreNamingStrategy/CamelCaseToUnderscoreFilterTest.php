@@ -15,12 +15,8 @@ use function extension_loaded;
 #[CoversClass(CamelCaseToUnderscoreFilter::class)]
 class CamelCaseToUnderscoreFilterTest extends TestCase
 {
-    /**
-     * @param string $string
-     * @param string $expected
-     */
     #[DataProvider('nonUnicodeProvider')]
-    public function testFilterUnderscoresNonUnicodeStrings($string, $expected): void
+    public function testFilterUnderscoresNonUnicodeStrings(string $string, string $expected): void
     {
         $filter = new CamelCaseToUnderscoreFilter();
 
@@ -34,12 +30,8 @@ class CamelCaseToUnderscoreFilterTest extends TestCase
         $this->assertEquals($expected, $filtered);
     }
 
-    /**
-     * @param string $string
-     * @param string $expected
-     */
     #[DataProvider('unicodeProvider')]
-    public function testFilterUnderscoresUnicodeStrings($string, $expected): void
+    public function testFilterUnderscoresUnicodeStrings(string $string, string $expected): void
     {
         if (! extension_loaded('mbstring')) {
             $this->markTestSkipped('Extension mbstring not available');
@@ -53,12 +45,8 @@ class CamelCaseToUnderscoreFilterTest extends TestCase
         $this->assertEquals($expected, $filtered);
     }
 
-    /**
-     * @param string $string
-     * @param string $expected
-     */
     #[DataProvider('unicodeProviderWithoutMbStrings')]
-    public function testFilterUnderscoresUnicodeStringsWithoutMbStrings($string, $expected): void
+    public function testFilterUnderscoresUnicodeStringsWithoutMbStrings(string $string, string $expected): void
     {
         $filter = new CamelCaseToUnderscoreFilter();
 

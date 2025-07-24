@@ -16,8 +16,7 @@ class ReflectionHydratorTest extends TestCase
 {
     use HydratorTestTrait;
 
-    /** @var ReflectionHydrator */
-    protected $hydrator;
+    protected ReflectionHydrator $hydrator;
 
     /**
      * {@inheritDoc}

@@ -17,7 +17,7 @@ final class SerializableStrategy implements StrategyInterface
      *
      * {@inheritDoc}
      */
-    public function extract($value, ?object $object = null)
+    public function extract(mixed $value, ?object $object = null): string
     {
         return $this->serializer->serialize($value);
     }
@@ -27,7 +27,7 @@ final class SerializableStrategy implements StrategyInterface
      *
      * {@inheritDoc}
      */
-    public function hydrate($value, ?array $data = null)
+    public function hydrate(mixed $value, ?array $data = null): mixed
     {
         return $this->serializer->unserialize($value);
     }

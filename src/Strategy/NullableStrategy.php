@@ -8,8 +8,10 @@ use Laminas\Hydrator\Strategy\StrategyInterface;
 
 final class NullableStrategy implements StrategyInterface
 {
-    public function __construct(private StrategyInterface $strategy, private bool $treatEmptyAsNull = false)
-    {
+    public function __construct(
+        private readonly StrategyInterface $strategy,
+        private readonly bool $treatEmptyAsNull = false
+    ) {
     }
 
     /**
@@ -17,7 +19,7 @@ final class NullableStrategy implements StrategyInterface
      *
      * {@inheritDoc}
      */
-    public function extract($value, ?object $object = null)
+    public function extract(mixed $value, ?object $object = null): mixed
     {
         if ($value === null) {
             return null;
@@ -35,7 +37,7 @@ final class NullableStrategy implements StrategyInterface
      *
      * {@inheritDoc}
      */
-    public function hydrate($value, ?array $data = null)
+    public function hydrate(mixed $value, ?array $data = null): mixed
     {
         if ($value === null) {
             return null;

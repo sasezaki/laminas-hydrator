@@ -19,29 +19,21 @@ jobs:
     name: Run Rector on PHP
     steps:
       - uses: actions/checkout@v4.2.2
-      - uses: shivammathur/setup-php@2.32.0
+      - uses: shivammathur/setup-php@2.34.1
         with:
           php-version: ${{ env.default_php }}
           tools: composer
-
-      - name: Install dependencies
-        run: composer install --no-progress --prefer-dist
-
-      - name: Run Rector
-        run: composer rector
+      - uses: ramsey/composer-install@v3
+      - run: composer rector
 
   dep-analyser:
     runs-on: ubuntu-latest
     name: Run Dependency analysis
     steps:
       - uses: actions/checkout@v4.2.2
-      - uses: shivammathur/setup-php@2.32.0
+      - uses: shivammathur/setup-php@2.34.1
         with:
           php-version: ${{ env.default_php }}
           tools: composer
-
-      - name: Install dependencies
-        run: composer install --no-progress --prefer-dist
-
-      - name: Run composer-dependency-analyser with polyfill
-        run: php -d auto_prepend_file=bootstrap-php8.1.php vendor/bin/composer-dependency-analyser  --disable-ext-analysis
+      - uses: ramsey/composer-install@v3
+      - run: composer dep-analysis

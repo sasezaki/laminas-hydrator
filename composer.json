@@ -65,11 +65,13 @@
         "check": [
             "@cs-check",
             "@static-analysis",
-            "@test"
+            "@test",
+            "@rector",
+            "@dep-analysis"
         ],
         "cs-check": "phpcs",
         "cs-fix": "phpcbf",
-        "dep-analysis": "composer-dependency-analyser --disable-ext-analysis",
+        "dep-analysis": "composer-dependency-analyser --disable-ext-analysis ",
         "rector": "rector -n -vv",
         "rector:fix": "rector -vv",
         "static-analysis": "psalm --shepherd --stats",

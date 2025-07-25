@@ -16,6 +16,7 @@
     <file>src</file>
     <file>test</file>
     <file>rector.php</file>
+    <file>composer-dependency-analyser.php</file>
 
     <!-- Include all rules from Laminas Coding Standard -->
     <rule ref="LaminasCodingStandard"/>

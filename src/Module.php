@@ -21,11 +21,8 @@ final class Module
     {
         $provider = new ConfigProvider();
 
-        /** @var ServiceManagerConfiguration $config */
-        $config = $provider->getDependencyConfig();
-
         return [
-            'service_manager' => $config,
+            'service_manager' => $provider->getDependencyConfig(),
         ];
     }
 }

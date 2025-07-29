@@ -113,11 +113,6 @@
       <code><![CDATA[HydratorAwareInterface]]></code>
     </UnusedClass>
   </file>
-  <file src="src/HydratorProviderInterface.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[getHydratorConfig]]></code>
-    </PossiblyUnusedMethod>
-  </file>
   <file src="src/Iterator/HydratingIteratorIterator.php">
     <InvalidArgument>
       <code><![CDATA[$data]]></code>
@@ -127,14 +122,6 @@
     </MixedMethodCall>
   </file>
   <file src="src/Module.php">
-    <MixedAssignment>
-      <code><![CDATA[$container]]></code>
-      <code><![CDATA[$serviceListener]]></code>
-    </MixedAssignment>
-    <MixedMethodCall>
-      <code><![CDATA[addServiceManager]]></code>
-      <code><![CDATA[get]]></code>
-    </MixedMethodCall>
     <UnusedClass>
       <code><![CDATA[Module]]></code>
     </UnusedClass>

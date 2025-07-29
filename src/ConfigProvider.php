@@ -8,12 +8,13 @@ use Laminas\ServiceManager\ServiceManager;
 
 use function class_exists;
 
-class ConfigProvider
+/** @psalm-import-type ServiceManagerConfiguration from ServiceManager */
+final class ConfigProvider
 {
     /**
      * Return configuration for this component.
      *
-     * @return mixed[]
+     * @return array{dependencies: ServiceManagerConfiguration}
      */
     public function __invoke(): array
     {
@@ -29,7 +30,7 @@ class ConfigProvider
      * to the `HydratorManager` service; otherwise, it aliases the
      * StandaloneHydratorPluginManager.
      *
-     * @return string[][]
+     * @return ServiceManagerConfiguration
      */
     public function getDependencyConfig(): array
     {

@@ -6,16 +6,15 @@ namespace LaminasTest\Hydrator\TestAsset;
 
 class ArraySerializableNoGetArrayCopy
 {
-    protected array $data = [];
+    protected array $data = [
+        "foo"   => "bar",
+        "bar"   => "foo",
+        "blubb" => "baz",
+        "quo"   => "blubb",
+    ];
 
     public function __construct()
     {
-        $this->data = [
-            "foo"   => "bar",
-            "bar"   => "foo",
-            "blubb" => "baz",
-            "quo"   => "blubb",
-        ];
     }
 
     /**

@@ -13,11 +13,10 @@ class HydratorStrategy extends DefaultStrategy
     /**
      * A simulated storage device which is just an array with Car objects.
      */
-    private array $simulatedStorageDevice;
+    private array $simulatedStorageDevice = [];
 
     public function __construct()
     {
-        $this->simulatedStorageDevice   = [];
         $this->simulatedStorageDevice[] = new HydratorStrategyEntityB(111, 'AAA');
         $this->simulatedStorageDevice[] = new HydratorStrategyEntityB(222, 'BBB');
         $this->simulatedStorageDevice[] = new HydratorStrategyEntityB(333, 'CCC');

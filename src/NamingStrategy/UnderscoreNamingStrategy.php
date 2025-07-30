@@ -31,7 +31,7 @@ final class UnderscoreNamingStrategy implements NamingStrategyInterface
 
     private function getUnderscoreToCamelCaseFilter(): UnderscoreToCamelCaseFilter
     {
-        if (! static::$underscoreToCamelCaseFilter) {
+        if (! static::$underscoreToCamelCaseFilter instanceof UnderscoreToCamelCaseFilter) {
             static::$underscoreToCamelCaseFilter = new UnderscoreToCamelCaseFilter();
         }
 
@@ -40,7 +40,7 @@ final class UnderscoreNamingStrategy implements NamingStrategyInterface
 
     private function getCamelCaseToUnderscoreFilter(): CamelCaseToUnderscoreFilter
     {
-        if (! static::$camelCaseToUnderscoreFilter) {
+        if (! static::$camelCaseToUnderscoreFilter instanceof CamelCaseToUnderscoreFilter) {
             static::$camelCaseToUnderscoreFilter = new CamelCaseToUnderscoreFilter();
         }
 

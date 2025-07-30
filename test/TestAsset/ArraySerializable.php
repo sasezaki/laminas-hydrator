@@ -8,16 +8,15 @@ use Laminas\Stdlib\ArraySerializableInterface;
 
 class ArraySerializable implements ArraySerializableInterface
 {
-    protected array $data = [];
+    protected array $data = [
+        "foo"   => "bar",
+        "bar"   => "foo",
+        "blubb" => "baz",
+        "quo"   => "blubb",
+    ];
 
     public function __construct()
     {
-        $this->data = [
-            "foo"   => "bar",
-            "bar"   => "foo",
-            "blubb" => "baz",
-            "quo"   => "blubb",
-        ];
     }
 
     /**

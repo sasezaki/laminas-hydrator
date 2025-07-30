@@ -6,19 +6,15 @@ namespace LaminasTest\Hydrator\TestAsset;
 
 class ReflectionFilter
 {
-    protected string $foo;
+    protected string $foo = 'bar';
 
-    protected string $bar;
+    protected string $bar = 'foo';
 
-    protected string $blubb;
+    protected string $blubb = 'baz';
 
-    protected string $quo;
+    protected string $quo = 'blubb';
 
     public function __construct()
     {
-        $this->foo   = 'bar';
-        $this->bar   = 'foo';
-        $this->blubb = 'baz';
-        $this->quo   = 'blubb';
     }
 }

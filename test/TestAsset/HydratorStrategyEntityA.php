@@ -9,11 +9,10 @@ use function get_object_vars;
 class HydratorStrategyEntityA
 {
     /** @var HydratorStrategyEntityB[] */
-    public array $entities; // public to make testing easier!
+    public array $entities = []; // public to make testing easier!
 
     public function __construct()
     {
-        $this->entities = [];
     }
 
     public function addEntity(HydratorStrategyEntityB $entity): void

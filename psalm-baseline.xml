@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.26.1@d747f6500b38ac4f7dfc5edbcae6e4b637d7add0">
+<files psalm-version="6.13.0@70cdf647255a1362b426bb0f522a85817b8c791c">
   <file src="src/ArraySerializableHydrator.php">
     <MixedArgument>
       <code><![CDATA[$original]]></code>
@@ -23,9 +23,6 @@
       <code><![CDATA[$value]]></code>
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code><![CDATA[array]]></code>
-    </MixedInferredReturnType>
     <MixedReturnStatement>
       <code><![CDATA[$data]]></code>
       <code><![CDATA[$data]]></code>
@@ -62,17 +59,11 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/DelegatingHydrator.php">
-    <MixedInferredReturnType>
-      <code><![CDATA[HydratorInterface]]></code>
-    </MixedInferredReturnType>
     <MixedReturnStatement>
       <code><![CDATA[$this->hydrators->get($object::class)]]></code>
     </MixedReturnStatement>
   </file>
   <file src="src/DelegatingHydratorFactory.php">
-    <MixedInferredReturnType>
-      <code><![CDATA[ContainerInterface]]></code>
-    </MixedInferredReturnType>
     <MixedReturnStatement>
       <code><![CDATA[$container->get('HydratorManager')]]></code>
       <code><![CDATA[$container->get(HydratorPluginManager::class)]]></code>
@@ -240,9 +231,6 @@
     <ArgumentTypeCoercion>
       <code><![CDATA[$this->objectClassName]]></code>
     </ArgumentTypeCoercion>
-    <MixedInferredReturnType>
-      <code><![CDATA[object|string|null]]></code>
-    </MixedInferredReturnType>
     <MixedReturnStatement>
       <code><![CDATA[$value]]></code>
     </MixedReturnStatement>
@@ -266,11 +254,6 @@
       <code><![CDATA[removeStrategy]]></code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="test/Aggregate/AggregateHydratorFunctionalTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[getHydratorSet]]></code>
-    </PossiblyUnusedMethod>
-  </file>
   <file src="test/Aggregate/HydratorListenerTest.php">
     <InternalMethod>
       <code><![CDATA[onExtract]]></code>
@@ -282,9 +265,6 @@
       <code><![CDATA['thisIsNotAnObject']]></code>
       <code><![CDATA['thisIsNotAnObject']]></code>
     </InvalidArgument>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[arrayDataProvider]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="test/ClassMethodsHydratorTest.php">
     <InvalidArgument>
@@ -311,16 +291,6 @@
       <code><![CDATA[$orFilters]]></code>
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[invalidFiltersProvider]]></code>
-      <code><![CDATA[providerCompositionFiltering]]></code>
-      <code><![CDATA[validFiltersProvider]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="test/Filter/MethodMatchFilterTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[providerFilter]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="test/Filter/NumberOfParameterFilterTest.php">
     <PossiblyUnusedMethod>
@@ -330,7 +300,6 @@
   </file>
   <file src="test/Filter/OptionalParametersFilterTest.php">
     <PossiblyUnusedMethod>
-      <code><![CDATA[methodProvider]]></code>
       <code><![CDATA[methodWithMultipleMandatoryParameters]]></code>
       <code><![CDATA[methodWithMultipleOptionalParameters]]></code>
       <code><![CDATA[methodWithSingleMandatoryParameter]]></code>
@@ -382,9 +351,6 @@
     <MixedArrayAssignment>
       <code><![CDATA[$attributes['entities'][]]]></code>
     </MixedArrayAssignment>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[underscoreHandlingDataProvider]]></code>
-    </PossiblyUnusedMethod>
     <UndefinedInterfaceMethod>
       <code><![CDATA[addStrategy]]></code>
       <code><![CDATA[addStrategy]]></code>
@@ -405,11 +371,6 @@
       <code><![CDATA[removeStrategy]]></code>
     </UndefinedInterfaceMethod>
   </file>
-  <file src="test/HydratorTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[filterProvider]]></code>
-    </PossiblyUnusedMethod>
-  </file>
   <file src="test/Iterator/HydratingArrayIteratorTest.php">
     <ArgumentTypeCoercion>
       <code><![CDATA['not a real class']]></code>
@@ -419,17 +380,6 @@
     <ArgumentTypeCoercion>
       <code><![CDATA['not a real class']]></code>
     </ArgumentTypeCoercion>
-  </file>
-  <file src="test/NamingStrategy/IdentityNamingStrategyTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[getTestedNames]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="test/NamingStrategy/MapNamingStrategyTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[invalidKeyArrays]]></code>
-      <code><![CDATA[invalidMapValues]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="test/NamingStrategy/UnderscoreNamingStrategy/CamelCaseToUnderscoreFilterTest.php">
     <InternalClass>
@@ -442,11 +392,6 @@
       <code><![CDATA[filter]]></code>
       <code><![CDATA[filter]]></code>
     </InternalMethod>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[nonUnicodeProvider]]></code>
-      <code><![CDATA[unicodeProvider]]></code>
-      <code><![CDATA[unicodeProviderWithoutMbStrings]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="test/NamingStrategy/UnderscoreNamingStrategy/UnderscoreToCamelCaseFilterTest.php">
     <InternalClass>
@@ -459,11 +404,6 @@
       <code><![CDATA[filter]]></code>
       <code><![CDATA[filter]]></code>
     </InternalMethod>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[nonUnicodeProvider]]></code>
-      <code><![CDATA[unicodeProvider]]></code>
-      <code><![CDATA[unicodeWithoutMbStringsProvider]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="test/ObjectPropertyHydratorTest.php">
     <InvalidArgument>
@@ -489,9 +429,6 @@
       <code><![CDATA[$factories]]></code>
       <code><![CDATA[$instance]]></code>
     </MixedAssignment>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[knownServices]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="test/Strategy/BooleanStrategyTest.php">
     <InvalidArgument>
@@ -511,11 +448,6 @@
     <MixedMethodCall>
       <code><![CDATA[hydrate]]></code>
     </MixedMethodCall>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[providerInvalidObjectClassName]]></code>
-      <code><![CDATA[providerInvalidValueForExtraction]]></code>
-      <code><![CDATA[providerInvalidValueForHydration]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="test/Strategy/DateTimeFormatterStrategyTest.php">
     <MixedAssignment>
@@ -530,24 +462,11 @@
       <code><![CDATA[getName]]></code>
       <code><![CDATA[getTimezone]]></code>
     </MixedMethodCall>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[formatsWithSpecialCharactersProvider]]></code>
-      <code><![CDATA[invalidValuesForHydration]]></code>
-      <code><![CDATA[validUnHydratableValues]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="test/Strategy/DateTimeImmutableFormatterStrategyTest.php">
     <MixedMethodCall>
       <code><![CDATA[format]]></code>
     </MixedMethodCall>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[dataProviderForInvalidDateValues]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="test/Strategy/ExplodeStrategyTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[getValidHydratedValues]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="test/Strategy/HydratorStrategyTest.php">
     <MissingClosureParamType>
@@ -562,13 +481,6 @@
     <MixedMethodCall>
       <code><![CDATA[hydrate]]></code>
     </MixedMethodCall>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[providerEmptyOrSameObjects]]></code>
-      <code><![CDATA[providerInvalidObjectClassName]]></code>
-      <code><![CDATA[providerInvalidObjectForExtraction]]></code>
-      <code><![CDATA[providerInvalidValueForExtraction]]></code>
-      <code><![CDATA[providerInvalidValueForHydration]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="test/Strategy/SerializableStrategyTest.php">
     <MixedAssignment>

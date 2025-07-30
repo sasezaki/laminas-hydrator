@@ -79,7 +79,12 @@ class HydratingIteratorIterator extends IteratorIterator implements HydratingIte
     {
         $currentValue = parent::current();
         $object       = clone $this->prototype;
+        if ($currentValue === null) {
+            return $object;
+        }
+
         $this->hydrator->hydrate($currentValue, $object);
+
         return $object;
     }
 }

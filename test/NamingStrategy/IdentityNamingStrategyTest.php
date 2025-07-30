@@ -10,7 +10,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(IdentityNamingStrategy::class)]
-class IdentityNamingStrategyTest extends TestCase
+final class IdentityNamingStrategyTest extends TestCase
 {
     #[DataProvider('getTestedNames')]
     public function testHydrate(string $name): void

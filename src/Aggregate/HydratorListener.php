@@ -13,9 +13,9 @@ use Laminas\Hydrator\HydratorInterface;
  *
  * Listens to {@see HydrateEvent::EVENT_HYDRATE} and {@see ExtractEvent::EVENT_EXTRACT}
  */
-class HydratorListener extends AbstractListenerAggregate
+final class HydratorListener extends AbstractListenerAggregate
 {
-    public function __construct(protected HydratorInterface $hydrator)
+    public function __construct(private readonly HydratorInterface $hydrator)
     {
     }
 

@@ -9,7 +9,7 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(ScalarTypeStrategy::class)]
-class ScalarTypeStrategyTest extends TestCase
+final class ScalarTypeStrategyTest extends TestCase
 {
     public function testHydrate(): void
     {

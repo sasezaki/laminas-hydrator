@@ -9,7 +9,7 @@ namespace Laminas\Hydrator\NamingStrategy\UnderscoreNamingStrategy;
  *
  * @internal
  */
-class PcreReplacement
+final class PcreReplacement
 {
     /** @var callable */
     public $replacement;

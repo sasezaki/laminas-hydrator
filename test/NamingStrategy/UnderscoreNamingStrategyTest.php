@@ -10,7 +10,7 @@ use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(UnderscoreNamingStrategy::class)]
-class UnderscoreNamingStrategyTest extends TestCase
+final class UnderscoreNamingStrategyTest extends TestCase
 {
     public function testNameHydratesToCamelCase(): void
     {

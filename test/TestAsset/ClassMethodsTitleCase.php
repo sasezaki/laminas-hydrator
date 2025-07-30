@@ -4,19 +4,19 @@ declare(strict_types=1);
 
 namespace LaminasTest\Hydrator\TestAsset;
 
-class ClassMethodsTitleCase
+final class ClassMethodsTitleCase
 {
-    protected string $FooBar = '1';
+    private string $FooBar = '1';
 
-    protected string $FooBarBaz = '2';
+    private string $FooBarBaz = '2';
 
-    protected bool $IsFoo = true;
+    private bool $IsFoo = true;
 
-    protected bool $IsBar = true;
+    private bool $IsBar = true;
 
-    protected bool $HasFoo = true;
+    private bool $HasFoo = true;
 
-    protected bool $HasBar = true;
+    private bool $HasBar = true;
 
     public function getFooBar(): string
     {

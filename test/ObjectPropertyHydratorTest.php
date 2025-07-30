@@ -13,7 +13,7 @@ use stdClass;
 use TypeError;
 
 #[CoversClass(ObjectPropertyHydrator::class)]
-class ObjectPropertyHydratorTest extends TestCase
+final class ObjectPropertyHydratorTest extends TestCase
 {
     use HydratorTestTrait;
 

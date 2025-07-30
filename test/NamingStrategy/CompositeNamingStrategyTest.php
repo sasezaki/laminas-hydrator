@@ -11,7 +11,7 @@ use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(CompositeNamingStrategy::class)]
-class CompositeNamingStrategyTest extends TestCase
+final class CompositeNamingStrategyTest extends TestCase
 {
     public function testGetSameNameWhenNoNamingStrategyExistsForTheName(): void
     {

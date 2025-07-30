@@ -21,18 +21,18 @@ use function str_starts_with;
 use function substr;
 use function ucfirst;
 
-class ClassMethodsHydrator extends AbstractHydrator implements HydratorOptionsInterface
+final class ClassMethodsHydrator extends AbstractHydrator implements HydratorOptionsInterface
 {
     /**
      * Flag defining whether array keys are underscore-separated (true) or camel case (false)
      */
-    protected bool $underscoreSeparatedKeys = true;
+    private bool $underscoreSeparatedKeys = true;
 
     /**
      * Flag defining whether to check the setter method with method_exists to prevent the
      * hydrator from calling __call during hydration
      */
-    protected bool $methodExistsCheck = false;
+    private bool $methodExistsCheck = false;
 
     /**
      * Holds the names of the methods used for hydration, indexed by class::property name,

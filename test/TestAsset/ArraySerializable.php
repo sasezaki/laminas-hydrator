@@ -6,9 +6,9 @@ namespace LaminasTest\Hydrator\TestAsset;
 
 use Laminas\Stdlib\ArraySerializableInterface;
 
-class ArraySerializable implements ArraySerializableInterface
+final class ArraySerializable implements ArraySerializableInterface
 {
-    protected array $data = [
+    private array $data = [
         "foo"   => "bar",
         "bar"   => "foo",
         "blubb" => "baz",

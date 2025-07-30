@@ -20,7 +20,7 @@ use function array_keys;
 use function sprintf;
 
 #[CoversClass(FilterComposite::class)]
-class FilterCompositeTest extends TestCase
+final class FilterCompositeTest extends TestCase
 {
     #[DataProvider('validFiltersProvider')]
     public function testFilters(array $orFilters, array $andFilters): void

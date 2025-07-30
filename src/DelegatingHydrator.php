@@ -6,9 +6,9 @@ namespace Laminas\Hydrator;
 
 use Psr\Container\ContainerInterface;
 
-class DelegatingHydrator implements HydratorInterface
+final class DelegatingHydrator implements HydratorInterface
 {
-    public function __construct(protected ContainerInterface $hydrators)
+    public function __construct(private readonly ContainerInterface $hydrators)
     {
     }
 
@@ -31,7 +31,7 @@ class DelegatingHydrator implements HydratorInterface
     /**
      * Gets hydrator for an object
      */
-    protected function getHydrator(object $object): HydratorInterface
+    private function getHydrator(object $object): HydratorInterface
     {
         return $this->hydrators->get($object::class);
     }

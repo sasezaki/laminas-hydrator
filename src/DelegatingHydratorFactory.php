@@ -6,7 +6,7 @@ namespace Laminas\Hydrator;
 
 use Psr\Container\ContainerInterface;
 
-class DelegatingHydratorFactory
+final class DelegatingHydratorFactory
 {
     /**
      * Creates DelegatingHydrator

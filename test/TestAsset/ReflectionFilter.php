@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace LaminasTest\Hydrator\TestAsset;
 
-class ReflectionFilter
+final class ReflectionFilter
 {
-    protected string $foo = 'bar';
+    private string $foo = 'bar';
 
-    protected string $bar = 'foo';
+    private string $bar = 'foo';
 
-    protected string $blubb = 'baz';
+    private string $blubb = 'baz';
 
-    protected string $quo = 'blubb';
+    private string $quo = 'blubb';
 
     public function __construct()
     {

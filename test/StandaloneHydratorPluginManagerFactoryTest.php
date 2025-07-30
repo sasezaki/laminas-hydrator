@@ -20,7 +20,7 @@ use Reflection;
 use function sprintf;
 
 #[CoversClass(StandaloneHydratorPluginManagerFactory::class)]
-class StandaloneHydratorPluginManagerFactoryTest extends TestCase
+final class StandaloneHydratorPluginManagerFactoryTest extends TestCase
 {
     private const MESSAGE_DEFAULT_SERVICES = 'Missing the service %s';
 

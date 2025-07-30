@@ -12,7 +12,7 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(BackedEnumStrategy::class)]
-class BackedEnumStrategyTest extends TestCase
+final class BackedEnumStrategyTest extends TestCase
 {
     public function testExtractInvalidValueThrowsException(): void
     {

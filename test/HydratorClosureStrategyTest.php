@@ -13,7 +13,7 @@ use PHPUnit\Framework\TestCase;
 use function sprintf;
 
 #[CoversClass(ClosureStrategy::class)]
-class HydratorClosureStrategyTest extends TestCase
+final class HydratorClosureStrategyTest extends TestCase
 {
     /**
      * The hydrator that is used during testing.

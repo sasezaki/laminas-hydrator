@@ -31,19 +31,19 @@ use PHPUnit\Framework\TestCase;
 use function explode;
 use function strlen;
 
-class HydratorTest extends TestCase
+final class HydratorTest extends TestCase
 {
-    protected ClassMethodsCamelCase $classMethodsCamelCase;
+    private ClassMethodsCamelCase $classMethodsCamelCase;
 
-    protected ClassMethodsTitleCase $classMethodsTitleCase;
+    private ClassMethodsTitleCase $classMethodsTitleCase;
 
-    protected ClassMethodsCamelCaseMissing $classMethodsCamelCaseMissing;
+    private ClassMethodsCamelCaseMissing $classMethodsCamelCaseMissing;
 
-    protected ClassMethodsUnderscore $classMethodsUnderscore;
+    private ClassMethodsUnderscore $classMethodsUnderscore;
 
-    protected ClassMethodsInvalidParameter $classMethodsInvalidParameter;
+    private ClassMethodsInvalidParameter $classMethodsInvalidParameter;
 
-    protected ReflectionAsset $reflection;
+    private ReflectionAsset $reflection;
 
     protected function setUp(): void
     {

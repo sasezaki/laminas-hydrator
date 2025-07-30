@@ -12,7 +12,7 @@ use stdClass;
 use TypeError;
 
 #[CoversClass(ReflectionHydrator::class)]
-class ReflectionHydratorTest extends TestCase
+final class ReflectionHydratorTest extends TestCase
 {
     use HydratorTestTrait;
 

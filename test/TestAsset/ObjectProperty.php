@@ -9,18 +9,23 @@ use AllowDynamicProperties;
 #[AllowDynamicProperties]
 class ObjectProperty
 {
-    public string $foo = 'bar';
+    public string $foo;
 
-    public string $bar = 'foo';
+    public string $bar;
 
-    public string $blubb = 'baz';
+    public string $blubb;
 
-    public string $quo = 'blubb';
+    public string $quo;
 
-    protected string $quin = 'five';
+    protected string $quin;
 
     public function __construct()
     {
+        $this->foo   = 'bar';
+        $this->bar   = 'foo';
+        $this->blubb = 'baz';
+        $this->quo   = 'blubb';
+        $this->quin  = 'five';
     }
 
     public function get(string $name): string

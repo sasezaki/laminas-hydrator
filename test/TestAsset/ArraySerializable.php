@@ -6,17 +6,18 @@ namespace LaminasTest\Hydrator\TestAsset;
 
 use Laminas\Stdlib\ArraySerializableInterface;
 
-final class ArraySerializable implements ArraySerializableInterface
+class ArraySerializable implements ArraySerializableInterface
 {
-    private array $data = [
-        "foo"   => "bar",
-        "bar"   => "foo",
-        "blubb" => "baz",
-        "quo"   => "blubb",
-    ];
+    protected array $data = [];
 
     public function __construct()
     {
+        $this->data = [
+            "foo"   => "bar",
+            "bar"   => "foo",
+            "blubb" => "baz",
+            "quo"   => "blubb",
+        ];
     }
 
     /**

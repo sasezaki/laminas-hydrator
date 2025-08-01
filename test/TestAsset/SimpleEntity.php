@@ -6,7 +6,7 @@ namespace LaminasTest\Hydrator\TestAsset;
 
 use function array_key_exists;
 
-final class SimpleEntity
+class SimpleEntity
 {
     public mixed $value;
 

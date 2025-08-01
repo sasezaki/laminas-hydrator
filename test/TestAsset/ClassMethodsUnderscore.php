@@ -5,19 +5,19 @@ declare(strict_types=1);
 
 namespace LaminasTest\Hydrator\TestAsset;
 
-final class ClassMethodsUnderscore
+class ClassMethodsUnderscore
 {
-    private string $foo_bar = '1';
+    protected string $foo_bar = '1';
 
-    private string $foo_bar_baz = '2';
+    protected string $foo_bar_baz = '2';
 
-    private bool $is_foo = true;
+    protected bool $is_foo = true;
 
-    private bool $is_bar = true;
+    protected bool $is_bar = true;
 
-    private bool $has_foo = true;
+    protected bool $has_foo = true;
 
-    private bool $has_bar = true;
+    protected bool $has_bar = true;
 
     public function getFooBar(): string
     {

@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace LaminasTest\Hydrator\TestAsset;
 
-final class ClassMethodsProtectedSetter
+class ClassMethodsProtectedSetter
 {
-    private mixed $foo;
+    protected mixed $foo;
 
-    private mixed $bar;
+    protected mixed $bar;
 
-    private function setFoo(mixed $foo): void
+    protected function setFoo(mixed $foo): void
     {
         $this->foo = $foo;
     }

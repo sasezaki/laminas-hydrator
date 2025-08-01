@@ -8,9 +8,9 @@ use function strlen;
 use function strtolower;
 use function substr;
 
-final class ClassMethodsMagicMethodSetter
+class ClassMethodsMagicMethodSetter
 {
-    private mixed $foo;
+    protected mixed $foo;
 
     public function __call(string $method, array $args)
     {

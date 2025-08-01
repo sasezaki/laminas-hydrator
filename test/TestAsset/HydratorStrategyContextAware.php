@@ -6,7 +6,7 @@ namespace LaminasTest\Hydrator\TestAsset;
 
 use Laminas\Hydrator\Strategy\DefaultStrategy;
 
-final class HydratorStrategyContextAware extends DefaultStrategy
+class HydratorStrategyContextAware extends DefaultStrategy
 {
     public object $object;
 

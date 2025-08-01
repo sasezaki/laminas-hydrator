@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace LaminasTest\Hydrator\TestAsset;
 
-final class Reflection
+class Reflection
 {
     public string $foo = '1';
 
-    private string $fooBar = '2';
+    protected string $fooBar = '2';
 
     private string $fooBarBaz = '3';
 

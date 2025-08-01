@@ -14,4 +14,5 @@ return RectorConfig::configure()
         codeQuality: true,
         typeDeclarations: true,
         privatization: true,
-    );
+    )
+    ->withSkip([__DIR__ . '/test/TestAsset']);

@@ -12,7 +12,7 @@ use function key;
 use function next;
 use function reset;
 
-final class ArrayObjectIterator implements Iterator
+class ArrayObjectIterator implements Iterator
 {
     private array $var = [];
 

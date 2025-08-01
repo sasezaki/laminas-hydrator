@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace LaminasTest\Hydrator\TestAsset;
 
-final class ClassMethodsInvalidParameter
+class ClassMethodsInvalidParameter
 {
     /**
      * @param mixed $alias

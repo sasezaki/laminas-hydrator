@@ -10,7 +10,7 @@ use Laminas\Hydrator\Filter\FilterProviderInterface;
 use Laminas\Hydrator\Filter\GetFilter;
 use Laminas\Hydrator\Filter\MethodMatchFilter;
 
-final class ClassMethodsFilterProviderInterface implements FilterProviderInterface
+class ClassMethodsFilterProviderInterface implements FilterProviderInterface
 {
     public function getBar(): string
     {

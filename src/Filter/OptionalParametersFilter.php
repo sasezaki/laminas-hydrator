@@ -60,6 +60,6 @@ final class OptionalParametersFilter implements FilterInterface
             static fn(ReflectionParameter $parameter): bool => ! $parameter->isOptional()
         );
 
-        return static::$propertiesCache[$cacheName] = empty($mandatoryParameters);
+        return static::$propertiesCache[$cacheName] = $mandatoryParameters === [];
     }
 }

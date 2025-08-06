@@ -8,7 +8,7 @@ use Laminas\Hydrator\HydratorInterface;
 use LaminasTest\Hydrator\TestAsset\HydratorAwareTraitImplementor;
 use PHPUnit\Framework\TestCase;
 
-class HydratorAwareTraitTest extends TestCase
+final class HydratorAwareTraitTest extends TestCase
 {
     public function testSetHydrator(): void
     {

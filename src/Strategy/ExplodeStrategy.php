@@ -33,7 +33,7 @@ final class ExplodeStrategy implements StrategyInterface
      */
     private function setValueDelimiter(string $delimiter): void
     {
-        if (empty($delimiter)) {
+        if ($delimiter === '' || $delimiter === '0') {
             throw new Exception\InvalidArgumentException('Delimiter cannot be empty.');
         }
 
@@ -55,7 +55,7 @@ final class ExplodeStrategy implements StrategyInterface
             return [];
         }
 
-        if (! (is_string($value) || is_numeric($value))) {
+        if (! is_string($value) && ! is_numeric($value)) {
             throw new Exception\InvalidArgumentException(sprintf(
                 '%s expects argument 1 to be string, %s provided instead',
                 __METHOD__,
@@ -89,6 +89,6 @@ final class ExplodeStrategy implements StrategyInterface
             ));
         }
 
-        return empty($value) ? null : implode($this->valueDelimiter, $value);
+        return $value === [] ? null : implode($this->valueDelimiter, $value);
     }
 }

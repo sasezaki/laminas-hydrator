@@ -11,6 +11,8 @@ return RectorConfig::configure()
         __DIR__ . '/test',
     ])
     ->withPreparedSets(
+        codeQuality: true,
         typeDeclarations: true,
         privatization: true,
-    );
+    )
+    ->withSkip([__DIR__ . '/test/TestAsset']);

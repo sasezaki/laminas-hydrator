@@ -27,7 +27,7 @@ use function spl_object_hash;
 use function sprintf;
 
 #[CoversClass(HydratorStrategy::class)]
-class HydratorStrategyTest extends TestCase
+final class HydratorStrategyTest extends TestCase
 {
     /**
      * @param class-string<Throwable> $expectedExceptionType

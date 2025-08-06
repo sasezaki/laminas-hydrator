@@ -14,7 +14,7 @@ use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(HydratorPluginManagerFactory::class)]
-class HydratorPluginManagerFactoryTest extends TestCase
+final class HydratorPluginManagerFactoryTest extends TestCase
 {
     public function testFactoryReturnsPluginManager(): void
     {

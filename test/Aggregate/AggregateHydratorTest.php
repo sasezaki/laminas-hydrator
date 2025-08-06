@@ -15,10 +15,10 @@ use PHPUnit\Framework\TestCase;
 use stdClass;
 
 #[CoversClass(AggregateHydrator::class)]
-class AggregateHydratorTest extends TestCase
+final class AggregateHydratorTest extends TestCase
 {
-    protected AggregateHydrator $hydrator;
-    protected EventManager&MockObject $eventManager;
+    private AggregateHydrator $hydrator;
+    private EventManager&MockObject $eventManager;
 
     protected function setUp(): void
     {

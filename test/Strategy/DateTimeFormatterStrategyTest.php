@@ -16,7 +16,7 @@ use PHPUnit\Framework\TestCase;
 use stdClass;
 
 #[CoversClass(DateTimeFormatterStrategy::class)]
-class DateTimeFormatterStrategyTest extends TestCase
+final class DateTimeFormatterStrategyTest extends TestCase
 {
     public function testHydrate(): void
     {

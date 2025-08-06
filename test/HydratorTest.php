@@ -31,19 +31,19 @@ use PHPUnit\Framework\TestCase;
 use function explode;
 use function strlen;
 
-class HydratorTest extends TestCase
+final class HydratorTest extends TestCase
 {
-    protected ClassMethodsCamelCase $classMethodsCamelCase;
+    private ClassMethodsCamelCase $classMethodsCamelCase;
 
-    protected ClassMethodsTitleCase $classMethodsTitleCase;
+    private ClassMethodsTitleCase $classMethodsTitleCase;
 
-    protected ClassMethodsCamelCaseMissing $classMethodsCamelCaseMissing;
+    private ClassMethodsCamelCaseMissing $classMethodsCamelCaseMissing;
 
-    protected ClassMethodsUnderscore $classMethodsUnderscore;
+    private ClassMethodsUnderscore $classMethodsUnderscore;
 
-    protected ClassMethodsInvalidParameter $classMethodsInvalidParameter;
+    private ClassMethodsInvalidParameter $classMethodsInvalidParameter;
 
-    protected ReflectionAsset $reflection;
+    private ReflectionAsset $reflection;
 
     protected function setUp(): void
     {
@@ -353,12 +353,7 @@ class HydratorTest extends TestCase
             'exclude',
             static function ($property): bool {
                 $method = explode('::', $property)[1];
-
-                if ($method === 'getHasFoo') {
-                    return false;
-                }
-
-                return true;
+                return $method !== 'getHasFoo';
             },
             FilterComposite::CONDITION_AND
         );
@@ -382,12 +377,7 @@ class HydratorTest extends TestCase
             $hydrator->extract($serializable)
         );
 
-        $hydrator->addFilter('foo', static function ($property): bool {
-            if ($property === 'foo') {
-                return false;
-            }
-            return true;
-        });
+        $hydrator->addFilter('foo', static fn($property): bool => $property !== 'foo');
 
         self::assertSame(
             [
@@ -398,12 +388,11 @@ class HydratorTest extends TestCase
             $hydrator->extract($serializable)
         );
 
-        $hydrator->addFilter('len', static function ($property): bool {
-            if (strlen($property) !== 3) {
-                return false;
-            }
-            return true;
-        }, FilterComposite::CONDITION_AND);
+        $hydrator->addFilter(
+            'len',
+            static fn($property): bool => strlen($property) === 3,
+            FilterComposite::CONDITION_AND
+        );
 
         self::assertSame(
             [

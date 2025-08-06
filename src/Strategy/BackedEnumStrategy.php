@@ -50,7 +50,7 @@ final class BackedEnumStrategy implements StrategyInterface
             return $value;
         }
 
-        if (! (is_int($value) || is_string($value))) {
+        if (! is_int($value) && ! is_string($value)) {
             throw new InvalidArgumentException(sprintf(
                 "Value must be string or int; %s provided",
                 get_debug_type($value)

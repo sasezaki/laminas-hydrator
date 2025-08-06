@@ -327,9 +327,6 @@
       <code><![CDATA[methodWithNoParameters]]></code>
       <code><![CDATA[methodWithOptionalParameters]]></code>
     </PossiblyUnusedMethod>
-    <PossiblyUnusedParam>
-      <code><![CDATA[$parameter]]></code>
-    </PossiblyUnusedParam>
   </file>
   <file src="test/Filter/OptionalParametersFilterTest.php">
     <PossiblyUnusedMethod>
@@ -340,14 +337,6 @@
       <code><![CDATA[methodWithSingleOptionalParameter]]></code>
       <code><![CDATA[methodWithoutParameters]]></code>
     </PossiblyUnusedMethod>
-    <PossiblyUnusedParam>
-      <code><![CDATA[$otherParameter]]></code>
-      <code><![CDATA[$otherParameter]]></code>
-      <code><![CDATA[$parameter]]></code>
-      <code><![CDATA[$parameter]]></code>
-      <code><![CDATA[$parameter]]></code>
-      <code><![CDATA[$parameter]]></code>
-    </PossiblyUnusedParam>
   </file>
   <file src="test/HydratorClosureStrategyTest.php">
     <MissingClosureParamType>

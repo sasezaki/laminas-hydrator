@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Laminas\Hydrator;
 
+use Laminas\Hydrator\Filter\FilterComposite;
 use Laminas\Hydrator\Filter\FilterInterface;
+use Laminas\Hydrator\NamingStrategy\NamingStrategyInterface;
 
 use function sprintf;
 
@@ -188,7 +190,7 @@ abstract class AbstractHydrator implements
     public function addFilter(
         string $name,
         callable|FilterInterface $filter,
-        int $condition = Filter\FilterComposite::CONDITION_OR
+        int $condition = FilterComposite::CONDITION_OR
     ): void {
         $this->getCompositeFilter()->addFilter($name, $filter, $condition);
     }
@@ -220,9 +222,9 @@ abstract class AbstractHydrator implements
     /**
      * Adds the given naming strategy
      *
-     * @param NamingStrategy\NamingStrategyInterface $strategy The naming to register.
+     * @param NamingStrategyInterface $strategy The naming to register.
      */
-    public function setNamingStrategy(NamingStrategy\NamingStrategyInterface $strategy): void
+    public function setNamingStrategy(NamingStrategyInterface $strategy): void
     {
         $this->namingStrategy = $strategy;
     }
@@ -235,9 +237,9 @@ abstract class AbstractHydrator implements
      *
      * {@inheritDoc}
      */
-    public function getNamingStrategy(): NamingStrategy\NamingStrategyInterface
+    public function getNamingStrategy(): NamingStrategyInterface
     {
-        if (null === $this->namingStrategy) {
+        if (! $this->namingStrategy instanceof NamingStrategyInterface) {
             $this->namingStrategy = new NamingStrategy\IdentityNamingStrategy();
         }
         return $this->namingStrategy;
@@ -248,7 +250,7 @@ abstract class AbstractHydrator implements
      */
     public function hasNamingStrategy(): bool
     {
-        return isset($this->namingStrategy);
+        return $this->namingStrategy instanceof NamingStrategyInterface;
     }
 
     /**
@@ -268,10 +270,10 @@ abstract class AbstractHydrator implements
      * @throws Exception\DomainException If composed $filterComposite is not a
      *     Filter\FilterComposite instance, nor null.
      */
-    protected function getCompositeFilter(): Filter\FilterComposite
+    protected function getCompositeFilter(): FilterComposite
     {
-        if (! $this->filterComposite) {
-            $this->filterComposite = new Filter\FilterComposite();
+        if (! $this->filterComposite instanceof FilterComposite) {
+            $this->filterComposite = new FilterComposite();
         }
 
         return $this->filterComposite;

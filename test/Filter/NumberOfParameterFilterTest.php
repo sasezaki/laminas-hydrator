@@ -11,7 +11,7 @@ use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(NumberOfParameterFilter::class)]
-class NumberOfParameterFilterTest extends TestCase
+final class NumberOfParameterFilterTest extends TestCase
 {
     #[Group('6083')]
     public function testArityZero(): void
@@ -19,6 +19,15 @@ class NumberOfParameterFilterTest extends TestCase
         $filter = new NumberOfParameterFilter();
         $this->assertTrue($filter->filter(self::class . '::methodWithNoParameters'));
         $this->assertFalse($filter->filter(self::class . '::methodWithOptionalParameters'));
+    }
+
+    /**
+     * Test asset method.
+     *
+     * @psalm-suppress UnusedParam
+     */
+    public function methodWithOptionalParameters(string $parameter = 'foo'): void
+    {
     }
 
     #[Group('6083')]
@@ -40,13 +49,6 @@ class NumberOfParameterFilterTest extends TestCase
         );
         $filter = new NumberOfParameterFilter(1);
         $filter->filter(self::class . '::methodDoesNotExist');
-    }
-
-    /**
-     * Test asset method
-     */
-    public function methodWithOptionalParameters(string $parameter = 'foo'): void
-    {
     }
 
     /**

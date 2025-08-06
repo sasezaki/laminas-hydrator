@@ -63,7 +63,7 @@ final class AggregateHydrator implements HydratorInterface, EventManagerAwareInt
      */
     public function getEventManager(): EventManagerInterface
     {
-        if (null === $this->eventManager) {
+        if (! $this->eventManager instanceof EventManagerInterface) {
             $this->setEventManager(new EventManager());
             assert($this->eventManager instanceof EventManagerInterface);
         }

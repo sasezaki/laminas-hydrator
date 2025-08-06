@@ -7,14 +7,14 @@ namespace Laminas\Hydrator;
 use ReflectionClass;
 use ReflectionProperty;
 
-class ReflectionHydrator extends AbstractHydrator
+final class ReflectionHydrator extends AbstractHydrator
 {
     /**
      * Simple in-memory array cache of ReflectionProperties used.
      *
      * @var ReflectionProperty[][]
      */
-    protected static $reflProperties = [];
+    private static array $reflProperties = [];
 
     /**
      * Extract values from an object
@@ -24,7 +24,7 @@ class ReflectionHydrator extends AbstractHydrator
     public function extract(object $object): array
     {
         $result = [];
-        foreach (self::getReflProperties($object) as $property) {
+        foreach ($this->getReflProperties($object) as $property) {
             $propertyName = $this->extractName($property->getName(), $object);
             if (! $this->getCompositeFilter()->filter($propertyName)) {
                 continue;
@@ -44,7 +44,7 @@ class ReflectionHydrator extends AbstractHydrator
      */
     public function hydrate(array $data, object $object): object
     {
-        $reflProperties = self::getReflProperties($object);
+        $reflProperties = $this->getReflProperties($object);
         foreach ($data as $key => $value) {
             $name = $this->hydrateName($key, $data);
             if (isset($reflProperties[$name])) {
@@ -60,7 +60,7 @@ class ReflectionHydrator extends AbstractHydrator
      *
      * @return ReflectionProperty[]
      */
-    protected static function getReflProperties(object $input): array
+    private function getReflProperties(object $input): array
     {
         $class = $input::class;
 

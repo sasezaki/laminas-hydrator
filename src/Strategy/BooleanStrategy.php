@@ -37,7 +37,7 @@ final class BooleanStrategy implements StrategyInterface
             ));
         }
 
-        return $value === true ? $this->trueValue : $this->falseValue;
+        return $value ? $this->trueValue : $this->falseValue;
     }
 
     /**

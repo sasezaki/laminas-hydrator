@@ -11,7 +11,7 @@ use function is_callable;
 use function method_exists;
 use function sprintf;
 
-class ArraySerializableHydrator extends AbstractHydrator
+final class ArraySerializableHydrator extends AbstractHydrator
 {
     /**
      * Extract values from the provided object

@@ -9,7 +9,7 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(ObjectPropertyHydrator::class)]
-class HydratorObjectPropertyTest extends TestCase
+final class HydratorObjectPropertyTest extends TestCase
 {
     private ObjectPropertyHydrator $hydrator;
 
@@ -21,16 +21,14 @@ class HydratorObjectPropertyTest extends TestCase
     public function testMultipleInvocationsWithDifferentFiltersFindsAllProperties(): void
     {
         $instance = new class {
-            public int $id;
+            public int $id = 4;
             /** @var int[] */
-            public array $array;
+            public array $array = [4, 3, 5, 6];
             /** @var object{id:int} */
             public object $object;
 
             public function __construct()
             {
-                $this->id     = 4;
-                $this->array  = [4, 3, 5, 6];
                 $this->object = new class {
                     public int $id = 4;
                 };

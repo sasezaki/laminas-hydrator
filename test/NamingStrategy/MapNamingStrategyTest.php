@@ -12,7 +12,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(MapNamingStrategy::class)]
-class MapNamingStrategyTest extends TestCase
+final class MapNamingStrategyTest extends TestCase
 {
     /** @return Generator<string, list<mixed>> */
     public static function invalidMapValues(): Generator

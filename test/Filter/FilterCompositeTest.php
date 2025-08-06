@@ -152,7 +152,13 @@ final class FilterCompositeTest extends TestCase
     }
 
     /**
-     * @psalm-return Generator<int, array{orFilters: array, andFilters: array, expected: bool}, mixed, void>
+     * @psalm-return Generator<
+     *      int,
+     *      array{
+     *          orFilters: list<FilterInterface>,
+     *          andFilters: list<FilterInterface>,
+     *          expected: bool
+     * }, mixed, void>
      */
     public static function providerCompositionFiltering(): Generator
     {

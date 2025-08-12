@@ -26,8 +26,8 @@ final class UnderscoreToCamelCaseFilterTest extends TestCase
 
         $filtered = $filter->filter($string);
 
-        $this->assertNotEquals($string, $filtered);
-        $this->assertEquals($expected, $filtered);
+        $this->assertNotSame($string, $filtered);
+        $this->assertSame($expected, $filtered);
     }
 
     /**
@@ -66,8 +66,8 @@ final class UnderscoreToCamelCaseFilterTest extends TestCase
         $filter   = new UnderscoreToCamelCaseFilter();
         $filtered = $filter->filter($string);
 
-        $this->assertNotEquals($string, $filtered);
-        $this->assertEquals($expected, $filtered);
+        $this->assertNotSame($string, $filtered);
+        $this->assertSame($expected, $filtered);
     }
 
     /**
@@ -116,7 +116,7 @@ final class UnderscoreToCamelCaseFilterTest extends TestCase
         $property->setValue($filter, false);
 
         $filtered = $filter->filter($string);
-        $this->assertEquals($expected, $filtered);
+        $this->assertSame($expected, $filtered);
     }
 
     /**

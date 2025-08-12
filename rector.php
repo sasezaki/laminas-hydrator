@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Rector\Config\RectorConfig;
+use Rector\PHPUnit\CodeQuality\Rector\Class_\YieldDataProviderRector;
 
 return RectorConfig::configure()
     ->withPhpSets(php81: true)
@@ -14,5 +15,9 @@ return RectorConfig::configure()
         codeQuality: true,
         typeDeclarations: true,
         privatization: true,
+        phpunitCodeQuality: true,
     )
-    ->withSkip([__DIR__ . '/test/TestAsset']);
+    ->withSkipPath(__DIR__ . '/test/TestAsset')
+    ->withSkip([
+        YieldDataProviderRector::class,
+    ]);

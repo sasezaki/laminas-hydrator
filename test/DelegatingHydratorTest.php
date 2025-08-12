@@ -42,7 +42,7 @@ final class DelegatingHydratorTest extends TestCase
             ->with(ArrayObject::class)
             ->willReturn($hydrator);
 
-        $this->assertEquals(['foo' => 'bar'], $this->hydrator->extract($this->object));
+        $this->assertSame(['foo' => 'bar'], $this->hydrator->extract($this->object));
     }
 
     public function testHydrate(): void

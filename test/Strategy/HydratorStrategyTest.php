@@ -159,7 +159,7 @@ final class HydratorStrategyTest extends TestCase
 
         $hydrator = $this->createHydratorMock();
 
-        $hydrator->expects(self::once())
+        $hydrator->expects($this->once())
             ->method('extract')
             ->willReturnCallback($extraction);
 
@@ -168,7 +168,7 @@ final class HydratorStrategyTest extends TestCase
             TestAsset\User::class
         );
 
-        self::assertSame($extraction($value), $strategy->extract($value));
+        $this->assertSame($extraction($value), $strategy->extract($value));
     }
 
     #[DataProvider('providerInvalidValueForHydration')]
@@ -216,7 +216,7 @@ final class HydratorStrategyTest extends TestCase
             TestAsset\User::class
         );
 
-        self::assertSame($value, $strategy->hydrate($value));
+        $this->assertSame($value, $strategy->hydrate($value));
     }
 
     /** @return Generator<string, array{0: mixed}> */
@@ -252,7 +252,7 @@ final class HydratorStrategyTest extends TestCase
 
         $hydrator = $this->createHydratorMock();
 
-        $hydrator->expects(self::exactly(count($value)))
+        $hydrator->expects($this->exactly(count($value)))
             ->method('hydrate')
             ->willReturnCallback($hydration);
 
@@ -261,7 +261,7 @@ final class HydratorStrategyTest extends TestCase
             TestAsset\User::class
         );
 
-        self::assertEquals($hydration($value), $strategy->hydrate($value));
+        $this->assertEquals($hydration($value), $strategy->hydrate($value));
     }
 
     private function createHydratorMock(): MockObject&HydratorInterface

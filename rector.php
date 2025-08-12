@@ -7,6 +7,7 @@ use Rector\PHPUnit\CodeQuality\Rector\Class_\YieldDataProviderRector;
 
 return RectorConfig::configure()
     ->withPhpSets(php81: true)
+    ->withAttributesSets()
     ->withPaths([
         __DIR__ . '/src',
         __DIR__ . '/test',

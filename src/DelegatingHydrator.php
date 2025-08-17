@@ -6,6 +6,9 @@ namespace Laminas\Hydrator;
 
 use Psr\Container\ContainerInterface;
 
+/**
+ * @final
+ */
 class DelegatingHydrator implements HydratorInterface
 {
     public function __construct(protected ContainerInterface $hydrators)

@@ -6,6 +6,9 @@ namespace Laminas\Hydrator\Strategy;
 
 use Laminas\Hydrator\Strategy\StrategyInterface;
 
+/**
+ * @final
+ */
 class NullableStrategy implements StrategyInterface
 {
     public function __construct(private StrategyInterface $strategy, private bool $treatEmptyAsNull = false)

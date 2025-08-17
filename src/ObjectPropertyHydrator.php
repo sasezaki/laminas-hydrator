@@ -11,6 +11,9 @@ use function array_fill_keys;
 use function array_map;
 use function get_object_vars;
 
+/**
+ * @final
+ */
 class ObjectPropertyHydrator extends AbstractHydrator
 {
     /** @var (null|array)[] indexed by class name and then property name */

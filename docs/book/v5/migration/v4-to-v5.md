@@ -41,3 +41,9 @@ Please update your codebase to use the corresponding `*Hydrator` classes:
 | `Laminas\Hydrator\ClassMethods`           | `Laminas\Hydrator\ClassMethodsHydrator`            |
 | `Laminas\Hydrator\ObjectProperty`         | `Laminas\Hydrator\ObjectPropertyHydrator`          |
 | `Laminas\Hydrator\Reflection`             | `Laminas\Hydrator\ReflectionHydrator`              |
+
+## Removed Features
+
+### Removal of Module Manager Support
+
+[Module Manager](https://docs.laminas.dev/laminas-modulemanager/) support has been removed along with the interface `Laminas\Hydrator\HydratorProviderInterface`

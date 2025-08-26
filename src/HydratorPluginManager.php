@@ -18,6 +18,7 @@ use function sprintf;
  * Enforces that adapters retrieved are instances of HydratorInterface
  *
  * @extends AbstractPluginManager<HydratorInterface>
+ * @final
  */
 class HydratorPluginManager extends AbstractPluginManager implements HydratorPluginManagerInterface
 {

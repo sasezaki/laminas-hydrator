@@ -7,6 +7,9 @@ namespace Laminas\Hydrator;
 use ReflectionClass;
 use ReflectionProperty;
 
+/**
+ * @final
+ */
 class ReflectionHydrator extends AbstractHydrator
 {
     /**

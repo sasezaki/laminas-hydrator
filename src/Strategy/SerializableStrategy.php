@@ -15,6 +15,9 @@ use function is_string;
 use function iterator_to_array;
 use function sprintf;
 
+/**
+ * @final
+ */
 class SerializableStrategy implements StrategyInterface
 {
     /** @var string|SerializerAdapter */

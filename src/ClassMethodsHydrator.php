@@ -21,6 +21,9 @@ use function str_starts_with;
 use function substr;
 use function ucfirst;
 
+/**
+ * @final
+ */
 class ClassMethodsHydrator extends AbstractHydrator implements HydratorOptionsInterface
 {
     /**

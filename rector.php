@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Rector\Config\RectorConfig;
 use Rector\PHPUnit\CodeQuality\Rector\Class_\YieldDataProviderRector;
+use Rector\PHPUnit\CodeQuality\Rector\MethodCall\AssertEqualsOrAssertSameFloatParameterToSpecificMethodsTypeRector;
 
 return RectorConfig::configure()
     ->withPhpSets(php81: true)
@@ -21,4 +22,5 @@ return RectorConfig::configure()
     ->withSkipPath(__DIR__ . '/test/TestAsset')
     ->withSkip([
         YieldDataProviderRector::class,
+        AssertEqualsOrAssertSameFloatParameterToSpecificMethodsTypeRector::class,
     ]);

@@ -26,8 +26,8 @@ final class CamelCaseToUnderscoreFilterTest extends TestCase
 
         $filtered = $filter->filter($string);
 
-        $this->assertNotEquals($string, $filtered);
-        $this->assertEquals($expected, $filtered);
+        $this->assertNotSame($string, $filtered);
+        $this->assertSame($expected, $filtered);
     }
 
     #[DataProvider('unicodeProvider')]
@@ -41,8 +41,8 @@ final class CamelCaseToUnderscoreFilterTest extends TestCase
 
         $filtered = $filter->filter($string);
 
-        $this->assertNotEquals($string, $filtered);
-        $this->assertEquals($expected, $filtered);
+        $this->assertNotSame($string, $filtered);
+        $this->assertSame($expected, $filtered);
     }
 
     #[DataProvider('unicodeProviderWithoutMbStrings')]
@@ -56,8 +56,8 @@ final class CamelCaseToUnderscoreFilterTest extends TestCase
 
         $filtered = $filter->filter($string);
 
-        $this->assertNotEquals($string, $filtered);
-        $this->assertEquals($expected, $filtered);
+        $this->assertNotSame($string, $filtered);
+        $this->assertSame($expected, $filtered);
     }
 
     /**

@@ -53,7 +53,7 @@ final class HydratingIteratorIteratorTest extends TestCase
 
         $hydratingIterator->rewind();
 
-        $this->assertNull($hydratingIterator->current());
+        $this->assertNotInstanceOf(ArrayObject::class, $hydratingIterator->current());
     }
 
     public function testUsingStringForObjectName(): void

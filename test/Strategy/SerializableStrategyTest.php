@@ -17,7 +17,7 @@ final class SerializableStrategyTest extends TestCase
         $serializer         = new PhpSerialize();
         $serializerStrategy = new SerializableStrategy($serializer);
         $serialized         = $serializerStrategy->extract('foo');
-        $this->assertEquals($serialized, 's:3:"foo";');
+        $this->assertSame('s:3:"foo";', $serialized);
     }
 
     public function testCanUnserialize(): void
@@ -25,6 +25,6 @@ final class SerializableStrategyTest extends TestCase
         $serializer         = new PhpSerialize();
         $serializerStrategy = new SerializableStrategy($serializer);
         $serialized         = $serializerStrategy->hydrate('s:3:"foo";');
-        $this->assertEquals($serialized, 'foo');
+        $this->assertEquals('foo', $serialized);
     }
 }

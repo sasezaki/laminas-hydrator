@@ -125,7 +125,7 @@ final class CollectionStrategyTest extends TestCase
         $hydrator = $this->createHydratorMock();
 
         $hydrator
-            ->expects(self::exactly(count($value)))
+            ->expects($this->exactly(count($value)))
             ->method('extract')
             ->willReturnCallback($extraction);
 
@@ -136,7 +136,7 @@ final class CollectionStrategyTest extends TestCase
 
         $expected = array_map($extraction, $value);
 
-        self::assertSame($expected, $strategy->extract($value));
+        $this->assertSame($expected, $strategy->extract($value));
     }
 
     #[DataProvider('providerInvalidValueForHydration')]
@@ -201,7 +201,7 @@ final class CollectionStrategyTest extends TestCase
         $hydrator = $this->createHydratorMock();
 
         $hydrator
-            ->expects(self::exactly(count($value)))
+            ->expects($this->exactly(count($value)))
             ->method('hydrate')
             ->willReturnCallback($hydration);
 
@@ -212,7 +212,7 @@ final class CollectionStrategyTest extends TestCase
 
         $expected = array_map($hydration, $value);
 
-        self::assertEquals($expected, $strategy->hydrate($value));
+        $this->assertEquals($expected, $strategy->hydrate($value));
     }
 
     private function createHydratorMock(): HydratorInterface&MockObject

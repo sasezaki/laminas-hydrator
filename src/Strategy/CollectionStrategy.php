@@ -51,7 +51,7 @@ final class CollectionStrategy implements StrategyInterface
             ));
         }
 
-        return array_map(function ($object): array {
+        return array_map(function (object $object): array {
             if (! $object instanceof $this->objectClassName) {
                 throw new Exception\InvalidArgumentException(sprintf(
                     'Value needs to be an instance of "%s", got "%s" instead.',

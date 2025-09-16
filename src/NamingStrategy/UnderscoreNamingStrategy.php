@@ -31,19 +31,19 @@ final class UnderscoreNamingStrategy implements NamingStrategyInterface
 
     private function getUnderscoreToCamelCaseFilter(): UnderscoreToCamelCaseFilter
     {
-        if (! static::$underscoreToCamelCaseFilter instanceof UnderscoreToCamelCaseFilter) {
-            static::$underscoreToCamelCaseFilter = new UnderscoreToCamelCaseFilter();
+        if (! self::$underscoreToCamelCaseFilter instanceof UnderscoreToCamelCaseFilter) {
+            self::$underscoreToCamelCaseFilter = new UnderscoreToCamelCaseFilter();
         }
 
-        return static::$underscoreToCamelCaseFilter;
+        return self::$underscoreToCamelCaseFilter;
     }
 
     private function getCamelCaseToUnderscoreFilter(): CamelCaseToUnderscoreFilter
     {
-        if (! static::$camelCaseToUnderscoreFilter instanceof CamelCaseToUnderscoreFilter) {
-            static::$camelCaseToUnderscoreFilter = new CamelCaseToUnderscoreFilter();
+        if (! self::$camelCaseToUnderscoreFilter instanceof CamelCaseToUnderscoreFilter) {
+            self::$camelCaseToUnderscoreFilter = new CamelCaseToUnderscoreFilter();
         }
 
-        return static::$camelCaseToUnderscoreFilter;
+        return self::$camelCaseToUnderscoreFilter;
     }
 }

@@ -64,18 +64,18 @@ final class ReflectionHydrator extends AbstractHydrator
     {
         $class = $input::class;
 
-        if (isset(static::$reflProperties[$class])) {
-            return static::$reflProperties[$class];
+        if (isset(self::$reflProperties[$class])) {
+            return self::$reflProperties[$class];
         }
 
-        static::$reflProperties[$class] = [];
-        $reflClass                      = new ReflectionClass($class);
-        $reflProperties                 = $reflClass->getProperties();
+        self::$reflProperties[$class] = [];
+        $reflClass                    = new ReflectionClass($class);
+        $reflProperties               = $reflClass->getProperties();
 
         foreach ($reflProperties as $property) {
-            static::$reflProperties[$class][$property->getName()] = $property;
+            self::$reflProperties[$class][$property->getName()] = $property;
         }
 
-        return static::$reflProperties[$class];
+        return self::$reflProperties[$class];
     }
 }

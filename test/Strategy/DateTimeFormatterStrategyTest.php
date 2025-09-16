@@ -58,9 +58,7 @@ final class DateTimeFormatterStrategyTest extends TestCase
 
     public function testCanExtractAnyDateTimeInterface(): void
     {
-        $dateMock = $this
-            ->getMockBuilder(DateTime::class)
-            ->getMock();
+        $dateMock = $this->createMock(DateTime::class);
 
         $format = 'Y-m-d';
         $dateMock
@@ -68,9 +66,7 @@ final class DateTimeFormatterStrategyTest extends TestCase
             ->method('format')
             ->with($format);
 
-        $dateImmutableMock = $this
-            ->getMockBuilder(DateTimeImmutable::class)
-            ->getMock();
+        $dateImmutableMock = $this->createMock(DateTimeImmutable::class);
 
         $dateImmutableMock
             ->expects($this->once())

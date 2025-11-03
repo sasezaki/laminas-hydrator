@@ -15,7 +15,7 @@ use PHPUnit\Framework\TestCase;
 use TypeError;
 
 #[CoversClass(ClassMethodsHydrator::class)]
-class ClassMethodsHydratorTest extends TestCase
+final class ClassMethodsHydratorTest extends TestCase
 {
     use HydratorTestTrait;
 
@@ -25,6 +25,7 @@ class ClassMethodsHydratorTest extends TestCase
     /**
      * {@inheritDoc}
      */
+    #[\Override]
     protected function setUp(): void
     {
         $this->hydrator = new ClassMethodsHydrator();

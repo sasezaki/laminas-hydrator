@@ -80,6 +80,7 @@ final class OptionalParametersFilterTest extends TestCase
 
     /**
      * Test asset method
+     * @psalm-suppress UnusedParam
      */
     public function methodWithSingleMandatoryParameter(mixed $parameter): void
     {
@@ -87,6 +88,7 @@ final class OptionalParametersFilterTest extends TestCase
 
     /**
      * Test asset method
+     * @psalm-suppress UnusedParam
      */
     public function methodWithSingleOptionalParameter(mixed $parameter = null): void
     {
@@ -94,6 +96,7 @@ final class OptionalParametersFilterTest extends TestCase
 
     /**
      * Test asset method
+     * @psalm-suppress UnusedParam
      */
     public function methodWithMultipleMandatoryParameters(mixed $parameter, mixed $otherParameter): void
     {
@@ -101,6 +104,7 @@ final class OptionalParametersFilterTest extends TestCase
 
     /**
      * Test asset method
+     * @psalm-suppress UnusedParam
      */
     public function methodWithMultipleOptionalParameters(mixed $parameter = null, mixed $otherParameter = null): void
     {

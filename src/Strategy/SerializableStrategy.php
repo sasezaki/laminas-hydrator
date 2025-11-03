@@ -18,7 +18,7 @@ use function sprintf;
 /**
  * @final
  */
-class SerializableStrategy implements StrategyInterface
+final class SerializableStrategy implements StrategyInterface
 {
     /** @var string|SerializerAdapter */
     protected $serializer;
@@ -54,6 +54,7 @@ class SerializableStrategy implements StrategyInterface
      *
      * {@inheritDoc}
      */
+    #[\Override]
     public function hydrate($value, ?array $data = null)
     {
         $serializer = $this->getSerializer();

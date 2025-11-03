@@ -20,6 +20,7 @@ class NullableStrategy implements StrategyInterface
      *
      * {@inheritDoc}
      */
+    #[\Override]
     public function extract($value, ?object $object = null)
     {
         if ($value === null) {
@@ -38,6 +39,7 @@ class NullableStrategy implements StrategyInterface
      *
      * {@inheritDoc}
      */
+    #[\Override]
     public function hydrate($value, ?array $data = null)
     {
         if ($value === null) {

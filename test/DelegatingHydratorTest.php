@@ -13,7 +13,7 @@ use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
 
 #[CoversClass(DelegatingHydrator::class)]
-class DelegatingHydratorTest extends TestCase
+final class DelegatingHydratorTest extends TestCase
 {
     /** @var DelegatingHydrator */
     protected $hydrator;
@@ -30,6 +30,7 @@ class DelegatingHydratorTest extends TestCase
     /**
      * {@inheritDoc}
      */
+    #[\Override]
     protected function setUp(): void
     {
         $this->hydrators = $this->createMock(ContainerInterface::class);

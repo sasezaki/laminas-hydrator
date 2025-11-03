@@ -43,6 +43,7 @@ final class StrategyChain implements StrategyInterface
     /**
      * {@inheritDoc}
      */
+    #[\Override]
     public function extract($value, ?object $object = null)
     {
         foreach ($this->extractionStrategies as $strategy) {
@@ -55,6 +56,7 @@ final class StrategyChain implements StrategyInterface
     /**
      * {@inheritDoc}
      */
+    #[\Override]
     public function hydrate($value, ?array $data = null)
     {
         foreach ($this->hydrationStrategies as $strategy) {

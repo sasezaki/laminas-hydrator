@@ -17,7 +17,7 @@ use TypeError;
 use function array_merge;
 
 #[CoversClass(ArraySerializableHydrator::class)]
-class ArraySerializableHydratorTest extends TestCase
+final class ArraySerializableHydratorTest extends TestCase
 {
     use HydratorTestTrait;
 
@@ -27,6 +27,7 @@ class ArraySerializableHydratorTest extends TestCase
     /**
      * {@inheritDoc}
      */
+    #[\Override]
     protected function setUp(): void
     {
         $this->hydrator = new ArraySerializableHydrator();

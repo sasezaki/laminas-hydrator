@@ -14,7 +14,7 @@ use Psr\Container\ContainerInterface;
 use ReflectionProperty;
 
 #[CoversClass(DelegatingHydratorFactory::class)]
-class DelegatingHydratorFactoryTest extends TestCase
+final class DelegatingHydratorFactoryTest extends TestCase
 {
     public function testFactoryUsesContainerToSeedDelegatingHydratorWhenItIsAHydratorPluginManager(): void
     {

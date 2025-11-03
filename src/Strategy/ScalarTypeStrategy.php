@@ -44,6 +44,7 @@ final class ScalarTypeStrategy implements StrategyInterface
      * @param mixed $value
      * @return mixed
      */
+    #[\Override]
     public function extract($value, ?object $object = null)
     {
         return $value;
@@ -54,6 +55,7 @@ final class ScalarTypeStrategy implements StrategyInterface
      * @param array|null $data
      * @psalm-return null|scalar
      */
+    #[\Override]
     public function hydrate($value, ?array $data)
     {
         if ($value === null) {

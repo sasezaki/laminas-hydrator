@@ -44,6 +44,7 @@ final class NumberOfParameterFilterTest extends TestCase
 
     /**
      * Test asset method
+     * @psalm-suppress UnusedParam
      */
     public function methodWithOptionalParameters(string $parameter = 'foo'): void
     {

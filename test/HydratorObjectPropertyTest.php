@@ -9,10 +9,11 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(ObjectPropertyHydrator::class)]
-class HydratorObjectPropertyTest extends TestCase
+final class HydratorObjectPropertyTest extends TestCase
 {
     private ObjectPropertyHydrator $hydrator;
 
+    #[\Override]
     protected function setUp(): void
     {
         $this->hydrator = new ObjectPropertyHydrator();

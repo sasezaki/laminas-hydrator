@@ -12,7 +12,7 @@ use stdClass;
 use TypeError;
 
 #[CoversClass(ReflectionHydrator::class)]
-class ReflectionHydratorTest extends TestCase
+final class ReflectionHydratorTest extends TestCase
 {
     use HydratorTestTrait;
 
@@ -22,6 +22,7 @@ class ReflectionHydratorTest extends TestCase
     /**
      * {@inheritDoc}
      */
+    #[\Override]
     protected function setUp(): void
     {
         $this->hydrator = new ReflectionHydrator();

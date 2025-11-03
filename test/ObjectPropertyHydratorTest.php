@@ -13,7 +13,7 @@ use stdClass;
 use TypeError;
 
 #[CoversClass(ObjectPropertyHydrator::class)]
-class ObjectPropertyHydratorTest extends TestCase
+final class ObjectPropertyHydratorTest extends TestCase
 {
     use HydratorTestTrait;
 
@@ -23,6 +23,7 @@ class ObjectPropertyHydratorTest extends TestCase
     /**
      * {@inheritDoc}
      */
+    #[\Override]
     protected function setUp(): void
     {
         $this->hydrator = new ObjectPropertyHydrator();

@@ -10,7 +10,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(MethodMatchFilter::class)]
-class MethodMatchFilterTest extends TestCase
+final class MethodMatchFilterTest extends TestCase
 {
     /**
      * @return (bool|string)[][]

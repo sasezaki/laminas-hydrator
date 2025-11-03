@@ -15,7 +15,7 @@ use function set_error_handler;
 use const E_USER_DEPRECATED;
 
 #[CoversClass(Reflection::class)]
-class ReflectionTest extends TestCase
+final class ReflectionTest extends TestCase
 {
     public function testTriggerUserDeprecatedError(): void
     {

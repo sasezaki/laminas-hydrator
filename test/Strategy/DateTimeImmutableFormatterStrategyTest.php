@@ -12,10 +12,11 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(DateTimeImmutableFormatterStrategy::class)]
-class DateTimeImmutableFormatterStrategyTest extends TestCase
+final class DateTimeImmutableFormatterStrategyTest extends TestCase
 {
     private DateTimeImmutableFormatterStrategy $strategy;
 
+    #[\Override]
     protected function setUp(): void
     {
         $this->strategy = new DateTimeImmutableFormatterStrategy(

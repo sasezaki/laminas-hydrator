@@ -17,10 +17,10 @@ use function array_pop;
 use function sprintf;
 
 #[CoversClass(StandaloneHydratorPluginManager::class)]
-class StandaloneHydratorPluginManagerTest extends TestCase
+final class StandaloneHydratorPluginManagerTest extends TestCase
 {
     private StandaloneHydratorPluginManager $manager;
-
+    #[\Override]
     protected function setUp(): void
     {
         $this->manager = new StandaloneHydratorPluginManager();

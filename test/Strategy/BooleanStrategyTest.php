@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 use stdClass;
 
 #[CoversClass(BooleanStrategy::class)]
-class BooleanStrategyTest extends TestCase
+final class BooleanStrategyTest extends TestCase
 {
     public function testConstructorWithValidInteger(): void
     {

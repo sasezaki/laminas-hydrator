@@ -11,7 +11,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(OptionalParametersFilter::class)]
-class OptionalParametersFilterTest extends TestCase
+final class OptionalParametersFilterTest extends TestCase
 {
     /** @var OptionalParametersFilter */
     protected $filter;
@@ -19,6 +19,7 @@ class OptionalParametersFilterTest extends TestCase
     /**
      * {@inheritDoc}
      */
+    #[\Override]
     protected function setUp(): void
     {
         $this->filter = new OptionalParametersFilter();

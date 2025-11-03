@@ -19,7 +19,13 @@
             <directory name="test/Strategy/TestAsset"/>
         </ignoreFiles>
     </projectFiles>
-
+    <issueHandlers>
+        <ClassMustBeFinal>
+            <errorLevel type="suppress">
+                <directory name="src" />
+            </errorLevel>
+        </ClassMustBeFinal>
+    </issueHandlers>
     <plugins>
         <pluginClass class="Psalm\PhpUnitPlugin\Plugin"/>
     </plugins>

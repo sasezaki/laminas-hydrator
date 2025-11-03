@@ -23,7 +23,7 @@ use Psr\Container\ContainerInterface;
 use function sprintf;
 
 #[CoversClass(StandaloneHydratorPluginManagerFactory::class)]
-class StandaloneHydratorPluginManagerFactoryTest extends TestCase
+final class StandaloneHydratorPluginManagerFactoryTest extends TestCase
 {
     private const MESSAGE_DEFAULT_SERVICES = 'Missing the service %s';
 
@@ -31,6 +31,7 @@ class StandaloneHydratorPluginManagerFactoryTest extends TestCase
     /** @var ContainerInterface&MockObject */
     private ContainerInterface|MockObject $container;
 
+    #[\Override]
     protected function setUp(): void
     {
         $this->factory   = new StandaloneHydratorPluginManagerFactory();

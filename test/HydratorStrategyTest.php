@@ -10,13 +10,14 @@ use Laminas\Hydrator\Strategy\StrategyInterface;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
-class HydratorStrategyTest extends TestCase
+final class HydratorStrategyTest extends TestCase
 {
     /**
      * The hydrator that is used during testing.
      */
     private HydratorInterface $hydrator;
 
+    #[\Override]
     protected function setUp(): void
     {
         $this->hydrator = new ClassMethodsHydrator();

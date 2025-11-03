@@ -30,7 +30,7 @@ use PHPUnit\Framework\TestCase;
 use function explode;
 use function strlen;
 
-class HydratorTest extends TestCase
+final class HydratorTest extends TestCase
 {
     /** @var ClassMethodsCamelCase */
     protected $classMethodsCamelCase;
@@ -50,6 +50,7 @@ class HydratorTest extends TestCase
     /** @var ReflectionAsset */
     protected $reflection;
 
+    #[\Override]
     protected function setUp(): void
     {
         $this->classMethodsCamelCase        = new ClassMethodsCamelCase();

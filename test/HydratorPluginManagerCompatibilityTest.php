@@ -12,11 +12,12 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(HydratorPluginManager::class)]
-class HydratorPluginManagerCompatibilityTest extends TestCase
+final class HydratorPluginManagerCompatibilityTest extends TestCase
 {
     use CommonPluginManagerTrait;
 
     /** @return HydratorPluginManager */
+    #[\Override]
     protected static function getPluginManager()
     {
         return new HydratorPluginManager(new ServiceManager());
@@ -25,6 +26,7 @@ class HydratorPluginManagerCompatibilityTest extends TestCase
     /**
      * @return void
      */
+    #[\Override]
     protected function getV2InvalidPluginException()
     {
         // no-op
@@ -34,6 +36,7 @@ class HydratorPluginManagerCompatibilityTest extends TestCase
      * @return string
      * @psalm-return class-string
      */
+    #[\Override]
     protected function getInstanceOf()
     {
         return HydratorInterface::class;

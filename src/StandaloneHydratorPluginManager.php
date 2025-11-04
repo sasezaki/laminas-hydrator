@@ -80,6 +80,7 @@ final class StandaloneHydratorPluginManager implements HydratorPluginManagerInte
     /**
      * {@inheritDoc}
      */
+    #[\Override]
     public function get($id)
     {
         $class = $this->resolveName($id);
@@ -93,6 +94,7 @@ final class StandaloneHydratorPluginManager implements HydratorPluginManagerInte
     /**
      * {@inheritDoc}
      */
+    #[\Override]
     public function has($id)
     {
         return null !== $this->resolveName($id);

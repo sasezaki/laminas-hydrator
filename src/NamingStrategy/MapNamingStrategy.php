@@ -55,6 +55,7 @@ final class MapNamingStrategy implements NamingStrategyInterface
     /**
      * {@inheritDoc}
      */
+    #[\Override]
     public function extract(string $name, ?object $object = null): string
     {
         return $this->extractionMap[$name] ?? $name;
@@ -63,6 +64,7 @@ final class MapNamingStrategy implements NamingStrategyInterface
     /**
      * {@inheritDoc}
      */
+    #[\Override]
     public function hydrate(string $name, ?array $data = null): string
     {
         return $this->hydrationMap[$name] ?? $name;

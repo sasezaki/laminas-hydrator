@@ -63,6 +63,7 @@ class ClosureStrategy implements StrategyInterface
      *
      * {@inheritDoc}
      */
+    #[\Override]
     public function extract($value, ?object $object = null)
     {
         $func = $this->extractFunc;
@@ -76,6 +77,7 @@ class ClosureStrategy implements StrategyInterface
      *
      * {@inheritDoc}
      */
+    #[\Override]
     public function hydrate($value, ?array $data = null)
     {
         $func = $this->hydrateFunc;

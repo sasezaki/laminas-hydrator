@@ -43,6 +43,7 @@ final class SerializableStrategy implements StrategyInterface
      *
      * {@inheritDoc}
      */
+    #[\Override]
     public function extract($value, ?object $object = null)
     {
         $serializer = $this->getSerializer();

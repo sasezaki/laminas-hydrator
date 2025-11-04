@@ -32,6 +32,7 @@ final class CompositeNamingStrategy implements NamingStrategyInterface
     /**
      * {@inheritDoc}
      */
+    #[\Override]
     public function extract(string $name, ?object $object = null): string
     {
         $strategy = $this->namingStrategies[$name] ?? $this->defaultNamingStrategy;
@@ -41,6 +42,7 @@ final class CompositeNamingStrategy implements NamingStrategyInterface
     /**
      * {@inheritDoc}
      */
+    #[\Override]
     public function hydrate(string $name, ?array $data = null): string
     {
         $strategy = $this->namingStrategies[$name] ?? $this->defaultNamingStrategy;

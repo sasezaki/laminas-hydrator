@@ -33,6 +33,7 @@ class AggregateHydrator implements HydratorInterface, EventManagerAwareInterface
     /**
      * {@inheritDoc}
      */
+    #[\Override]
     public function extract(object $object): array
     {
         $event = new ExtractEvent($this, $object);
@@ -43,6 +44,7 @@ class AggregateHydrator implements HydratorInterface, EventManagerAwareInterface
     /**
      * {@inheritDoc}
      */
+    #[\Override]
     public function hydrate(array $data, object $object)
     {
         $event = new HydrateEvent($this, $object, $data);
@@ -53,6 +55,7 @@ class AggregateHydrator implements HydratorInterface, EventManagerAwareInterface
     /**
      * {@inheritDoc}
      */
+    #[\Override]
     public function setEventManager(EventManagerInterface $eventManager): void
     {
         $eventManager->setIdentifiers([self::class, static::class]);
@@ -62,6 +65,7 @@ class AggregateHydrator implements HydratorInterface, EventManagerAwareInterface
     /**
      * {@inheritDoc}
      */
+    #[\Override]
     public function getEventManager(): EventManagerInterface
     {
         if (null === $this->eventManager) {

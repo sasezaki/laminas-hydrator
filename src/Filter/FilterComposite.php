@@ -111,6 +111,7 @@ final class FilterComposite implements FilterInterface
      *
      * @param string $property Parameter will be e.g. Parent\Namespace\Class::method
      */
+    #[\Override]
     public function filter(string $property, ?object $instance = null): bool
     {
         return $this->atLeastOneOrFilterIsTrue($property, $instance)

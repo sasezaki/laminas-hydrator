@@ -26,6 +26,7 @@ class ArraySerializableHydrator extends AbstractHydrator
      * @throws Exception\BadMethodCallException For an $object not implementing getArrayCopy().
      * @throws Exception\RuntimeException If a part of $data could not be extracted.
      */
+    #[\Override]
     public function extract(object $object): array
     {
         if (! method_exists($object, 'getArrayCopy') || ! is_callable([$object, 'getArrayCopy'])) {
@@ -78,6 +79,7 @@ class ArraySerializableHydrator extends AbstractHydrator
      * @throws Exception\BadMethodCallException For an $object not implementing exchangeArray() or populate().
      * @throws Exception\RuntimeException If a part of $data could not be hydrated.
      */
+    #[\Override]
     public function hydrate(array $data, object $object)
     {
         $replacement = [];

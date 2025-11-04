@@ -39,6 +39,7 @@ abstract class AbstractHydrator implements
      * @param string $name The name of the strategy to get.
      * @throws Exception\InvalidArgumentException
      */
+    #[\Override]
     public function getStrategy(string $name): Strategy\StrategyInterface
     {
         if (isset($this->strategies[$name])) {
@@ -69,6 +70,7 @@ abstract class AbstractHydrator implements
      *
      * @param string $name The name of the strategy to check for.
      */
+    #[\Override]
     public function hasStrategy(string $name): bool
     {
         if (isset($this->strategies[$name])) {
@@ -91,6 +93,7 @@ abstract class AbstractHydrator implements
      * @param string $name The name of the strategy to register.
      * @param Strategy\StrategyInterface $strategy The strategy to register.
      */
+    #[\Override]
     public function addStrategy(string $name, Strategy\StrategyInterface $strategy): void
     {
         $this->strategies[$name] = $strategy;
@@ -101,6 +104,7 @@ abstract class AbstractHydrator implements
      *
      * @param string $name The name of the strategy to remove.
      */
+    #[\Override]
     public function removeStrategy(string $name): void
     {
         unset($this->strategies[$name]);
@@ -166,6 +170,7 @@ abstract class AbstractHydrator implements
     /**
      * Get the filter instance
      */
+    #[\Override]
     public function getFilter(): Filter\FilterInterface
     {
         return $this->getCompositeFilter();
@@ -190,6 +195,7 @@ abstract class AbstractHydrator implements
      * @param string $name Index in the composite
      * @param callable|Filter\FilterInterface $filter
      */
+    #[\Override]
     public function addFilter(string $name, $filter, int $condition = Filter\FilterComposite::CONDITION_OR): void
     {
         $this->getCompositeFilter()->addFilter($name, $filter, $condition);
@@ -200,6 +206,7 @@ abstract class AbstractHydrator implements
      *
      * @param string $name Index/name in the composite
      */
+    #[\Override]
     public function hasFilter(string $name): bool
     {
         return $this->getCompositeFilter()->hasFilter($name);
@@ -214,6 +221,7 @@ abstract class AbstractHydrator implements
      * $filterComposite->removeFilter('has');
      * </code>
      */
+    #[\Override]
     public function removeFilter(string $name): void
     {
         $this->getCompositeFilter()->removeFilter($name);
@@ -224,6 +232,7 @@ abstract class AbstractHydrator implements
      *
      * @param NamingStrategy\NamingStrategyInterface $strategy The naming to register.
      */
+    #[\Override]
     public function setNamingStrategy(NamingStrategy\NamingStrategyInterface $strategy): void
     {
         $this->namingStrategy = $strategy;
@@ -237,6 +246,7 @@ abstract class AbstractHydrator implements
      *
      * {@inheritDoc}
      */
+    #[\Override]
     public function getNamingStrategy(): NamingStrategy\NamingStrategyInterface
     {
         if (null === $this->namingStrategy) {
@@ -248,6 +258,7 @@ abstract class AbstractHydrator implements
     /**
      * Checks if a naming strategy exists.
      */
+    #[\Override]
     public function hasNamingStrategy(): bool
     {
         return isset($this->namingStrategy);
@@ -256,6 +267,7 @@ abstract class AbstractHydrator implements
     /**
      * Removes the naming strategy
      */
+    #[\Override]
     public function removeNamingStrategy(): void
     {
         $this->namingStrategy = null;

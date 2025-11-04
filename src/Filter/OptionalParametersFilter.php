@@ -34,6 +34,7 @@ final class OptionalParametersFilter implements FilterInterface
      * @throws InvalidArgumentException If reflection fails due to the method
      *     not existing.
      */
+    #[\Override]
     public function filter(string $property, ?object $instance = null): bool
     {
         $cacheName = $instance !== null

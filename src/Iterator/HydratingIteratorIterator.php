@@ -46,6 +46,7 @@ class HydratingIteratorIterator extends IteratorIterator implements HydratingIte
      * @throws InvalidArgumentException If $prototype is a string, but refers to
      *     a non-existent class.
      */
+    #[\Override]
     public function setPrototype($prototype): void
     {
         if (is_object($prototype)) {
@@ -65,6 +66,7 @@ class HydratingIteratorIterator extends IteratorIterator implements HydratingIte
     /**
      * @inheritDoc
      */
+    #[\Override]
     public function setHydrator(HydratorInterface $hydrator): void
     {
         $this->hydrator = $hydrator;
@@ -76,9 +78,15 @@ class HydratingIteratorIterator extends IteratorIterator implements HydratingIte
      * @return TPrototype|null
      */
     #[ReturnTypeWillChange]
+    #[\Override]
     public function current()
     {
         $currentValue = parent::current();
+
+        if ($currentValue === null) {
+            return null;
+        }
+
         $object       = clone $this->prototype;
         $this->hydrator->hydrate($currentValue, $object);
         return $object;

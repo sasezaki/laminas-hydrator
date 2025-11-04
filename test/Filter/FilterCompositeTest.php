@@ -153,7 +153,11 @@ final class FilterCompositeTest extends TestCase
     }
 
     /**
-     * @psalm-return Generator<int, array{orFilters: array, andFilters: array, expected: bool}, mixed, void>
+     * @psalm-return Generator<int, array{
+     *     orFilters: array<array-key, FilterInterface>,
+     *     andFilters: array<array-key, FilterInterface>,
+     *     expected: bool
+     * }, mixed, void>
      */
     public static function providerCompositionFiltering(): Generator
     {
@@ -208,8 +212,8 @@ final class FilterCompositeTest extends TestCase
     }
 
     /**
-     * @param list<FilterInterface> $orFilters
-     * @param list<FilterInterface> $andFilters
+     * @param array<array-key, FilterInterface> $orFilters
+     * @param array<array-key, FilterInterface> $andFilters
      */
     #[DataProvider('providerCompositionFiltering')]
     public function testCompositionFiltering(array $orFilters, array $andFilters, bool $expected): void

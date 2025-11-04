@@ -24,7 +24,6 @@ final class ExplodeStrategy implements StrategyInterface
      * @param non-empty-string $delimiter String that the values will be split upon
      * @param int|null $explodeLimit Explode limit
      */
-    #[\Override]
     public function __construct(string $delimiter = ',', private ?int $explodeLimit = null)
     {
         $this->setValueDelimiter($delimiter);
@@ -82,6 +81,7 @@ final class ExplodeStrategy implements StrategyInterface
      * @return string|null
      * @throws Exception\InvalidArgumentException For non-array $value values.
      */
+    #[\Override]
     public function extract($value, ?object $object = null)
     {
         if (! is_array($value)) {

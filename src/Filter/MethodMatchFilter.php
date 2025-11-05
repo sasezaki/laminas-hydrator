@@ -25,7 +25,6 @@ final class MethodMatchFilter implements FilterInterface
     ) {
     }
 
-    #[\Override]
     public function filter(string $property, ?object $instance = null): bool
     {
         $pos = strpos($property, '::');

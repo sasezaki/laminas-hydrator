@@ -20,7 +20,6 @@ final class HydratorListenerTest extends TestCase
     private HydratorInterface&MockObject $hydrator;
     private HydratorListener $listener;
 
-    #[\Override]
     protected function setUp(): void
     {
         $this->hydrator = $this->createMock(HydratorInterface::class);

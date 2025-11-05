@@ -20,7 +20,7 @@ use function sprintf;
 final class StandaloneHydratorPluginManagerTest extends TestCase
 {
     private StandaloneHydratorPluginManager $manager;
-    #[\Override]
+
     protected function setUp(): void
     {
         $this->manager = new StandaloneHydratorPluginManager();

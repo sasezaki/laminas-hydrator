@@ -22,7 +22,6 @@ final class ReflectionHydratorTest extends TestCase
     /**
      * {@inheritDoc}
      */
-    #[\Override]
     protected function setUp(): void
     {
         $this->hydrator = new ReflectionHydrator();

@@ -24,7 +24,6 @@ class ReflectionHydrator extends AbstractHydrator
      *
      * {@inheritDoc}
      */
-    #[\Override]
     public function extract(object $object): array
     {
         $result = [];
@@ -46,7 +45,6 @@ class ReflectionHydrator extends AbstractHydrator
      *
      * {@inheritDoc}
      */
-    #[\Override]
     public function hydrate(array $data, object $object)
     {
         $reflProperties = self::getReflProperties($object);

@@ -13,7 +13,6 @@ final class HydratorObjectPropertyTest extends TestCase
 {
     private ObjectPropertyHydrator $hydrator;
 
-    #[\Override]
     protected function setUp(): void
     {
         $this->hydrator = new ObjectPropertyHydrator();

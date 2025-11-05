@@ -27,7 +27,6 @@ final class NumberOfParameterFilter implements FilterInterface
     /**
      * @throws InvalidArgumentException
      */
-    #[\Override]
     public function filter(string $property, ?object $instance = null): bool
     {
         try {

@@ -16,7 +16,6 @@ final class DateTimeImmutableFormatterStrategyTest extends TestCase
 {
     private DateTimeImmutableFormatterStrategy $strategy;
 
-    #[\Override]
     protected function setUp(): void
     {
         $this->strategy = new DateTimeImmutableFormatterStrategy(

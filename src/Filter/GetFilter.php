@@ -9,7 +9,6 @@ use function substr;
 
 final class GetFilter implements FilterInterface
 {
-    #[\Override]
     public function filter(string $property, ?object $instance = null): bool
     {
         $pos = strpos($property, '::');

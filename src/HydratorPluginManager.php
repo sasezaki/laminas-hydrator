@@ -114,7 +114,6 @@ class HydratorPluginManager extends AbstractPluginManager implements HydratorPlu
      * @throws InvalidServiceException
      * @psalm-assert HydratorInterface $instance
      */
-    #[\Override]
     public function validate($instance)
     {
         if ($instance instanceof $this->instanceOf) {

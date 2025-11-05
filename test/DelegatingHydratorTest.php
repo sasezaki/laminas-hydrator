@@ -30,7 +30,6 @@ final class DelegatingHydratorTest extends TestCase
     /**
      * {@inheritDoc}
      */
-    #[\Override]
     protected function setUp(): void
     {
         $this->hydrators = $this->createMock(ContainerInterface::class);

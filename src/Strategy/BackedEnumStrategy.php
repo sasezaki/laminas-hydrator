@@ -32,7 +32,6 @@ final class BackedEnumStrategy implements StrategyInterface
     /**
      * @inheritDoc
      */
-    #[\Override]
     public function extract($value, ?object $object = null)
     {
         if (! $value instanceof $this->enumClass) {
@@ -50,7 +49,6 @@ final class BackedEnumStrategy implements StrategyInterface
      * @param mixed $value
      * @return T
      */
-    #[\Override]
     public function hydrate($value, ?array $data)
     {
         if ($value instanceof $this->enumClass) {

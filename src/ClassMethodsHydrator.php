@@ -78,7 +78,6 @@ class ClassMethodsHydrator extends AbstractHydrator implements HydratorOptionsIn
     /**
      * @param mixed[] $options
      */
-    #[\Override]
     public function setOptions(iterable $options): void
     {
         if ($options instanceof Traversable) {
@@ -131,7 +130,6 @@ class ClassMethodsHydrator extends AbstractHydrator implements HydratorOptionsIn
      *
      * {@inheritDoc}
      */
-    #[\Override]
     public function extract(object $object): array
     {
         $objectClass = $object::class;
@@ -226,7 +224,6 @@ class ClassMethodsHydrator extends AbstractHydrator implements HydratorOptionsIn
      *
      * {@inheritDoc}
      */
-    #[\Override]
     public function hydrate(array $data, object $object)
     {
         $objectClass = $object::class;
@@ -254,7 +251,6 @@ class ClassMethodsHydrator extends AbstractHydrator implements HydratorOptionsIn
     /**
      * {@inheritDoc}
      */
-    #[\Override]
     public function addFilter(string $name, $filter, int $condition = Filter\FilterComposite::CONDITION_OR): void
     {
         $this->resetCaches();
@@ -264,7 +260,6 @@ class ClassMethodsHydrator extends AbstractHydrator implements HydratorOptionsIn
     /**
      * {@inheritDoc}
      */
-    #[\Override]
     public function removeFilter(string $name): void
     {
         $this->resetCaches();
@@ -274,7 +269,6 @@ class ClassMethodsHydrator extends AbstractHydrator implements HydratorOptionsIn
     /**
      * {@inheritDoc}
      */
-    #[\Override]
     public function setNamingStrategy(NamingStrategy\NamingStrategyInterface $strategy): void
     {
         $this->resetCaches();
@@ -284,7 +278,6 @@ class ClassMethodsHydrator extends AbstractHydrator implements HydratorOptionsIn
     /**
      * {@inheritDoc}
      */
-    #[\Override]
     public function removeNamingStrategy(): void
     {
         $this->resetCaches();

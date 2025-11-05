@@ -18,7 +18,6 @@ class DelegatingHydrator implements HydratorInterface
     /**
      * {@inheritdoc}
      */
-    #[\Override]
     public function hydrate(array $data, object $object)
     {
         return $this->getHydrator($object)->hydrate($data, $object);
@@ -27,7 +26,6 @@ class DelegatingHydrator implements HydratorInterface
     /**
      * {@inheritdoc}
      */
-    #[\Override]
     public function extract(object $object): array
     {
         return $this->getHydrator($object)->extract($object);

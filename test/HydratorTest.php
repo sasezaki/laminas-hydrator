@@ -50,7 +50,6 @@ final class HydratorTest extends TestCase
     /** @var ReflectionAsset */
     protected $reflection;
 
-    #[\Override]
     protected function setUp(): void
     {
         $this->classMethodsCamelCase        = new ClassMethodsCamelCase();

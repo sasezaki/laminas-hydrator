@@ -119,7 +119,6 @@ final class FilterCompositeTest extends TestCase
                 {
                 }
 
-                #[\Override]
                 public function filter(string $property, ?object $instance = null): bool
                 {
                     return (bool) $this->value;

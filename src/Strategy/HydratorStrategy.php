@@ -45,7 +45,6 @@ class HydratorStrategy implements StrategyInterface
      * @return mixed Returns the value that should be extracted.
      * @throws Exception\InvalidArgumentException
      */
-    #[\Override]
     public function extract($value, ?object $object = null)
     {
         if (! $value instanceof $this->objectClassName) {
@@ -68,7 +67,6 @@ class HydratorStrategy implements StrategyInterface
      * @throws ReflectionException
      * @throws Exception\InvalidArgumentException
      */
-    #[\Override]
     public function hydrate($value, ?array $data = null)
     {
         if (

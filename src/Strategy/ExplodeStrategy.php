@@ -50,7 +50,6 @@ final class ExplodeStrategy implements StrategyInterface
      * @return string[]
      * @throws Exception\InvalidArgumentException
      */
-    #[\Override]
     public function hydrate($value, ?array $data = null)
     {
         if (null === $value) {
@@ -81,7 +80,6 @@ final class ExplodeStrategy implements StrategyInterface
      * @return string|null
      * @throws Exception\InvalidArgumentException For non-array $value values.
      */
-    #[\Override]
     public function extract($value, ?object $object = null)
     {
         if (! is_array($value)) {

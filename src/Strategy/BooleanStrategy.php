@@ -54,7 +54,6 @@ final class BooleanStrategy implements StrategyInterface
      * @throws InvalidArgumentException
      * @return int|string Returns the value that should be extracted.
      */
-    #[\Override]
     public function extract($value, ?object $object = null)
     {
         if (! is_bool($value)) {
@@ -74,7 +73,6 @@ final class BooleanStrategy implements StrategyInterface
      * @throws InvalidArgumentException
      * @return bool Returns the value that should be hydrated.
      */
-    #[\Override]
     public function hydrate($value, ?array $data = null)
     {
         if (is_bool($value)) {

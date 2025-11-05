@@ -19,7 +19,6 @@ class UnderscoreNamingStrategy implements NamingStrategyInterface
     /**
      * Remove underscores and capitalize letters
      */
-    #[\Override]
     public function hydrate(string $name, ?array $data = null): string
     {
         return $this->getUnderscoreToCamelCaseFilter()->filter($name);
@@ -28,7 +27,6 @@ class UnderscoreNamingStrategy implements NamingStrategyInterface
     /**
      * Remove capitalized letters and prepend underscores.
      */
-    #[\Override]
     public function extract(string $name, ?object $object = null): string
     {
         return $this->getCamelCaseToUnderscoreFilter()->filter($name);

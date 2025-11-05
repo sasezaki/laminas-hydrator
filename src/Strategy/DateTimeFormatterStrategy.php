@@ -62,7 +62,6 @@ final class DateTimeFormatterStrategy implements StrategyInterface
      *     will be returned unmodified; otherwise, it will be extracted to a
      *     string.
      */
-    #[\Override]
     public function extract($value, ?object $object = null)
     {
         if ($value instanceof DateTimeInterface) {
@@ -82,7 +81,6 @@ final class DateTimeFormatterStrategy implements StrategyInterface
      * @throws Exception\InvalidArgumentException If $value is not null, not a
      *     string, nor a DateTimeInterface.
      */
-    #[\Override]
     public function hydrate($value, ?array $data = null)
     {
         if ($value === '' || $value === null || $value instanceof DateTimeInterface) {

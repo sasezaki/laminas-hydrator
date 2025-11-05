@@ -20,7 +20,6 @@ final class HydratorClosureStrategyTest extends TestCase
      */
     private HydratorInterface $hydrator;
 
-    #[\Override]
     protected function setUp(): void
     {
         $this->hydrator = new ObjectPropertyHydrator();

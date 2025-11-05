@@ -24,7 +24,6 @@ class ObjectPropertyHydrator extends AbstractHydrator
      *
      * {@inheritDoc}
      */
-    #[\Override]
     public function extract(object $object): array
     {
         $data   = get_object_vars($object);
@@ -58,7 +57,6 @@ class ObjectPropertyHydrator extends AbstractHydrator
      *
      * {@inheritDoc}
      */
-    #[\Override]
     public function hydrate(array $data, object $object)
     {
         $properties = &self::$skippedPropertiesCache[$object::class] ?? null;

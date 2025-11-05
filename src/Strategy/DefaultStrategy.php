@@ -15,7 +15,6 @@ class DefaultStrategy implements StrategyInterface
      * @param mixed $value The original value.
      * @return mixed Returns the value that should be extracted.
      */
-    #[\Override]
     public function extract($value, ?object $object = null)
     {
         return $value;
@@ -27,7 +26,6 @@ class DefaultStrategy implements StrategyInterface
      * @param mixed $value The original value.
      * @return mixed Returns the value that should be hydrated.
      */
-    #[\Override]
     public function hydrate($value, ?array $data = null)
     {
         return $value;

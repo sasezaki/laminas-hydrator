@@ -17,7 +17,6 @@ final class HydratorPluginManagerCompatibilityTest extends TestCase
     use CommonPluginManagerTrait;
 
     /** @return HydratorPluginManager */
-    #[\Override]
     protected static function getPluginManager()
     {
         return new HydratorPluginManager(new ServiceManager());
@@ -26,7 +25,6 @@ final class HydratorPluginManagerCompatibilityTest extends TestCase
     /**
      * @return void
      */
-    #[\Override]
     protected function getV2InvalidPluginException()
     {
         // no-op
@@ -36,7 +34,6 @@ final class HydratorPluginManagerCompatibilityTest extends TestCase
      * @return string
      * @psalm-return class-string
      */
-    #[\Override]
     protected function getInstanceOf()
     {
         return HydratorInterface::class;

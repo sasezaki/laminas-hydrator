@@ -30,7 +30,7 @@ use PHPUnit\Framework\TestCase;
 use function explode;
 use function strlen;
 
-class HydratorTest extends TestCase
+final class HydratorTest extends TestCase
 {
     /** @var ClassMethodsCamelCase */
     protected $classMethodsCamelCase;

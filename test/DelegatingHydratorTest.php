@@ -13,7 +13,7 @@ use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
 
 #[CoversClass(DelegatingHydrator::class)]
-class DelegatingHydratorTest extends TestCase
+final class DelegatingHydratorTest extends TestCase
 {
     /** @var DelegatingHydrator */
     protected $hydrator;

@@ -12,7 +12,7 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(HydratorPluginManager::class)]
-class HydratorPluginManagerCompatibilityTest extends TestCase
+final class HydratorPluginManagerCompatibilityTest extends TestCase
 {
     use CommonPluginManagerTrait;
 

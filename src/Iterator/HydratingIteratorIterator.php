@@ -79,7 +79,12 @@ class HydratingIteratorIterator extends IteratorIterator implements HydratingIte
     public function current()
     {
         $currentValue = parent::current();
-        $object       = clone $this->prototype;
+
+        if ($currentValue === null) {
+            return null;
+        }
+
+        $object = clone $this->prototype;
         $this->hydrator->hydrate($currentValue, $object);
         return $object;
     }

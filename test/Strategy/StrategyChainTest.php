@@ -10,7 +10,7 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(StrategyChain::class)]
-class StrategyChainTest extends TestCase
+final class StrategyChainTest extends TestCase
 {
     public function testEmptyStrategyChainReturnsOriginalValue(): void
     {

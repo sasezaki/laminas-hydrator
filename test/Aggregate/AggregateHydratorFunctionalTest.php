@@ -18,7 +18,7 @@ use PHPUnit\Framework\TestCase;
 use stdClass;
 
 #[CoversClass(AggregateHydrator::class)]
-class AggregateHydratorFunctionalTest extends TestCase
+final class AggregateHydratorFunctionalTest extends TestCase
 {
     protected AggregateHydrator $hydrator;
 

@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 use stdClass;
 
 #[CoversClass(HydrateEvent::class)]
-class HydrateEventTest extends TestCase
+final class HydrateEventTest extends TestCase
 {
     public function testEvent(): void
     {

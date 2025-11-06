@@ -29,7 +29,7 @@ use function spl_object_hash;
 use function sprintf;
 
 #[CoversClass(CollectionStrategy::class)]
-class CollectionStrategyTest extends TestCase
+final class CollectionStrategyTest extends TestCase
 {
     /**
      * @param class-string<Throwable> $expectedExceptionType

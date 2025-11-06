@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 use stdClass;
 
 #[CoversClass(ExtractEvent::class)]
-class ExtractEventTest extends TestCase
+final class ExtractEventTest extends TestCase
 {
     public function testEvent(): void
     {

@@ -15,7 +15,7 @@ use function set_error_handler;
 use const E_USER_DEPRECATED;
 
 #[CoversClass(ArraySerializable::class)]
-class ArraySerializableTest extends TestCase
+final class ArraySerializableTest extends TestCase
 {
     public function testTriggerUserDeprecatedError(): void
     {

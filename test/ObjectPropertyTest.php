@@ -15,7 +15,7 @@ use function set_error_handler;
 use const E_USER_DEPRECATED;
 
 #[CoversClass(ObjectProperty::class)]
-class ObjectPropertyTest extends TestCase
+final class ObjectPropertyTest extends TestCase
 {
     public function testTriggerUserDeprecatedError(): void
     {

@@ -14,7 +14,7 @@ use stdClass;
 use function is_numeric;
 
 #[CoversClass(ExplodeStrategy::class)]
-class ExplodeStrategyTest extends TestCase
+final class ExplodeStrategyTest extends TestCase
 {
     /**
      * @param non-empty-string $delimiter

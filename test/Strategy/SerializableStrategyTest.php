@@ -12,7 +12,7 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(SerializableStrategy::class)]
-class SerializableStrategyTest extends TestCase
+final class SerializableStrategyTest extends TestCase
 {
     public function testCannotUseBadArgumentSerializer(): void
     {

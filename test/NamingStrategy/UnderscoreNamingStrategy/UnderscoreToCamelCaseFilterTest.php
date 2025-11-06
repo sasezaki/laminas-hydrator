@@ -13,7 +13,7 @@ use ReflectionClass;
 use function extension_loaded;
 
 #[CoversClass(UnderscoreToCamelCaseFilter::class)]
-class UnderscoreToCamelCaseFilterTest extends TestCase
+final class UnderscoreToCamelCaseFilterTest extends TestCase
 {
     /**
      * @param string $string

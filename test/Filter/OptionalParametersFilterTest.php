@@ -11,7 +11,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(OptionalParametersFilter::class)]
-class OptionalParametersFilterTest extends TestCase
+final class OptionalParametersFilterTest extends TestCase
 {
     /** @var OptionalParametersFilter */
     protected $filter;
@@ -79,6 +79,8 @@ class OptionalParametersFilterTest extends TestCase
 
     /**
      * Test asset method
+     *
+     * @psalm-suppress UnusedParam
      */
     public function methodWithSingleMandatoryParameter(mixed $parameter): void
     {
@@ -86,6 +88,8 @@ class OptionalParametersFilterTest extends TestCase
 
     /**
      * Test asset method
+     *
+     * @psalm-suppress UnusedParam
      */
     public function methodWithSingleOptionalParameter(mixed $parameter = null): void
     {
@@ -93,6 +97,8 @@ class OptionalParametersFilterTest extends TestCase
 
     /**
      * Test asset method
+     *
+     * @psalm-suppress UnusedParam
      */
     public function methodWithMultipleMandatoryParameters(mixed $parameter, mixed $otherParameter): void
     {
@@ -100,6 +106,8 @@ class OptionalParametersFilterTest extends TestCase
 
     /**
      * Test asset method
+     *
+     * @psalm-suppress UnusedParam
      */
     public function methodWithMultipleOptionalParameters(mixed $parameter = null, mixed $otherParameter = null): void
     {

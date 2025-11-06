@@ -10,7 +10,7 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(NullableStrategy::class)]
-class NullableStrategyTest extends TestCase
+final class NullableStrategyTest extends TestCase
 {
     public function testExtractNonNullAndNonEmptyValue(): void
     {

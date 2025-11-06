@@ -15,7 +15,7 @@ use PHPUnit\Framework\TestCase;
 use stdClass;
 
 #[CoversClass(HydratorListener::class)]
-class HydratorListenerTest extends TestCase
+final class HydratorListenerTest extends TestCase
 {
     private HydratorInterface&MockObject $hydrator;
     private HydratorListener $listener;
